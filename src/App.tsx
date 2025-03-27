@@ -12,6 +12,7 @@ import Services from "./pages/Services";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Faq from "./pages/Faq";
+import Brands from "./pages/Brands";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/faq" element={<Faq />} />
+            <Route path="/brands" element={<Brands />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </AnimatedTransition>
