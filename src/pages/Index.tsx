@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Hero from '@/components/home/Hero';
 import ServiceCards from '@/components/home/ServiceCards';
@@ -105,20 +104,28 @@ const Index: React.FC = () => {
             title: 'Готово',
             description: 'Проверяем работоспособность техники и выдаем гарантийный талон на выполненные работы',
             image: 'https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
-          }].map((step, index) => <div key={step.number} className="relative">
-              <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm h-full relative overflow-hidden">
-                <div className="absolute -right-10 -top-10 w-32 h-32 bg-blue-50 rounded-full z-1"></div>
-                <div className="text-4xl font-bold text-blue-600/20 absolute left-4 top-4 z-20">{step.number}</div>
-                <div className="relative z-10">
-                  <img src={step.image} alt={step.title} className="h-40 w-full object-cover rounded-lg mb-4" />
+          }].map((step, index) => (
+            <div key={step.number} className="relative group">
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden h-full transition-all duration-300 hover:shadow-xl">
+                <div className="relative">
+                  <img 
+                    src={step.image} 
+                    alt={step.title} 
+                    className="w-full h-56 object-cover" 
+                  />
+                  <div className="absolute top-4 left-4 bg-blue-600 text-white text-2xl font-bold px-4 py-2 rounded-lg">
+                    {step.number}
+                  </div>
+                </div>
+                <div className="p-6">
                   <h3 className="text-xl font-semibold mb-3 text-gray-900">{step.title}</h3>
                   <p className="text-gray-600">
                     {step.description}
                   </p>
                 </div>
               </div>
-              {index < 3 && <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-2 bg-blue-100"></div>}
-            </div>)}
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -147,4 +154,3 @@ const Index: React.FC = () => {
 };
 
 export default Index;
-
