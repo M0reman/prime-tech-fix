@@ -25,6 +25,7 @@ const Navbar: React.FC = () => {
   const navigation = [
     { name: 'Главная', href: '/' },
     { name: 'Услуги', href: '/services' },
+    { name: 'Бренды', href: '/brands' },
     { name: 'О нас', href: '/about' },
     { name: 'FAQ', href: '/faq' },
     { name: 'Контакты', href: '/contact' },
