@@ -4,12 +4,10 @@ import ServiceCards from '@/components/home/ServiceCards';
 import Testimonials from '@/components/home/Testimonials';
 import ContactCard from '@/components/common/ContactCard';
 import { Shield, Clock, Settings, Award } from 'lucide-react';
-
 const Index: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
   return <div className="min-h-screen">
     <Hero />
     
@@ -84,49 +82,40 @@ const Index: React.FC = () => {
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            { 
-              number: '01', 
-              title: 'Заявка', 
-              description: 'Оставьте заявку на сайте или позвоните нам по телефону для консультации',
-              image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
-            },
-            { 
-              number: '02', 
-              title: 'Диагностика', 
-              description: 'Проводим бесплатную диагностику и определяем точную причину неисправности',
-              image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
-            },
-            { 
-              number: '03', 
-              title: 'Ремонт', 
-              description: 'Выполняем ремонт, используя профессиональное оборудование и качественные запчасти',
-              image: 'https://images.unsplash.com/photo-1581092921441-39333748bf20?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
-            },
-            { 
-              number: '04', 
-              title: 'Готово', 
-              description: 'Проверяем работоспособность техники и выдаем гарантийный талон на выполненные работы',
-              image: 'https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
-            }
-          ].map((step, index) => (
-            <div key={step.number} className="relative">
+          {[{
+            number: '01',
+            title: 'Заявка',
+            description: 'Оставьте заявку на сайте или позвоните нам по телефону для консультации',
+            image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+          }, {
+            number: '02',
+            title: 'Диагностика',
+            description: 'Проводим бесплатную диагностику и определяем точную причину неисправности',
+            image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+          }, {
+            number: '03',
+            title: 'Ремонт',
+            description: 'Выполняем ремонт, используя профессиональное оборудование и качественные запчасти',
+            image: 'https://images.unsplash.com/photo-1581092921441-39333748bf20?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+          }, {
+            number: '04',
+            title: 'Готово',
+            description: 'Проверяем работоспособность техники и выдаем гарантийный талон на выполненные работы',
+            image: 'https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+          }].map((step, index) => <div key={step.number} className="relative">
               <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm h-full relative overflow-hidden">
                 <div className="absolute -right-10 -top-10 w-32 h-32 bg-blue-50 rounded-full"></div>
                 <div className="text-4xl font-bold text-blue-600/20 absolute right-4 top-4 z-0">{step.number}</div>
                 <div className="relative z-10">
-                  <img src={step.image} alt={step.title} className="h-40 w-full object-cover rounded-lg mb-4" />
+                  <img src={step.image} alt={step.title} className="h-40 w-full object-cover rounded-lg mb-4 z-0" />
                   <h3 className="text-xl font-semibold mb-3 text-gray-900">{step.title}</h3>
                   <p className="text-gray-600">
                     {step.description}
                   </p>
                 </div>
               </div>
-              {index < 3 && (
-                <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-2 bg-blue-100"></div>
-              )}
-            </div>
-          ))}
+              {index < 3 && <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-2 bg-blue-100"></div>}
+            </div>)}
         </div>
       </div>
     </section>
@@ -153,5 +142,4 @@ const Index: React.FC = () => {
     </section>
   </div>;
 };
-
 export default Index;
