@@ -1,6 +1,7 @@
 
 import React from 'react';
 import ServiceItem from './ServiceItem';
+import { Smartphone } from 'lucide-react';
 
 interface ServiceData {
   title: string;
@@ -12,7 +13,7 @@ interface ServiceData {
 
 interface ServiceCategoryProps {
   title: string;
-  icon: React.ReactNode;
+  icon: (props: React.ComponentProps<typeof Smartphone>) => React.ReactNode;
   services: ServiceData[];
 }
 
@@ -21,7 +22,7 @@ const ServiceCategory: React.FC<ServiceCategoryProps> = ({ title, icon, services
     <div className="mb-16">
       <div className="flex items-center gap-3 mb-6">
         <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-primary/10 text-primary">
-          {icon}
+          {icon({ size: 24 })}
         </div>
         <h2 className="heading-md">{title}</h2>
       </div>
