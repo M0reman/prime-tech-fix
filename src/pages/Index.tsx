@@ -104,7 +104,7 @@ const Index: React.FC = () => {
             image: 'https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
           }].map((step, index) => <div key={step.number} className="relative">
               <div className="bg-white rounded-xl p-6 border border-gray-100 shadow-sm h-full relative overflow-hidden">
-                <div className="absolute -right-10 -top-10 w-32 h-32 bg-blue-50 rounded-full"></div>
+                <div className="absolute -right-10 -top-10 w-32 h-32 bg-blue-50 rounded-full z-1"></div>
                 <div className="text-4xl font-bold text-blue-600/20 absolute right-4 top-4 z-0">{step.number}</div>
                 <div className="relative z-10">
                   <img src={step.image} alt={step.title} className="h-40 w-full object-cover rounded-lg mb-4 z-0" />
