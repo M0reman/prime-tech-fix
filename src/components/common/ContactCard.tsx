@@ -21,7 +21,7 @@ const ContactCard: React.FC = () => {
             </Link>
           </Button>
           <Button variant="outline" size="lg" asChild className="border-white text-white hover:bg-blue-700/30">
-            <a href="tel:+78001234567">
+            <a href="tel:+78001234567" className="font-medium">
               8 (800) 123-45-67
             </a>
           </Button>
