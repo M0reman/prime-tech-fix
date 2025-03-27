@@ -40,8 +40,8 @@ const Navbar: React.FC = () => {
           to="/" 
           className="font-bold text-2xl transition-all flex items-center gap-2"
         >
-          <span className="text-primary">PRIME</span>
-          <span className="text-foreground">TECH</span>
+          <span className="text-blue-600">PRIME</span>
+          <span className="text-gray-900">TECH</span>
         </Link>
         
         {/* Desktop Navigation */}
@@ -51,13 +51,13 @@ const Navbar: React.FC = () => {
               key={item.name}
               to={item.href}
               className={cn(
-                'relative font-medium group text-sm transition-colors hover:text-primary',
-                location.pathname === item.href ? 'text-primary' : 'text-foreground'
+                'relative font-medium group text-sm transition-colors hover:text-blue-600',
+                location.pathname === item.href ? 'text-blue-600' : 'text-gray-700'
               )}
             >
               {item.name}
               <span className={cn(
-                'absolute -bottom-1 left-0 h-0.5 bg-primary transition-all duration-300 ease-out',
+                'absolute -bottom-1 left-0 h-0.5 bg-blue-600 transition-all duration-300 ease-out',
                 location.pathname === item.href ? 'w-full' : 'w-0 group-hover:w-full'
               )} />
             </Link>
@@ -67,7 +67,7 @@ const Navbar: React.FC = () => {
         <div className="hidden md:flex items-center">
           <Link
             to="/contact"
-            className="bg-primary text-primary-foreground px-5 py-2 rounded-lg transition-all hover:bg-primary/90 font-medium"
+            className="bg-blue-600 text-white px-5 py-2 rounded-lg transition-all hover:bg-blue-700 font-medium"
           >
             Оставить заявку
           </Link>
@@ -75,7 +75,7 @@ const Navbar: React.FC = () => {
         
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-foreground"
+          className="md:hidden text-gray-700"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -94,8 +94,8 @@ const Navbar: React.FC = () => {
                   className={cn(
                     'px-3 py-2 rounded-lg font-medium text-lg transition-colors',
                     location.pathname === item.href 
-                      ? 'bg-primary/10 text-primary' 
-                      : 'text-foreground hover:bg-muted'
+                      ? 'bg-blue-50 text-blue-600' 
+                      : 'text-gray-700 hover:bg-gray-100'
                   )}
                 >
                   {item.name}
@@ -103,7 +103,7 @@ const Navbar: React.FC = () => {
               ))}
               <Link
                 to="/contact"
-                className="bg-primary text-primary-foreground px-3 py-2 rounded-lg text-center font-medium"
+                className="bg-blue-600 text-white px-3 py-2 rounded-lg text-center font-medium"
               >
                 Оставить заявку
               </Link>
