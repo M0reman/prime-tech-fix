@@ -1,4 +1,3 @@
-
 import { Smartphone, Laptop, TabletSmartphone, Monitor, Tv } from 'lucide-react';
 import React from 'react';
 
@@ -12,14 +11,14 @@ export interface ServiceData {
 
 export interface ServiceCategoryData {
   title: string;
-  icon: React.ReactNode;
+  icon: (props: React.ComponentProps<typeof Smartphone>) => React.ReactNode;
   services: ServiceData[];
 }
 
 const getServicesData = (): ServiceCategoryData[] => [
   {
     title: "Смартфоны и планшеты",
-    icon: <Smartphone size={32} />,
+    icon: (props) => <Smartphone {...props} />,
     services: [
       {
         title: "Замена экрана",
@@ -58,7 +57,7 @@ const getServicesData = (): ServiceCategoryData[] => [
   },
   {
     title: "Ноутбуки и компьютеры",
-    icon: <Laptop size={32} />,
+    icon: (props) => <Laptop {...props} />,
     services: [
       {
         title: "Ремонт материнской платы",
@@ -97,7 +96,7 @@ const getServicesData = (): ServiceCategoryData[] => [
   },
   {
     title: "Телевизоры и мониторы",
-    icon: <Tv size={32} />,
+    icon: (props) => <Tv {...props} />,
     services: [
       {
         title: "Замена матрицы экрана",
