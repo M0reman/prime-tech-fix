@@ -1,18 +1,14 @@
-
 import React, { useEffect } from 'react';
 import Hero from '@/components/home/Hero';
 import ServiceCards from '@/components/home/ServiceCards';
 import Testimonials from '@/components/home/Testimonials';
 import ContactCard from '@/components/common/ContactCard';
 import { Shield, Clock, Settings, Award } from 'lucide-react';
-
 const Index: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Hero />
       
       <section className="py-20 bg-white">
@@ -91,11 +87,7 @@ const Index: React.FC = () => {
                 <div className="absolute -right-10 -top-10 w-32 h-32 bg-blue-50 rounded-full"></div>
                 <div className="text-4xl font-bold text-blue-600/20 absolute right-4 top-4 z-0">01</div>
                 <div className="relative z-10">
-                  <img 
-                    src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                    alt="Заявка" 
-                    className="h-40 w-full object-cover rounded-lg mb-4" 
-                  />
+                  <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Заявка" className="h-40 w-full object-cover rounded-lg mb-4" />
                   <h3 className="text-xl font-semibold mb-3 text-gray-900">Заявка</h3>
                   <p className="text-gray-600">
                     Оставьте заявку на сайте или позвоните нам по телефону для консультации
@@ -110,11 +102,7 @@ const Index: React.FC = () => {
                 <div className="absolute -right-10 -top-10 w-32 h-32 bg-blue-50 rounded-full"></div>
                 <div className="text-4xl font-bold text-blue-600/20 absolute right-4 top-4 z-0">02</div>
                 <div className="relative z-10">
-                  <img 
-                    src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                    alt="Диагностика" 
-                    className="h-40 w-full object-cover rounded-lg mb-4" 
-                  />
+                  <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Диагностика" className="h-40 w-full object-cover rounded-lg mb-4" />
                   <h3 className="text-xl font-semibold mb-3 text-gray-900">Диагностика</h3>
                   <p className="text-gray-600">
                     Проводим бесплатную диагностику и определяем точную причину неисправности
@@ -129,11 +117,7 @@ const Index: React.FC = () => {
                 <div className="absolute -right-10 -top-10 w-32 h-32 bg-blue-50 rounded-full"></div>
                 <div className="text-4xl font-bold text-blue-600/20 absolute right-4 top-4 z-0">03</div>
                 <div className="relative z-10">
-                  <img 
-                    src="https://images.unsplash.com/photo-1581092921441-39333748bf20?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                    alt="Ремонт" 
-                    className="h-40 w-full object-cover rounded-lg mb-4" 
-                  />
+                  <img src="https://images.unsplash.com/photo-1581092921441-39333748bf20?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Ремонт" className="h-40 w-full object-cover rounded-lg mb-4" />
                   <h3 className="text-xl font-semibold mb-3 text-gray-900">Ремонт</h3>
                   <p className="text-gray-600">
                     Выполняем ремонт, используя профессиональное оборудование и качественные запчасти
@@ -148,11 +132,7 @@ const Index: React.FC = () => {
                 <div className="absolute -right-10 -top-10 w-32 h-32 bg-blue-50 rounded-full"></div>
                 <div className="text-4xl font-bold text-blue-600/20 absolute right-4 top-4 z-0">04</div>
                 <div className="relative z-10">
-                  <img 
-                    src="https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
-                    alt="Готово" 
-                    className="h-40 w-full object-cover rounded-lg mb-4" 
-                  />
+                  <img src="https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Готово" className="h-40 w-full object-cover rounded-lg mb-4" />
                   <h3 className="text-xl font-semibold mb-3 text-gray-900">Готово</h3>
                   <p className="text-gray-600">
                     Проверяем работоспособность техники и выдаем гарантийный талон на выполненные работы
@@ -185,13 +165,7 @@ const Index: React.FC = () => {
         </div>
       </section>
       
-      <section className="py-20 bg-white">
-        <div className="container px-4">
-          <ContactCard />
-        </div>
-      </section>
-    </div>
-  );
+      
+    </div>;
 };
-
 export default Index;
