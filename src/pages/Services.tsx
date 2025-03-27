@@ -10,11 +10,21 @@ interface ServiceItemProps {
   description: string;
   price: string;
   features: string[];
+  imageSrc?: string;
 }
 
-const ServiceItem: React.FC<ServiceItemProps> = ({ title, description, price, features }) => {
+const ServiceItem: React.FC<ServiceItemProps> = ({ title, description, price, features, imageSrc }) => {
   return (
-    <div className="bg-background rounded-xl p-6 md:p-8 border border-border shadow-sm transition-all duration-300 hover:shadow-md hover:translate-y-[-3px]">
+    <div className="bg-background rounded-xl p-6 md:p-8 border border-border shadow-sm transition-all duration-300 hover:shadow-md hover:translate-y-[-3px] overflow-hidden">
+      {imageSrc && (
+        <div className="h-44 -mx-8 -mt-8 mb-6 overflow-hidden">
+          <img 
+            src={imageSrc} 
+            alt={title} 
+            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+          />
+        </div>
+      )}
       <h3 className="text-xl font-semibold mb-3">{title}</h3>
       <p className="text-muted-foreground mb-4">{description}</p>
       <div className="font-bold text-2xl mb-4 text-primary">{price}</div>
@@ -51,7 +61,8 @@ const Services: React.FC = () => {
             "Оригинальные комплектующие",
             "Гарантия до 6 месяцев",
             "Ремонт от 1 часа"
-          ]
+          ],
+          imageSrc: "https://images.unsplash.com/photo-1578598335941-2a055e3d7e99?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
         },
         {
           title: "Замена батареи",
@@ -61,7 +72,8 @@ const Services: React.FC = () => {
             "Оригинальные батареи",
             "Гарантия 12 месяцев",
             "Ремонт при вас"
-          ]
+          ],
+          imageSrc: "https://images.unsplash.com/photo-1585241920473-b472eb9ffbae?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
         },
         {
           title: "Восстановление после воды",
@@ -71,7 +83,8 @@ const Services: React.FC = () => {
             "Разборка и чистка",
             "Замена поврежденных элементов",
             "Высокий процент успеха"
-          ]
+          ],
+          imageSrc: "https://images.unsplash.com/photo-1604335398974-58737eeef08a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
         }
       ]
     },
@@ -87,7 +100,8 @@ const Services: React.FC = () => {
             "Диагностика неисправностей",
             "Замена компонентов BGA",
             "Гарантия на работу"
-          ]
+          ],
+          imageSrc: "https://images.unsplash.com/photo-1601737487795-dab272f52420?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
         },
         {
           title: "Чистка от пыли и замена термопасты",
@@ -97,7 +111,8 @@ const Services: React.FC = () => {
             "Разборка и чистка",
             "Качественная термопаста",
             "Улучшение охлаждения"
-          ]
+          ],
+          imageSrc: "https://images.unsplash.com/photo-1588702547919-26089e690ecc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
         },
         {
           title: "Замена жесткого диска / SSD",
@@ -107,7 +122,8 @@ const Services: React.FC = () => {
             "Сохранение данных",
             "Установка ОС",
             "Настройка системы"
-          ]
+          ],
+          imageSrc: "https://images.unsplash.com/photo-1531492746076-161ca9bcad58?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
         }
       ]
     },
@@ -123,7 +139,8 @@ const Services: React.FC = () => {
             "Подбор матрицы",
             "Качественная установка",
             "Гарантия 6 месяцев"
-          ]
+          ],
+          imageSrc: "https://images.unsplash.com/photo-1593784991095-a205069470b6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
         },
         {
           title: "Ремонт блока питания",
@@ -133,7 +150,8 @@ const Services: React.FC = () => {
             "Диагностика неисправностей",
             "Ремонт или замена",
             "Проверка всей системы"
-          ]
+          ],
+          imageSrc: "https://images.unsplash.com/photo-1586664371805-9659f08db315?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
         },
         {
           title: "Ремонт системной платы",
@@ -143,7 +161,8 @@ const Services: React.FC = () => {
             "Диагностика неисправностей",
             "Замена компонентов",
             "Гарантия на работу"
-          ]
+          ],
+          imageSrc: "https://images.unsplash.com/photo-1571054300642-e772e2a9899e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
         }
       ]
     }
@@ -180,6 +199,7 @@ const Services: React.FC = () => {
                     description={service.description}
                     price={service.price}
                     features={service.features}
+                    imageSrc={service.imageSrc}
                   />
                 ))}
               </div>

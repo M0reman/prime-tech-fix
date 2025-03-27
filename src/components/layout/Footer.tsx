@@ -1,9 +1,14 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Clock, Mail, MapPin, Phone } from 'lucide-react';
+import WarrantyTermsModal from '../modals/WarrantyTermsModal';
+import PrivacyPolicyModal from '../modals/PrivacyPolicyModal';
 
 const Footer: React.FC = () => {
+  const [warrantyModalOpen, setWarrantyModalOpen] = useState(false);
+  const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
+
   return (
     <footer className="bg-secondary py-12 mt-12">
       <div className="container px-4 mx-auto">
@@ -82,14 +87,20 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => setWarrantyModalOpen(true)}
+                  className="text-muted-foreground hover:text-primary transition-colors text-left"
+                >
                   Условия гарантии
-                </Link>
+                </button>
               </li>
               <li>
-                <Link to="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <button 
+                  onClick={() => setPrivacyModalOpen(true)}
+                  className="text-muted-foreground hover:text-primary transition-colors text-left"
+                >
                   Политика конфиденциальности
-                </Link>
+                </button>
               </li>
             </ul>
           </div>
@@ -134,6 +145,9 @@ const Footer: React.FC = () => {
           <p>© {new Date().getFullYear()} PRIME TECH. Все права защищены.</p>
         </div>
       </div>
+      
+      <WarrantyTermsModal open={warrantyModalOpen} onOpenChange={setWarrantyModalOpen} />
+      <PrivacyPolicyModal open={privacyModalOpen} onOpenChange={setPrivacyModalOpen} />
     </footer>
   );
 };
