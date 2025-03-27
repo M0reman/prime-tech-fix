@@ -102,7 +102,7 @@ const Index: React.FC = () => {
                   </p>
                 </div>
               </div>
-              <div className="hidden lg:block absolute top-1/2 right-0 w-12 h-2 bg-blue-100 transform translate-x-6" />
+              <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-2 bg-blue-100"></div>
             </div>
             
             <div className="relative">
@@ -121,7 +121,7 @@ const Index: React.FC = () => {
                   </p>
                 </div>
               </div>
-              <div className="hidden lg:block absolute top-1/2 right-0 w-12 h-2 bg-blue-100 transform translate-x-6" />
+              <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-2 bg-blue-100"></div>
             </div>
             
             <div className="relative">
@@ -140,7 +140,7 @@ const Index: React.FC = () => {
                   </p>
                 </div>
               </div>
-              <div className="hidden lg:block absolute top-1/2 right-0 w-12 h-2 bg-blue-100 transform translate-x-6" />
+              <div className="hidden lg:block absolute top-1/2 -right-4 w-8 h-2 bg-blue-100"></div>
             </div>
             
             <div className="relative">
@@ -165,6 +165,25 @@ const Index: React.FC = () => {
       </section>
       
       <Testimonials />
+      
+      <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-700">
+        <div className="container px-4">
+          <div className="text-center mb-12">
+            <h2 className="heading-lg mb-4 text-white">Нужна помощь с ремонтом?</h2>
+            <p className="body-lg text-blue-100 max-w-3xl mx-auto mb-8">
+              Оставьте заявку, и наши специалисты свяжутся с вами в ближайшее время для консультации и решения вашей проблемы
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <a href="/contact" className="bg-white text-blue-700 hover:bg-blue-50 px-8 py-3 rounded-md font-medium transition-colors">
+                Оставить заявку
+              </a>
+              <a href="tel:+78001234567" className="border border-white text-white hover:bg-blue-700/30 px-8 py-3 rounded-md font-medium transition-colors">
+                8 (800) 123-45-67
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
       
       <section className="py-20 bg-white">
         <div className="container px-4">
