@@ -32,7 +32,7 @@ const Services: React.FC = () => {
             <ServiceCategory
               key={index}
               title={category.title}
-              icon={category.icon}
+              iconComponent={category.iconComponent}
               services={category.services}
             />
           ))}

@@ -12,14 +12,14 @@ export interface ServiceData {
 
 export interface ServiceCategoryData {
   title: string;
-  icon: React.ReactNode;
+  iconComponent: React.FC<{ size?: number }>;
   services: ServiceData[];
 }
 
 const getServicesData = (): ServiceCategoryData[] => [
   {
     title: "Смартфоны и планшеты",
-    icon: <Smartphone size={32} />,
+    iconComponent: Smartphone,
     services: [
       {
         title: "Замена экрана",
@@ -58,7 +58,7 @@ const getServicesData = (): ServiceCategoryData[] => [
   },
   {
     title: "Ноутбуки и компьютеры",
-    icon: <Laptop size={32} />,
+    iconComponent: Laptop,
     services: [
       {
         title: "Ремонт материнской платы",
@@ -97,7 +97,7 @@ const getServicesData = (): ServiceCategoryData[] => [
   },
   {
     title: "Телевизоры и мониторы",
-    icon: <Tv size={32} />,
+    iconComponent: Tv,
     services: [
       {
         title: "Замена матрицы экрана",

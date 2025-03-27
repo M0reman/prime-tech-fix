@@ -12,16 +12,16 @@ interface ServiceData {
 
 interface ServiceCategoryProps {
   title: string;
-  icon: React.ReactNode;
+  iconComponent: React.FC<{ size?: number }>;
   services: ServiceData[];
 }
 
-const ServiceCategory: React.FC<ServiceCategoryProps> = ({ title, icon, services }) => {
+const ServiceCategory: React.FC<ServiceCategoryProps> = ({ title, iconComponent: IconComponent, services }) => {
   return (
     <div className="mb-16">
       <div className="flex items-center gap-3 mb-6">
         <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-primary/10 text-primary">
-          {icon}
+          <IconComponent size={32} />
         </div>
         <h2 className="heading-md">{title}</h2>
       </div>
