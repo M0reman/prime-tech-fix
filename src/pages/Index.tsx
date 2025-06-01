@@ -1,8 +1,8 @@
-
 import React, { useEffect } from 'react';
 import Hero from '@/components/home/Hero';
 import ServiceCards from '@/components/home/ServiceCards';
 import Testimonials from '@/components/home/Testimonials';
+import YandexReviews from '@/components/home/YandexReviews';
 import ContactCard from '@/components/common/ContactCard';
 import { Shield, Clock, Settings, Award } from 'lucide-react';
 
@@ -130,6 +130,8 @@ const Index: React.FC = () => {
         </div>
       </div>
     </section>
+    
+    <YandexReviews />
     
     <Testimonials />
     
