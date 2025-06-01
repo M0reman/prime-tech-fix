@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import Hero from '@/components/home/Hero';
 import ServiceCards from '@/components/home/ServiceCards';
-import Testimonials from '@/components/home/Testimonials';
 import YandexReviews from '@/components/home/YandexReviews';
 import ContactCard from '@/components/common/ContactCard';
 import { Shield, Clock, Settings, Award } from 'lucide-react';
@@ -132,8 +131,6 @@ const Index: React.FC = () => {
     </section>
     
     <YandexReviews />
-    
-    <Testimonials />
     
     <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-700">
       <div className="container px-4">
