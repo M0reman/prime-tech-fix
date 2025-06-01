@@ -4,7 +4,6 @@ import ServiceCards from '@/components/home/ServiceCards';
 import CompanyLogos from '@/components/home/CompanyLogos';
 import YandexReviews from '@/components/home/YandexReviews';
 import ContactCard from '@/components/common/ContactCard';
-import VideoEmbed from '@/components/common/VideoEmbed';
 import { Shield, Clock, Settings, Award } from 'lucide-react';
 
 const Index: React.FC = () => {
@@ -130,21 +129,6 @@ const Index: React.FC = () => {
               </div>
             </div>
           ))}
-        </div>
-      </div>
-    </section>
-    
-    <section className="py-20 bg-gray-50">
-      <div className="container px-4">
-        <div className="text-center mb-12">
-          <span className="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-medium mb-4">
-            Видео о наших работах
-          </span>
-          <h2 className="heading-lg mb-4 text-gray-900">Посмотрите наши работы в действии</h2>
-          <p className="body-lg text-gray-600 max-w-3xl mx-auto mb-8">
-            Добавьте ссылку на YouTube видео, чтобы показать процесс ремонта или результат работы
-          </p>
-          <VideoEmbed />
         </div>
       </div>
     </section>
