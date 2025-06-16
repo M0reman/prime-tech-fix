@@ -1,7 +1,5 @@
 import { type ContactFormData } from './validations';
-
-const TELEGRAM_BOT_TOKEN = '5542320158:AAHUS1_TbYKMK5J1uxLS5xdy6hWOrx_OckA';
-const TELEGRAM_CHAT_ID = '-4921240479';
+import { TELEGRAM_CONFIG } from '@/config';
 
 export const sendTelegramMessage = async (formData: ContactFormData): Promise<boolean> => {
   try {
@@ -15,13 +13,13 @@ export const sendTelegramMessage = async (formData: ContactFormData): Promise<bo
 📝 Сообщение: ${formData.message}
     `.trim();
 
-    const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+    const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_CONFIG.BOT_TOKEN}/sendMessage`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        chat_id: TELEGRAM_CHAT_ID,
+        chat_id: TELEGRAM_CONFIG.CHAT_ID,
         text: message,
         parse_mode: 'HTML',
       }),
