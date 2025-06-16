@@ -155,8 +155,8 @@ const Contact: React.FC = () => {
                 <div className="bg-background rounded-xl p-6 shadow-sm border border-border">
                   <Phone size={24} className="text-primary mb-4" />
                   <h3 className="text-lg font-semibold mb-2">Телефон</h3>
-                  <a href="tel:+78001234567" className="block text-primary hover:underline">
-                    8 (800) 123-45-67
+                  <a href="tel:+79297474511" className="block text-primary hover:underline">
+                    8 (929) 747-45-11
                   </a>
                   <p className="text-sm text-muted-foreground mt-1">
                     Звоните нам по любым вопросам
@@ -166,8 +166,8 @@ const Contact: React.FC = () => {
                 <div className="bg-background rounded-xl p-6 shadow-sm border border-border">
                   <Mail size={24} className="text-primary mb-4" />
                   <h3 className="text-lg font-semibold mb-2">Email</h3>
-                  <a href="mailto:info@primetech.ru" className="block text-primary hover:underline">
-                    info@primetech.ru
+                  <a href="mailto:serviceprime@mail.ru" className="block text-primary hover:underline">
+                    serviceprime@mail.ru
                   </a>
                   <p className="text-sm text-muted-foreground mt-1">
                     Для заявок и предложений
@@ -180,7 +180,7 @@ const Contact: React.FC = () => {
               <div className="bg-background rounded-xl overflow-hidden shadow-sm border border-border mb-8">
                 <div className="aspect-video w-full">
                   <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.347142711918!2d37.6203145!3d55.7539557!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a50b315e573%3A0xa886bf5a3d9b2e68!2sThe%20Kremlin!5e0!3m2!1sen!2sus!4v1635439864521!5m2!1sen!2sus" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3301.081710639441!2d45.221809469281055!3d54.19393705994919!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41440902fdcfc65d%3A0x3eba2bf87a08e7dc!2z0YPQuy4g0KHQtdCy0LDRgdGC0L7Qv9C-0LvRjNGB0LrQsNGPLCA1NiDQutC-0YDQv9GD0YEgMiwg0KHQsNGA0LDQvdGB0LosINCg0LXRgdC_LiDQnNC-0YDQtNC-0LLQuNGPLCA0MzAwMDk!5e0!3m2!1sru!2sru!4v1750052740946!5m2!1sru!2sru" 
                     width="100%" 
                     height="100%" 
                     style={{ border: 0 }} 
@@ -197,9 +197,9 @@ const Contact: React.FC = () => {
                   <div className="flex items-start gap-4">
                     <MapPin size={24} className="text-primary shrink-0 mt-1" />
                     <div>
-                      <h3 className="text-lg font-medium mb-1">Сервисный центр PRIME TECH</h3>
+                      <h3 className="text-lg font-medium mb-1">Сервисный центр PRIME</h3>
                       <p className="text-muted-foreground">
-                        г. Москва, ул. Техническая, д. 1, офис 123
+                        г. Саранск, ул. Севастопольская, д. 56/2
                       </p>
                     </div>
                   </div>
@@ -209,13 +209,13 @@ const Contact: React.FC = () => {
                     <div>
                       <h3 className="text-lg font-medium mb-1">Часы работы</h3>
                       <p className="text-muted-foreground">
-                        Пн-Пт: 9:00-20:00<br />
-                        Сб-Вс: 10:00-18:00
+                        Пн-Пт: 10:00-19:00<br />
+                        Сб: 10:00-14:00
                       </p>
                     </div>
                   </div>
                   
-                  <div>
+                  {/* <div>
                     <h3 className="text-lg font-medium mb-3">Как добраться:</h3>
                     <ul className="space-y-2 text-muted-foreground">
                       <li className="flex items-start gap-2">
@@ -231,7 +231,8 @@ const Contact: React.FC = () => {
                         <span>Бесплатная парковка на территории центра</span>
                       </li>
                     </ul>
-                  </div>
+                  </div> */}
+                  
                 </div>
               </div>
             </div>

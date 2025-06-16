@@ -18,7 +18,7 @@ const About: React.FC = () => {
             <span className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium mb-4">
               О компании
             </span>
-            <h1 className="heading-lg mb-4">Сервисный центр PRIME TECH</h1>
+            <h1 className="heading-lg mb-4">Сервисный центр PRIME</h1>
             <p className="body-lg text-muted-foreground max-w-3xl mx-auto">
               Надежный партнер в ремонте и обслуживании любой цифровой и бытовой техники
             </p>
@@ -28,7 +28,7 @@ const About: React.FC = () => {
             <div className="order-2 lg:order-1">
               <h2 className="heading-md mb-4">Наша миссия</h2>
               <p className="body-md mb-4">
-                PRIME TECH — это современный сервисный центр, специализирующийся на ремонте цифровой и бытовой техники. 
+                PRIME — это современный сервисный центр, специализирующийся на ремонте цифровой и бытовой техники. 
                 Мы начали свою деятельность в 2018 году и за это время завоевали доверие тысяч клиентов благодаря профессиональному 
                 подходу и высокому качеству оказываемых услуг.
               </p>

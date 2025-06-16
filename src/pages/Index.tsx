@@ -18,7 +18,7 @@ const Index: React.FC = () => {
       <div className="container px-4">
         <div className="text-center mb-12">
           <span className="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-medium mb-4">
-            Почему PRIME TECH
+            Почему PRIME
           </span>
           <h2 className="heading-lg mb-4 text-gray-900">Премиальное качество обслуживания</h2>
           <p className="body-lg text-gray-600 max-w-3xl mx-auto">
@@ -146,8 +146,8 @@ const Index: React.FC = () => {
             <a href="/contact" className="bg-white text-blue-700 hover:bg-blue-50 px-8 py-3 rounded-md font-medium transition-colors">
               Оставить заявку
             </a>
-            <a href="tel:+78001234567" className="border border-white text-white hover:bg-blue-700/30 px-8 py-3 rounded-md font-medium transition-colors">
-              8 (800) 123-45-67
+            <a href="tel:+79297474511" className="border border-white text-white hover:bg-blue-700/30 px-8 py-3 rounded-md font-medium transition-colors">
+              8 (929) 747-45-11
             </a>
           </div>
         </div>

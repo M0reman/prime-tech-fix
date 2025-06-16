@@ -282,8 +282,8 @@ const Faq: React.FC = () => {
                 <Link to="/contact">Задать вопрос</Link>
               </Button>
               <Button variant="outline" asChild>
-                <a href="tel:+78001234567">
-                  8 (800) 123-45-67
+                <a href="tel:+79297474511">
+                  8 (929) 747-45-11
                 </a>
               </Button>
             </div>
