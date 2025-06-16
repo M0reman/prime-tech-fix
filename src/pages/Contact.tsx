@@ -1,10 +1,21 @@
-
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Phone, Mail, Clock, MapPin } from 'lucide-react';
+import { sendTelegramMessage } from '@/lib/telegram';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { contactFormSchema, type ContactFormData } from '@/lib/validations';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 
 const Contact: React.FC = () => {
   useEffect(() => {
@@ -12,40 +23,40 @@ const Contact: React.FC = () => {
   }, []);
   
   const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    device: '',
-    message: ''
+  
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: '',
+      phone: '',
+      email: '',
+      device: '',
+      message: ''
+    }
   });
   
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-  
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      const success = await sendTelegramMessage(data);
+      
+      if (success) {
+        toast({
+          title: "Заявка успешно отправлена",
+          description: "Мы свяжемся с вами в ближайшее время",
+          duration: 5000,
+        });
+        form.reset();
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
       toast({
-        title: "Заявка успешно отправлена",
-        description: "Мы свяжемся с вами в ближайшее время",
+        title: "Ошибка при отправке",
+        description: "Пожалуйста, попробуйте позже или свяжитесь с нами по телефону",
+        variant: "destructive",
         duration: 5000,
       });
-      setIsSubmitting(false);
-      setFormData({
-        name: '',
-        phone: '',
-        email: '',
-        device: '',
-        message: ''
-      });
-    }, 1000);
+    }
   };
 
   return (
@@ -66,89 +77,102 @@ const Contact: React.FC = () => {
             <div>
               <div className="bg-background rounded-xl p-8 shadow-sm border border-border mb-8">
                 <h2 className="text-2xl font-semibold mb-6">Оставить заявку</h2>
-                <form onSubmit={handleSubmit}>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                    <div className="space-y-2">
-                      <label htmlFor="name" className="text-sm font-medium">
-                        Ваше имя <span className="text-primary">*</span>
-                      </label>
-                      <Input
-                        id="name"
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <FormField
+                        control={form.control}
                         name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Введите ваше имя"
-                        required
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>
+                              Ваше имя <span className="text-primary">*</span>
+                            </FormLabel>
+                            <FormControl>
+                              <Input placeholder="Введите ваше имя" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
                       />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="phone" className="text-sm font-medium">
-                        Телефон <span className="text-primary">*</span>
-                      </label>
-                      <Input
-                        id="phone"
+                      
+                      <FormField
+                        control={form.control}
                         name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        placeholder="+7 (___) ___-__-__"
-                        required
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>
+                              Телефон <span className="text-primary">*</span>
+                            </FormLabel>
+                            <FormControl>
+                              <Input placeholder="+7 (___) ___-__-__" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
                       />
                     </div>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                    <div className="space-y-2">
-                      <label htmlFor="email" className="text-sm font-medium">
-                        Email
-                      </label>
-                      <Input
-                        id="email"
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <FormField
+                        control={form.control}
                         name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="example@mail.com"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Email</FormLabel>
+                            <FormControl>
+                              <Input type="email" placeholder="example@mail.com" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
                       />
-                    </div>
-                    <div className="space-y-2">
-                      <label htmlFor="device" className="text-sm font-medium">
-                        Устройство
-                      </label>
-                      <Input
-                        id="device"
+                      
+                      <FormField
+                        control={form.control}
                         name="device"
-                        value={formData.device}
-                        onChange={handleChange}
-                        placeholder="Модель вашего устройства"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel>Устройство</FormLabel>
+                            <FormControl>
+                              <Input placeholder="Модель вашего устройства" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
                       />
                     </div>
-                  </div>
-                  
-                  <div className="space-y-2 mb-6">
-                    <label htmlFor="message" className="text-sm font-medium">
-                      Описание проблемы
-                    </label>
-                    <Textarea
-                      id="message"
+                    
+                    <FormField
+                      control={form.control}
                       name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Опишите проблему с вашим устройством"
-                      rows={4}
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Описание проблемы</FormLabel>
+                          <FormControl>
+                            <Textarea
+                              placeholder="Опишите проблему с вашим устройством"
+                              rows={4}
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
                     />
-                  </div>
-                  
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
-                    {isSubmitting ? "Отправка..." : "Отправить заявку"}
-                  </Button>
-                  
-                  <p className="text-sm text-muted-foreground mt-4">
-                    Нажимая кнопку «Отправить заявку», вы соглашаетесь с нашей {" "}
-                    <a href="#" className="text-primary hover:underline">
-                      Политикой конфиденциальности
-                    </a>
-                  </p>
-                </form>
+                    
+                    <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
+                      {form.formState.isSubmitting ? "Отправка..." : "Отправить заявку"}
+                    </Button>
+                    
+                    <p className="text-sm text-muted-foreground">
+                      Нажимая кнопку «Отправить заявку», вы соглашаетесь с нашей {" "}
+                      <a href="#" className="text-primary hover:underline">
+                        Политикой конфиденциальности
+                      </a>
+                    </p>
+                  </form>
+                </Form>
               </div>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -214,25 +238,6 @@ const Contact: React.FC = () => {
                       </p>
                     </div>
                   </div>
-                  
-                  {/* <div>
-                    <h3 className="text-lg font-medium mb-3">Как добраться:</h3>
-                    <ul className="space-y-2 text-muted-foreground">
-                      <li className="flex items-start gap-2">
-                        <span className="text-primary shrink-0">•</span>
-                        <span>Метро "Техническая", выход №3, 5 минут пешком</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-primary shrink-0">•</span>
-                        <span>Автобусы №123, №456, остановка "Сервисный центр"</span>
-                      </li>
-                      <li className="flex items-start gap-2">
-                        <span className="text-primary shrink-0">•</span>
-                        <span>Бесплатная парковка на территории центра</span>
-                      </li>
-                    </ul>
-                  </div> */}
-                  
                 </div>
               </div>
             </div>
