@@ -23,14 +23,14 @@ const WarrantyTermsModal: React.FC<WarrantyTermsModalProps> = ({ open, onOpenCha
         <DialogHeader>
           <DialogTitle>Условия гарантии</DialogTitle>
           <DialogDescription>
-            Гарантийная политика сервисного центра PRIME TECH
+            Гарантийная политика сервисного центра PRIME
           </DialogDescription>
         </DialogHeader>
         
         <div className="space-y-4 text-foreground">
           <h3 className="text-lg font-semibold">1. Общие положения</h3>
           <p>
-            Сервисный центр PRIME TECH предоставляет гарантию на все выполненные работы и установленные запчасти. 
+            Сервисный центр PRIME предоставляет гарантию на все выполненные работы и установленные запчасти. 
             Срок гарантии зависит от типа ремонта и устанавливается в момент выдачи устройства клиенту.
           </p>
           
@@ -78,7 +78,7 @@ const WarrantyTermsModal: React.FC<WarrantyTermsModalProps> = ({ open, onOpenCha
           
           <h3 className="text-lg font-semibold">6. Дополнительные условия</h3>
           <p>
-            PRIME TECH оставляет за собой право отказать в гарантийном обслуживании при нарушении пользователем правил эксплуатации устройства или условий гарантии.
+            PRIME оставляет за собой право отказать в гарантийном обслуживании при нарушении пользователем правил эксплуатации устройства или условий гарантии.
             Гарантийный срок не продлевается на время нахождения устройства в ремонте.
           </p>
         </div>

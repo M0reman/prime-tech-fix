@@ -41,8 +41,8 @@ const Navbar: React.FC = () => {
           to="/" 
           className="font-bold text-2xl transition-all flex items-center gap-2"
         >
-          <span className="text-blue-600">PRIME</span>
-          <span className="text-gray-900">TECH</span>
+          <span className="text-blue-600">СЦ</span>
+          <span className="text-gray-900">PRIME</span>
         </Link>
         
         {/* Desktop Navigation */}
