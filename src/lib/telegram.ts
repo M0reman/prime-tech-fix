@@ -1,37 +1,25 @@
 import { type ContactFormData } from './validations';
-import { CHAT_ID, TELEGRAM_BOT_TOKEN } from '@/config';
+
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 export const sendTelegramMessage = async (formData: ContactFormData): Promise<boolean> => {
   try {
-    const message = `
-🆕 Новая заявка с сайта!
-
-👤 Имя: ${formData.name}
-📱 Телефон: ${formData.phone}
-📧 Email: ${formData.email || 'Не указан'}
-🔧 Устройство: ${formData.device || 'Не указано'}
-📝 Сообщение: ${formData.message}
-    `.trim();
-
-    const response = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
+    const response = await fetch(`${API_URL}/api/send-message`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        chat_id: CHAT_ID,
-        text: message,
-        parse_mode: 'HTML',
-      }),
+      body: JSON.stringify(formData),
     });
 
     if (!response.ok) {
-      throw new Error('Failed to send message to Telegram');
+      throw new Error('Failed to send message');
     }
 
-    return true;
+    const data = await response.json();
+    return data.success;
   } catch (error) {
-    console.error('Error sending message to Telegram:', error);
+    console.error('Error sending message:', error);
     return false;
   }
 }; 
