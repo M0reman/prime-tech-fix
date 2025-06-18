@@ -1,7 +1,7 @@
 import { type ContactFormData } from './validations';
 import { VITE_API_URL } from './server';
 
-console.log('VITE_API_URL:', VITE_API_URL);
+console.log(import.meta.env);
 
 export const sendTelegramMessage = async (formData: ContactFormData): Promise<boolean> => {
   try {
