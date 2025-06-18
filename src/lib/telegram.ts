@@ -1,11 +1,11 @@
 import { type ContactFormData } from './validations';
-import { API_URL } from './server';
+import { VITE_API_URL } from './server';
 
-console.log('VITE_API_URL:', API_URL);
+console.log('VITE_API_URL:', VITE_API_URL);
 
 export const sendTelegramMessage = async (formData: ContactFormData): Promise<boolean> => {
   try {
-    const response = await fetch(`${API_URL}/api/send-message`, {
+    const response = await fetch(`${VITE_API_URL}/api/send-message`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
