@@ -8,6 +8,7 @@ import { sendTelegramMessage } from '@/lib/telegram';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { contactFormSchema, type ContactFormData } from '@/lib/validations';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import {
   Form,
   FormControl,
@@ -23,6 +24,7 @@ const Contact: React.FC = () => {
   }, []);
   
   const { toast } = useToast();
+  const { executeRecaptcha } = useGoogleReCaptcha();
   
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
@@ -36,8 +38,20 @@ const Contact: React.FC = () => {
   });
   
   const onSubmit = async (data: ContactFormData) => {
+    if (!executeRecaptcha) {
+      console.error('Recaptcha not loaded');
+      toast({
+        title: "Ошибка",
+        description: "Не удалось загрузить капчу. Пожалуйста, обновите страницу.",
+        variant: "destructive",
+        duration: 5000,
+      });
+      return;
+    }
+
     try {
-      const success = await sendTelegramMessage(data);
+      const token = await executeRecaptcha('contact_form');
+      const success = await sendTelegramMessage({ ...data, gRecaptchaToken: token });
       
       if (success) {
         toast({

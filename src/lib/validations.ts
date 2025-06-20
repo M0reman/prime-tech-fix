@@ -21,7 +21,9 @@ export const contactFormSchema = z.object({
   
   message: z.string()
     .min(10, 'Сообщение должно содержать минимум 10 символов')
-    .max(1000, 'Сообщение не должно превышать 1000 символов')
+    .max(1000, 'Сообщение не должно превышать 1000 символов'),
+
+  gRecaptchaToken: z.string().optional(),
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>; 
