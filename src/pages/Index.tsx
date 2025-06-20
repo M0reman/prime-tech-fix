@@ -14,7 +14,7 @@ const Index: React.FC = () => {
   return <div className="min-h-screen">
     <Hero />
     
-    <section className="py-20 bg-white">
+    <section className="py-5 lg:py-20 bg-white">
       <div className="container px-4">
         <div className="text-center mb-12">
           <span className="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-medium mb-4">
@@ -74,7 +74,7 @@ const Index: React.FC = () => {
     
     <CompanyLogos />
     
-    <section className="py-20 bg-white">
+    <section className="py-5 lg:py-20 bg-white">
       <div className="container px-4">
         <div className="text-center mb-12">
           <span className="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-medium mb-4">
@@ -135,7 +135,7 @@ const Index: React.FC = () => {
     
     <YandexReviews />
     
-    <section className="py-20">
+    <section className="py-5 lg:py-20">
       <div className="container px-4">
         <ContactCard />
       </div>
