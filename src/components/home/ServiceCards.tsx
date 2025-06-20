@@ -41,42 +41,42 @@ const ServiceCards: React.FC = () => {
       title: "Ремонт телефонов",
       description: "Диагностика и ремонт смартфонов любых брендов. Замена дисплеев, разъемов, батарей.",
       delay: 0.1,
-      imageSrc: "https://images.unsplash.com/photo-1546054454-aa26e2b734c7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      imageSrc: "../..//serviceCards/smartphone.jpeg"
     },
     {
       icon: <Laptop size={24} />,
       title: "Ремонт ноутбуков",
       description: "Устранение неисправностей, чистка от пыли, замена комплектующих, восстановление после залития.",
       delay: 0.2,
-      imageSrc: "https://images.unsplash.com/photo-1588702547919-26089e690ecc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      imageSrc: "../../serviceCards/laptop.jpeg"
     },
     {
       icon: <TabletSmartphone size={24} />,
       title: "Ремонт планшетов",
       description: "Замена экранов, разъемов питания, восстановление после программных сбоев и физических повреждений.",
       delay: 0.3,
-      imageSrc: "https://images.unsplash.com/photo-1544097280-53537b11b839?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      imageSrc: "../../serviceCards/tablet.jpeg"
     },
     {
       icon: <Monitor size={24} />,
       title: "Ремонт компьютеров",
       description: "Диагностика неисправностей, модернизация, восстановление данных и настройка ПО.",
       delay: 0.4,
-      imageSrc: "https://images.unsplash.com/photo-1551515300-a79fd1c761c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      imageSrc: "../../serviceCards/pc-upgrade.jpg"
     },
     {
       icon: <Tv size={24} />,
       title: "Ремонт телевизоров",
       description: "Ремонт современных LED, OLED, QLED телевизоров. Замена матрицы, ремонт подсветки.",
       delay: 0.5,
-      imageSrc: "https://images.unsplash.com/photo-1509281373149-e957c6296406?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      imageSrc: "../../serviceCards/tv.jpeg"
     },
     {
       icon: <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 5V6.2C9 7.88 7.88 9 6.2 9H5C4.46957 9 3.96086 8.78929 3.58579 8.41421C3.21071 8.03914 3 7.53043 3 7V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H7C7.53043 3 8.03914 3.21071 8.41421 3.58579C8.78929 3.96086 9 4.46957 9 5Z"/><path d="M9 12V14C9 14.5304 8.78929 15.0391 8.41421 15.4142C8.03914 15.7893 7.53043 16 7 16H5C4.46957 16 3.96086 15.7893 3.58579 15.4142C3.21071 15.0391 3 14.5304 3 14V12C3 11.4696 3.21071 10.9609 3.58579 10.5858C3.96086 10.2107 4.46957 10 5 10H6.2C7.88 10 9 11.12 9 12.8V12Z"/><path d="M15 5C15 4.46957 15.2107 3.96086 15.5858 3.58579C15.9609 3.21071 16.4696 3 17 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V7C21 7.53043 20.7893 8.03914 20.4142 8.41421C20.0391 8.78929 19.5304 9 19 9H17.8C16.12 9 15 7.88 15 6.2V5Z"/><path d="M15 19V17.2C15 15.52 16.12 14.4 17.8 14.4H19C19.5304 14.4 20.0391 14.6107 20.4142 14.9858C20.7893 15.3609 21 15.8696 21 16.4V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H17C16.4696 21 15.9609 20.7893 15.5858 20.4142C15.2107 20.0391 15 19.5304 15 19Z"/></svg>,
       title: "Ремонт бытовой техники",
       description: "Ремонт стиральных и посудомоечных машин, холодильников, микроволновых печей и другой техники.",
       delay: 0.6,
-      imageSrc: "https://images.unsplash.com/photo-1584269655525-b9067aaf453e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      imageSrc: "../../serviceCards/appliances.jpeg"
     }
   ];
 

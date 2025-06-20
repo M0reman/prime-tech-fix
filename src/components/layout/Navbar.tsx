@@ -41,6 +41,7 @@ const Navbar: React.FC = () => {
           to="/" 
           className="font-bold text-2xl transition-all flex items-center gap-2"
         >
+          <img src="../../../logos/company-logo-square.png" alt="Logo" className="w-8 h-8"></img>
           <span className="text-blue-600">СЦ</span>
           <span className="text-gray-900">PRIME</span>
         </Link>
