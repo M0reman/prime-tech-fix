@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const ContactCard: React.FC = () => {
   return (
-    <div className="rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 p-8 md:p-10 relative overflow-hidden shadow-md text-white">
+    <div className="rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 p-5 md:p-10 relative overflow-hidden shadow-md text-white">
       <div className="absolute w-64 h-64 rounded-full bg-blue-500/30 -top-32 -right-32 blur-3xl pointer-events-none" />
       <div className="absolute w-64 h-64 rounded-full bg-blue-700/30 -bottom-32 -left-32 blur-3xl pointer-events-none" />
       

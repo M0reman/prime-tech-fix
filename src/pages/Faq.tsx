@@ -282,7 +282,7 @@ const Faq: React.FC = () => {
         </div>
       </section>
       
-      <section className="py-10">
+      <section className="py-5 lg:py-20">
         <div className="container px-4">
           <ContactCard />
         </div>
