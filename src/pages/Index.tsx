@@ -91,22 +91,22 @@ const Index: React.FC = () => {
             number: '01',
             title: 'Заявка',
             description: 'Оставьте заявку на сайте или позвоните нам по телефону для консультации',
-            image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+            image: '../../repairStepsCards/firstStep.jpeg'
           }, {
             number: '02',
             title: 'Диагностика',
             description: 'Проводим бесплатную диагностику и определяем точную причину неисправности',
-            image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+            image: '../../repairStepsCards/secondStep.jpeg'
           }, {
             number: '03',
             title: 'Ремонт',
             description: 'Выполняем ремонт, используя профессиональное оборудование и качественные запчасти',
-            image: 'https://images.unsplash.com/photo-1581092921441-39333748bf20?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+            image: '../../repairStepsCards/thirdStep.jpeg'
           }, {
             number: '04',
             title: 'Готово',
             description: 'Проверяем работоспособность техники и выдаем гарантийный талон на выполненные работы',
-            image: 'https://images.unsplash.com/photo-1556741533-6e6a62bd8b49?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+            image: '../../repairStepsCards/fourthStep.jpeg'
           }].map((step, index) => (
             <div key={step.number} className="relative group">
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden h-full transition-all duration-300 hover:shadow-xl">

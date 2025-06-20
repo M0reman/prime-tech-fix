@@ -13,11 +13,11 @@ const Hero: React.FC = () => {
       <div className="absolute bottom-1/4 left-1/4 w-96 h-96 bg-blue-400/5 rounded-full blur-3xl" />
       
       {/* Hero Background Image */}
-      <div className="absolute inset-0 z-0 opacity-10">
+      <div className="absolute inset-0 z-0 opacity-20">
         <img 
-          src="https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80" 
+          src="../../../logos/company-background.jpg" 
           alt="Background Pattern" 
-          className="w-full h-full object-cover"
+          className="w-[100%] h-[100%] object-cover"
         />
       </div>
       

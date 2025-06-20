@@ -161,7 +161,7 @@ const getServicesData = (): ServiceCategoryData[] => [
       {
         title: "Выездной ремонт",
         description: "",
-        price: "После согласование с мастером",
+        price: "После согласования с мастером",
         features: [],
         imageSrc: "../../serviceCards/outride-maintenance.jpg"
       },
