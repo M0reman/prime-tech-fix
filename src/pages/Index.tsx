@@ -135,22 +135,9 @@ const Index: React.FC = () => {
     
     <YandexReviews />
     
-    <section className="py-20 bg-gradient-to-br from-blue-600 to-blue-700">
+    <section className="py-20">
       <div className="container px-4">
-        <div className="text-center mb-12">
-          <h2 className="heading-lg mb-4 text-white">Нужна помощь с ремонтом?</h2>
-          <p className="body-lg text-blue-100 max-w-3xl mx-auto mb-8">
-            Оставьте заявку, и наши специалисты свяжутся с вами в ближайшее время для консультации и решения вашей проблемы
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a href="/contact" className="bg-white text-blue-700 hover:bg-blue-50 px-8 py-3 rounded-md font-medium transition-colors">
-              Оставить заявку
-            </a>
-            <a href="tel:+79297474511" className="border border-white text-white hover:bg-blue-700/30 px-8 py-3 rounded-md font-medium transition-colors">
-              8 (929) 747-45-11
-            </a>
-          </div>
-        </div>
+        <ContactCard />
       </div>
     </section>
   </div>;
