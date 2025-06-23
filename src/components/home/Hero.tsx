@@ -24,7 +24,7 @@ const Hero: React.FC = () => {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8 animate-fade-down" style={{ animationDelay: '0.1s' }}>
             <span className="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-medium mb-4">
-              СЦ PRIME
+              Сервисный центр PRIME
             </span>
             <h1 className="heading-xl mb-6 text-gray-900">
               Профессиональный ремонт<br className="hidden md:inline" /> цифровой и бытовой техники

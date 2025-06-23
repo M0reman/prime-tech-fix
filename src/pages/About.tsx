@@ -64,7 +64,7 @@ const About: React.FC = () => {
                     <Trophy size={20} className="text-primary" />
                   </div>
                   <div>
-                    <div className="font-bold">5+ лет</div>
+                    <div className="font-bold">10+ лет</div>
                     <div className="text-sm text-muted-foreground">опыта работы</div>
                   </div>
                 </div>
