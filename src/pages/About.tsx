@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import ContactCard from '@/components/common/ContactCard';
 import { ShieldCheck, Users, Trophy, Clock } from 'lucide-react';
+import { Certificate } from 'crypto';
+import Certificates from '@/components/common/Certificates';
 
 const About: React.FC = () => {
   useEffect(() => {
@@ -32,14 +34,13 @@ const About: React.FC = () => {
             <div className="order-2 lg:order-1">
               <h2 className="heading-md mb-4">Наша миссия</h2>
               <p className="body-md mb-4">
-                PRIME — это современный сервисный центр, специализирующийся на электрическом ремонте цифровой и бытовой техники. 
-                Мы начали свою деятельность в 2011 году и за это время завоевали доверие тысяч клиентов благодаря профессиональному 
-                подходу и высокому качеству оказываемых услуг.
+                Сервисный центр «Prime» — ваш надежный партнер в сфере профессионального ремонта техники любой сложности.
+                Уже более 14 лет мы оказываем широкий спектр высококачественных услуг, помогая клиентам восстанавливать работоспособность устройств любых марок и моделей.
+                Команда опытных специалистов использует современные технологии и оригинальные комплектующие, чтобы ваша техника вновь радовала вас безупречной работой.
               </p>
               <p className="body-md mb-6">
-                Наша миссия — обеспечить клиентов быстрым, качественным и доступным ремонтом техники, продлевая срок ее службы 
-                и экономя ваши средства на покупке новых устройств. Мы ценим ваше время и делаем все возможное, чтобы процесс 
-                ремонта был максимально удобным и прозрачным.
+                Мы ценим ваше доверие и гарантируем индивидуальный подход, оперативность и прозрачность на каждом этапе обслуживания.
+                С «Prime» вы всегда можете быть уверены в надежности и качестве ремонта вашей техники!
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button asChild>
@@ -114,7 +115,8 @@ const About: React.FC = () => {
             </div>
           </div>
           
-          <div className="mb-20">
+          {/* КАРТОЧКИ СОТРУДНИКОВ */}
+          {/* <div className="mb-20">
             <h2 className="heading-md text-center mb-8">Наша команда</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="bg-background rounded-xl overflow-hidden border border-border shadow-sm">
@@ -168,51 +170,10 @@ const About: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           
-          <div className="bg-secondary/50 rounded-xl p-8 md:p-12">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-              <div>
-                <h2 className="heading-md mb-4">Сертификаты и награды</h2>
-                <p className="body-md mb-6">
-                  PRIME TECH — это сертифицированный сервисный центр, официальный партнер ведущих производителей техники. 
-                  Мы регулярно подтверждаем высокий уровень квалификации наших специалистов и качество оказываемых услуг.
-                </p>
-                <ul className="space-y-2 mb-4">
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary">✓</span>
-                    <span>Сертифицированный сервисный центр Apple</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary">✓</span>
-                    <span>Авторизованный сервисный центр Samsung</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary">✓</span>
-                    <span>Партнер Asus, Lenovo, HP и других производителей</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-primary">✓</span>
-                    <span>"Лучший сервисный центр 2022" по версии TechAwards</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-background rounded-lg p-4 flex items-center justify-center h-32 border border-border">
-                  <img src="/logos/company-logo-square.png" alt="Сертификат Samsung" className="max-h-12" />
-                </div>
-                <div className="bg-background rounded-lg p-4 flex items-center justify-center h-32 border border-border">
-                  <img src="/logos/company-logo-square.png" alt="Сертификат Apple" className="max-h-12" />
-                </div>
-                <div className="bg-background rounded-lg p-4 flex items-center justify-center h-32 border border-border">
-                  <img src="/logos/company-logo-square.png" alt="Сертификат Lenovo" className="max-h-12" />
-                </div>
-                <div className="bg-background rounded-lg p-4 flex items-center justify-center h-32 border border-border">
-                  <img src="/logos/company-logo-square.png" alt="Награда TechAwards" className="max-h-12" />
-                </div>
-              </div>
-            </div>
-          </div>
+          <Certificates />
+
         </div>
       </section>
       
