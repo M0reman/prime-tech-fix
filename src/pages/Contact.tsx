@@ -18,6 +18,9 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import PhoneInput from 'react-phone-number-input';
+import 'react-phone-number-input/style.css';
+import ruLabels from 'react-phone-number-input/locale/ru.json';
 
 interface ContactProps {
   setPrivacyModalOpen: (open: boolean) => void;
@@ -128,7 +131,16 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen }) => {
                               Телефон <span className="text-primary">*</span>
                             </FormLabel>
                             <FormControl>
-                              <Input placeholder="+7 (___) ___-__-__" {...field} />
+                              <PhoneInput
+                                {...field}
+                                defaultCountry="RU"
+                                placeholder="+7 999 123-45-67"
+                                international
+                                countryCallingCodeEditable={false}
+                                className="w-full"
+                                inputClassName="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                                labels={ruLabels}
+                              />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -141,13 +153,7 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen }) => {
                         control={form.control}
                         name="email"
                         render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Email</FormLabel>
-                            <FormControl>
-                              <Input type="email" placeholder="example@mail.com" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
+                          <Input type="hidden" {...field} />
                         )}
                       />
                       
@@ -155,13 +161,7 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen }) => {
                         control={form.control}
                         name="device"
                         render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>Устройство</FormLabel>
-                            <FormControl>
-                              <Input placeholder="Модель вашего устройства" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                          </FormItem>
+                          <Input type="hidden" {...field} />
                         )}
                       />
                     </div>
@@ -174,6 +174,7 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen }) => {
                           <FormLabel>Описание проблемы</FormLabel>
                           <FormControl>
                             <Textarea
+                              className="rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
                               placeholder="Опишите проблему с вашим устройством"
                               rows={4}
                               {...field}
@@ -230,15 +231,20 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen }) => {
             <div>
               <div className="bg-background rounded-xl overflow-hidden shadow-sm border border-border mb-8">
                 <div className="aspect-video w-full">
-                  <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3301.081710639441!2d45.221809469281055!3d54.19393705994919!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x41440902fdcfc65d%3A0x3eba2bf87a08e7dc!2z0YPQuy4g0KHQtdCy0LDRgdGC0L7Qv9C-0LvRjNGB0LrQsNGPLCA1NiDQutC-0YDQv9GD0YEgMiwg0KHQsNGA0LDQvdGB0LosINCg0LXRgdC_LiDQnNC-0YDQtNC-0LLQuNGPLCA0MzAwMDk!5e0!3m2!1sru!2sru!4v1750052740946!5m2!1sru!2sru" 
-                    width="100%" 
-                    height="100%" 
-                    style={{ border: 0 }} 
-                    allowFullScreen 
-                    loading="lazy"
-                    title="Карта местоположения сервисного центра"
-                  ></iframe>
+                  <div style={{ position: "relative", overflow: "hidden", width: "100%", height: "100%" }}>
+                    <a href="https://yandex.ru/maps/org/praym/1205449112/?utm_medium=mapframe&utm_source=maps" style={{ color: "#eee", fontSize: 12, position: "absolute", top: 0 }}>Прайм</a>
+                    <a href="https://yandex.ru/maps/42/saransk/category/phone_repair/184107787/?utm_medium=mapframe&utm_source=maps" style={{ color: "#eee", fontSize: 12, position: "absolute", top: 14 }}>Ремонт телефонов в Саранске</a>
+                    <a href="https://yandex.ru/maps/42/saransk/category/audio_and_video_devices_repair/184108221/?utm_medium=mapframe&utm_source=maps" style={{ color: "#eee", fontSize: 12, position: "absolute", top: 28 }}>Ремонт аудиотехники и видеотехники в Саранске</a>
+                    <iframe
+                      src="https://yandex.ru/map-widget/v1/org/praym/1205449112/?ll=45.224695%2C54.193333&z=17.14"
+                      width="100%"
+                      height="100%"
+                      frameBorder="1"
+                      allowFullScreen={true}
+                      style={{ position: "relative" }}
+                      title="Яндекс.Карта сервисного центра"
+                    ></iframe>
+                  </div>
                 </div>
               </div>
               
