@@ -17,14 +17,34 @@ import Brands from "./pages/Brands";
 import NotFound from "./pages/NotFound";
 import WarrantyTermsModal from './components/modals/WarrantyTermsModal';
 import PrivacyPolicyModal from './components/modals/PrivacyPolicyModal';
+import SubscriptionModal from './components/modals/SubscriptionModal';
+import SuccessModal from './components/modals/SuccessModal';
 import JivoSite from './components/common/JivoSite';
 import UrgencyBanner from "./components/common/UrgencyBanner";
+import useSiteTimer from './hooks/use-site-timer';
 
 const queryClient = new QueryClient();
 
 const App = () => {
   const [warrantyModalOpen, setWarrantyModalOpen] = useState(false);
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
+  const [successModalOpen, setSuccessModalOpen] = useState(false);
+
+  // Хук для отслеживания времени на сайте (показываем модальное окно через 2 минуты)
+  const { shouldShowModal: shouldShowSubscriptionModal, hideModal: hideSubscriptionModal } = useSiteTimer({
+    showModalAfter: 2 * 60 * 1000, // 2 минуты
+    storageKey: 'subscription-modal-shown',
+    showOnce: true
+  });
+
+  const handleSuccessModalClose = () => {
+    setSuccessModalOpen(false);
+  };
+
+  const handleSubscribeClick = () => {
+    // Логика для обработки клика по подписке
+    console.log('Пользователь кликнул на подписку');
+  };
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -39,7 +59,7 @@ const App = () => {
                 <Route path="/" element={<Index />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact setPrivacyModalOpen={setPrivacyModalOpen} />} />
+                <Route path="/contact" element={<Contact setPrivacyModalOpen={setPrivacyModalOpen} setSuccessModalOpen={setSuccessModalOpen} />} />
                 <Route path="/faq" element={<Faq />} />
                 <Route path="/brands" element={<Brands />} />
                 <Route path="*" element={<NotFound />} />
@@ -52,6 +72,12 @@ const App = () => {
             
             <WarrantyTermsModal open={warrantyModalOpen} onOpenChange={setWarrantyModalOpen} />
             <PrivacyPolicyModal open={privacyModalOpen} onOpenChange={setPrivacyModalOpen} />
+            <SubscriptionModal open={shouldShowSubscriptionModal} onOpenChange={hideSubscriptionModal} />
+            <SuccessModal 
+              open={successModalOpen} 
+              onOpenChange={setSuccessModalOpen} 
+              onSubscribeClick={handleSubscribeClick}
+            />
             <UrgencyBanner />
           </BrowserRouter>
         </HelmetProvider>

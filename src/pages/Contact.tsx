@@ -24,9 +24,10 @@ import ruLabels from 'react-phone-number-input/locale/ru.json';
 
 interface ContactProps {
   setPrivacyModalOpen: (open: boolean) => void;
+  setSuccessModalOpen: (open: boolean) => void;
 }
 
-const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen }) => {
+const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, setSuccessModalOpen }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -68,6 +69,7 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen }) => {
           duration: 5000,
         });
         form.reset();
+        setSuccessModalOpen(true);
       } else {
         throw new Error('Failed to send message');
       }
@@ -99,8 +101,8 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen }) => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-2">
               <div className="bg-background rounded-xl p-8 shadow-sm border border-border mb-8">
                 <h2 className="text-2xl font-semibold mb-6">Оставить заявку</h2>
                 <Form {...form}>
@@ -148,7 +150,7 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen }) => {
                       />
                     </div>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="hidden">
                       <FormField
                         control={form.control}
                         name="email"
@@ -203,7 +205,7 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen }) => {
                 </Form>
               </div>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-background rounded-xl p-6 shadow-sm border border-border">
                   <Phone size={24} className="text-primary mb-4" />
                   <h3 className="text-lg font-semibold mb-2">Телефон</h3>
@@ -228,7 +230,7 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen }) => {
               </div>
             </div>
             
-            <div>
+            <div className="lg:col-span-1">
               <div className="bg-background rounded-xl overflow-hidden shadow-sm border border-border mb-8">
                 <div className="aspect-video w-full">
                   <div style={{ position: "relative", overflow: "hidden", width: "100%", height: "100%" }}>
@@ -248,7 +250,7 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen }) => {
                 </div>
               </div>
               
-              <div className="bg-background rounded-xl p-8 shadow-sm border border-border">
+              <div className="bg-background rounded-xl p-6 shadow-sm border border-border">
                 <h2 className="text-2xl font-semibold mb-6">Наш адрес</h2>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
@@ -277,6 +279,7 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen }) => {
           </div>
         </div>
       </section>
+      
       <div className="container px-4">
         <div className="bg-blue-600 text-white rounded-xl p-8 mt-12 flex flex-col md:flex-row items-center gap-6 shadow-lg">
           <div className="flex-shrink-0">
