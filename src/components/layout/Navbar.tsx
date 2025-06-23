@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const Navbar: React.FC = () => {
@@ -67,7 +66,16 @@ const Navbar: React.FC = () => {
           ))}
         </nav>
         
-        <div className="hidden md:flex items-center">
+        <div className="hidden md:flex items-center gap-4">
+          {/* Phone number */}
+          <a 
+            href="tel:+79297474511"
+            className="flex items-center gap-2 text-gray-700 hover:text-blue-600 transition-colors font-medium"
+          >
+            <Phone size={16} className="text-blue-600" />
+            <span className="text-sm">8 (929) 747-45-11</span>
+          </a>
+          
           <Link
             to="/contact"
             className="bg-blue-600 text-white px-5 py-2 rounded-lg transition-all hover:bg-blue-700 font-medium"
@@ -110,6 +118,15 @@ const Navbar: React.FC = () => {
               >
                 Оставить заявку
               </Link>
+              
+              {/* Mobile phone number */}
+              <a 
+                href="tel:+79297474511"
+                className="flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-green-50 text-green-700 font-medium"
+              >
+                <Phone size={16} />
+                <span>8 (929) 747-45-11</span>
+              </a>
             </nav>
           </div>
         </div>

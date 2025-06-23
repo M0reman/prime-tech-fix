@@ -17,6 +17,7 @@ import Brands from "./pages/Brands";
 import NotFound from "./pages/NotFound";
 import WarrantyTermsModal from './components/modals/WarrantyTermsModal';
 import PrivacyPolicyModal from './components/modals/PrivacyPolicyModal';
+import JivoSite from './components/common/JivoSite';
 
 const queryClient = new QueryClient();
 
@@ -44,10 +45,14 @@ const App = () => {
               </Routes>
             </AnimatedTransition>
             <Footer setWarrantyModalOpen={setWarrantyModalOpen} setPrivacyModalOpen={setPrivacyModalOpen} />
+            
+            {/* JivoSite Chat Widget */}
+            {/* <JivoSite /> */}
+            
+            <WarrantyTermsModal open={warrantyModalOpen} onOpenChange={setWarrantyModalOpen} />
+            <PrivacyPolicyModal open={privacyModalOpen} onOpenChange={setPrivacyModalOpen} />
           </BrowserRouter>
         </HelmetProvider>
-        <WarrantyTermsModal open={warrantyModalOpen} onOpenChange={setWarrantyModalOpen} />
-        <PrivacyPolicyModal open={privacyModalOpen} onOpenChange={setPrivacyModalOpen} />
       </TooltipProvider>
     </QueryClientProvider>
   );
