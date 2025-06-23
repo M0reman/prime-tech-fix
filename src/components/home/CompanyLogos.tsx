@@ -5,23 +5,23 @@ const CompanyLogos: React.FC = () => {
   const companies = [
     {
       name: 'Apple',
-      logo: '/brands/apple.svg'
+      logo: '/brands/apple.png'
     },
     {
       name: 'Samsung',
-      logo: '/brands/samsung.svg'
+      logo: '/brands/samsung.png'
     },
     {
       name: 'Xiaomi',
-      logo: '/brands/xiaomi.svg'
+      logo: '/brands/xiaomi.png'
     },
     {
       name: 'Huawei',
-      logo: '/brands/huawei.svg'
+      logo: '/brands/huawei.png'
     },
     {
       name: 'ASUS',
-      logo: '/brands/asus.svg'
+      logo: '/brands/asus.png'
     }
   ];
 
@@ -47,7 +47,7 @@ const CompanyLogos: React.FC = () => {
               <img
                 src={company.logo}
                 alt={`${company.name} logo`}
-                className="h-12 w-auto object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                className="h-12 w-auto object-contain filter transition-all duration-300"
               />
             </div>
           ))}
