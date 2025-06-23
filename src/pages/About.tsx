@@ -1,5 +1,5 @@
-
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import ContactCard from '@/components/common/ContactCard';
@@ -14,6 +14,10 @@ const About: React.FC = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <Helmet>
+        <title>О компании | Сервисный центр Prime</title>
+        <meta name='description' content='Узнайте больше о сервисном центре Prime. Наша миссия, команда профессионалов и гарантии качества. Работаем с 2011 года, чтобы ваша техника служила дольше.' />
+      </Helmet>
       <section className="py-20">
         <div className="container px-4">
           <div className="text-center mb-12">
@@ -51,7 +55,7 @@ const About: React.FC = () => {
             <div className="order-1 lg:order-2 relative">
               <div className="rounded-xl overflow-hidden shadow-lg">
                 <img 
-                  src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" 
+                  src="/logos/company-background.jpg" 
                   alt="Наша команда за работой" 
                   className="w-full h-auto object-cover rounded-xl"
                 />
@@ -62,7 +66,7 @@ const About: React.FC = () => {
                     <Trophy size={20} className="text-primary" />
                   </div>
                   <div>
-                    <div className="font-bold">5+ лет</div>
+                    <div className="font-bold">10+ лет</div>
                     <div className="text-sm text-muted-foreground">опыта работы</div>
                   </div>
                 </div>
@@ -119,7 +123,7 @@ const About: React.FC = () => {
               <div className="bg-background rounded-xl overflow-hidden border border-border shadow-sm">
                 <div className="h-64 overflow-hidden">
                   <img 
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a" 
+                    src="/logos/company-background.jpg" 
                     alt="Андрей Смирнов" 
                     className="w-full h-full object-cover object-center"
                   />
@@ -136,7 +140,7 @@ const About: React.FC = () => {
               <div className="bg-background rounded-xl overflow-hidden border border-border shadow-sm">
                 <div className="h-64 overflow-hidden">
                   <img 
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2" 
+                    src="/logos/company-background.jpg" 
                     alt="Елена Козлова" 
                     className="w-full h-full object-cover object-center"
                   />
@@ -153,7 +157,7 @@ const About: React.FC = () => {
               <div className="bg-background rounded-xl overflow-hidden border border-border shadow-sm">
                 <div className="h-64 overflow-hidden">
                   <img 
-                    src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c" 
+                    src="/logos/company-background.jpg" 
                     alt="Михаил Петров" 
                     className="w-full h-full object-cover object-center"
                   />

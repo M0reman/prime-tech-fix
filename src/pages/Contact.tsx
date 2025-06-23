@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -18,7 +19,11 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-const Contact: React.FC = () => {
+interface ContactProps {
+  setPrivacyModalOpen: (open: boolean) => void;
+}
+
+const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -75,6 +80,10 @@ const Contact: React.FC = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <Helmet>
+        <title>Контакты | Сервисный центр Prime в Саранске</title>
+        <meta name='description' content='Свяжитесь с сервисным центром Prime. Адрес: г. Саранск, ул. Севастопольская, д. 56/2. Телефон: 8 (929) 747-45-11. Оставьте заявку на ремонт онлайн.' />
+      </Helmet>
       <section className="py-20">
         <div className="container px-4">
           <div className="text-center mb-12">
@@ -181,9 +190,13 @@ const Contact: React.FC = () => {
                     
                     <p className="text-sm text-muted-foreground">
                       Нажимая кнопку «Отправить заявку», вы соглашаетесь с нашей {" "}
-                      <a href="#" className="text-primary hover:underline">
+                      <button
+                        type="button"
+                        onClick={() => setPrivacyModalOpen(true)}
+                        className="text-primary hover:underline"
+                      >
                         Политикой конфиденциальности
-                      </a>
+                      </button>
                     </p>
                   </form>
                 </Form>

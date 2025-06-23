@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -203,6 +204,10 @@ const Faq: React.FC = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <Helmet>
+        <title>FAQ: Ответы на вопросы | Сервисный центр Prime</title>
+        <meta name='description' content='Ответы на часто задаваемые вопросы о ремонте техники. Узнайте о сроках диагностики, гарантии, выездном ремонте и многом другом в сервисном центре Prime.' />
+      </Helmet>
       <section className="py-20">
         <div className="container px-4">
           <div className="text-center mb-12">

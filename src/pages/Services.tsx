@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { CheckCircle } from 'lucide-react';
@@ -52,6 +53,10 @@ const Services: React.FC = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <Helmet>
+        <title>Услуги по ремонту техники | Сервисный центр Prime</title>
+        <meta name='description' content='Полный спектр услуг по ремонту цифровой и бытовой техники. Ремонт смартфонов, ноутбуков, телевизоров, бытовой техники и многого другого. Гарантия качества и доступные цены.' />
+      </Helmet>
       <section className="py-20">
         <div className="container px-4">
           <div className="text-center mb-12">

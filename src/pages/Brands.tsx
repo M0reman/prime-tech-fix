@@ -416,7 +416,7 @@ const DEVICE_CATEGORIES = [
   { value: "appliance", label: "Бытовая техника" },
 ];
 
-const BrandCard = ({ brand }) => {
+const BrandCard = ({ brand }: { brand: typeof BRAND_DATA[0] }) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -638,8 +638,8 @@ const Brands = () => {
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
   );
 };
 

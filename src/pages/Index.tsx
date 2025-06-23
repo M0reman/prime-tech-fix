@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Hero from '@/components/home/Hero';
 import ServiceCards from '@/components/home/ServiceCards';
 import CompanyLogos from '@/components/home/CompanyLogos';
@@ -12,6 +13,10 @@ const Index: React.FC = () => {
   }, []);
 
   return <div className="min-h-screen">
+    <Helmet>
+        <title>Сервисный центр Prime: Ремонт телефонов, ноутбуков и бытовой техники</title>
+        <meta name='description' content='Профессиональный ремонт цифровой и бытовой техники в сервисном центре Prime. Быстрая диагностика, гарантия на все работы до 1 года. Ремонтируем телефоны, ноутбуки, планшеты и многое другое.' />
+    </Helmet>
     <Hero />
     
     <section className="py-5 lg:py-20 bg-white">
@@ -91,22 +96,22 @@ const Index: React.FC = () => {
             number: '01',
             title: 'Заявка',
             description: 'Оставьте заявку на сайте или позвоните нам по телефону для консультации',
-            image: '../../repairStepsCards/firstStep.jpeg'
+            image: '/repairStepsCards/firstStep.jpeg'
           }, {
             number: '02',
             title: 'Диагностика',
             description: 'Проводим бесплатную диагностику и определяем точную причину неисправности',
-            image: '../../repairStepsCards/secondStep.jpeg'
+            image: '/repairStepsCards/secondStep.jpeg'
           }, {
             number: '03',
             title: 'Ремонт',
             description: 'Выполняем ремонт, используя профессиональное оборудование и качественные запчасти',
-            image: '../../repairStepsCards/thirdStep.jpeg'
+            image: '/repairStepsCards/thirdStep.jpeg'
           }, {
             number: '04',
             title: 'Готово',
             description: 'Проверяем работоспособность техники и выдаем гарантийный талон на выполненные работы',
-            image: '../../repairStepsCards/fourthStep.jpeg'
+            image: '/repairStepsCards/fourthStep.jpeg'
           }].map((step, index) => (
             <div key={step.number} className="relative group">
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden h-full transition-all duration-300 hover:shadow-xl">
