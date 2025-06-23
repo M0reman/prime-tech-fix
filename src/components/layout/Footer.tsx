@@ -14,7 +14,7 @@ const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen, setPrivacyModalOp
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
           <div className="space-y-4">
             <Link to="/" className="font-bold text-2xl flex items-center gap-1">
-              <img src="../../../logos/company-logo-square.png" alt="Logo" className="w-8 h-8"></img>
+              <img src="/logos/company-logo-square.png" alt="Logo" className="w-8 h-8"></img>
               <span className="text-primary">СЦ</span>
               <span className="text-foreground">PRIME</span>
             </Link>

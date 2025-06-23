@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
           to="/" 
           className="font-bold text-2xl transition-all flex items-center gap-2"
         >
-          <img src="../../../logos/company-logo-square.png" alt="Logo" className="w-8 h-8"></img>
+          <img src="/logos/company-logo-square.png" alt="Logo" className="w-8 h-8"></img>
           <span className="text-blue-600">СЦ</span>
           <span className="text-gray-900">PRIME</span>
         </Link>
@@ -56,6 +56,7 @@ const Navbar: React.FC = () => {
                 'relative font-medium group text-sm transition-colors hover:text-blue-600',
                 location.pathname === item.href ? 'text-blue-600' : 'text-gray-700'
               )}
+              onClick={() => window.scrollTo(0, 0)}
             >
               {item.name}
               <span className={cn(

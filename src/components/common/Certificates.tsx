@@ -5,27 +5,27 @@ const Certificates: React.FC = () => {
   const certificates = [
     {
       id: 1,
-      imageSrc: "../../../brands/apple.png",
+      imageSrc: "/brands/apple.png",
       altText: "Apple",
     },
     {
       id: 2,
-      imageSrc: "../../../brands/samsung.png",
+      imageSrc: "/brands/samsung.png",
       altText: "Samsung",
     },
     {
       id: 3,
-      imageSrc: "../../../brands/lenovo.png",
+      imageSrc: "/brands/lenovo.png",
       altText: "Lenovo",
     },
     {
       id: 4,
-      imageSrc: "../../../brands/hp.png",
+      imageSrc: "/brands/hp.png",
       altText: "Hp",
     },
     {
       id: 5,
-      imageSrc: "../../../brands/acer.png",
+      imageSrc: "/brands/acer.png",
       altText: "Acer",
     },
   ];
@@ -78,7 +78,7 @@ const Certificates: React.FC = () => {
               className="bg-background rounded-lg p-4 flex flex-col items-center justify-center h-32 border border-border hover:bg-gray-100 transition-colors"
             >
               <img 
-                src="../../../models/more.png" 
+                src="/models/more.png" 
                 alt="Другие сертификаты" 
                 className="max-h-8 mb-2"
               />
