@@ -43,7 +43,7 @@ const UrgencyBanner: React.FC = () => {
         <div className="flex flex-col sm:flex-row items-center justify-center w-full sm:w-auto mb-1 sm:mb-0">
           <div className="flex items-center justify-center gap-2 w-full">
             <AlertTriangle size={18} className="animate-pulse flex-shrink-0" />
-            <span className="font-medium whitespace-nowrap">🔥 СРОЧНО! Скидка 10% на ремонт <span className="uppercase">телевизоров</span> до конца дня!</span>
+            <span className="font-medium break-words">🔥 СРОЧНО! Скидка 10% на ремонт <span className="uppercase">телевизоров</span> до конца дня!</span>
           </div>
         </div>
         <div className="flex flex-col sm:flex-row items-center justify-center w-full sm:w-auto">
