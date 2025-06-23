@@ -18,6 +18,7 @@ import NotFound from "./pages/NotFound";
 import WarrantyTermsModal from './components/modals/WarrantyTermsModal';
 import PrivacyPolicyModal from './components/modals/PrivacyPolicyModal';
 import JivoSite from './components/common/JivoSite';
+import UrgencyBanner from "./components/common/UrgencyBanner";
 
 const queryClient = new QueryClient();
 
@@ -51,6 +52,7 @@ const App = () => {
             
             <WarrantyTermsModal open={warrantyModalOpen} onOpenChange={setWarrantyModalOpen} />
             <PrivacyPolicyModal open={privacyModalOpen} onOpenChange={setPrivacyModalOpen} />
+            <UrgencyBanner />
           </BrowserRouter>
         </HelmetProvider>
       </TooltipProvider>

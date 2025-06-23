@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
       <div className="container px-4 relative z-10">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-8 animate-fade-down" style={{ animationDelay: '0.1s' }}>
-            <span className="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-medium mb-4">
+            <span className="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-medium mb-2">
               Сервисный центр PRIME
             </span>
             <h1 className="heading-xl mb-6 text-gray-900">
@@ -46,7 +46,7 @@ const Hero: React.FC = () => {
             </div>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 animate-fade-up" style={{ animationDelay: '0.6s' }}>
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mt-12 animate-fade-up" style={{ animationDelay: '0.6s' }}>
             <div className="bg-white rounded-xl shadow-sm border p-4 text-center hover:shadow-md transition-all">
               <div className="font-bold text-3xl text-blue-600 mb-1">10+</div>
               <p className="text-gray-600 text-sm">лет опыта</p>
@@ -62,6 +62,10 @@ const Hero: React.FC = () => {
             <div className="bg-white rounded-xl shadow-sm border p-4 text-center hover:shadow-md transition-all">
               <div className="font-bold text-3xl text-blue-600 mb-1">1 год</div>
               <p className="text-gray-600 text-sm">гарантии</p>
+            </div>
+            <div className="bg-white rounded-xl shadow-sm border p-4 text-center hover:shadow-md transition-all">
+              <div className="font-bold text-2xl text-blue-600 mb-1">Скидка</div>
+              <p className="text-gray-600 text-sm">пенсионерам и участникам СВО</p>
             </div>
           </div>
         </div>

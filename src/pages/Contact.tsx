@@ -277,6 +277,28 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen }) => {
           </div>
         </div>
       </section>
+      <div className="container px-4">
+        <div className="bg-blue-600 text-white rounded-xl p-8 mt-12 flex flex-col md:flex-row items-center gap-6 shadow-lg">
+          <div className="flex-shrink-0">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+              <path d="M8 21h8"/>
+            </svg>
+          </div>
+          <div className="flex-1 text-center md:text-left">
+            <h3 className="text-2xl font-bold mb-2">Бесплатный выезд специалиста по Республике Мордовия</h3>
+            <p className="text-blue-100 mb-4">Заберём вашу технику на ремонт прямо от двери. Оставьте заявку — и мы свяжемся для согласования времени!</p>
+            <Button
+              size="lg"
+              className="bg-white text-blue-600 font-semibold hover:bg-blue-50 transition-colors"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            >
+              Заказать бесплатный выезд
+            </Button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
