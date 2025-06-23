@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -75,6 +76,10 @@ const Contact: React.FC = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <Helmet>
+        <title>Контакты | Сервисный центр Prime в Саранске</title>
+        <meta name='description' content='Свяжитесь с сервисным центром Prime. Адрес: г. Саранск, ул. Севастопольская, д. 56/2. Телефон: 8 (929) 747-45-11. Оставьте заявку на ремонт онлайн.' />
+      </Helmet>
       <section className="py-20">
         <div className="container px-4">
           <div className="text-center mb-12">

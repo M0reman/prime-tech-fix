@@ -1,5 +1,5 @@
-
 import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import ContactCard from '@/components/common/ContactCard';
@@ -12,6 +12,10 @@ const About: React.FC = () => {
 
   return (
     <div className="min-h-screen pt-20">
+      <Helmet>
+        <title>О компании | Сервисный центр Prime</title>
+        <meta name='description' content='Узнайте больше о сервисном центре Prime. Наша миссия, команда профессионалов и гарантии качества. Работаем с 2011 года, чтобы ваша техника служила дольше.' />
+      </Helmet>
       <section className="py-20">
         <div className="container px-4">
           <div className="text-center mb-12">

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -15,7 +14,7 @@ const Hero: React.FC = () => {
       {/* Hero Background Image */}
       <div className="absolute inset-0 z-0 opacity-20">
         <img 
-          src="../../../logos/company-background.jpg" 
+          src="/logos/company-background.jpg" 
           alt="Background Pattern" 
           className="w-[100%] h-[100%] object-cover"
         />
@@ -49,7 +48,7 @@ const Hero: React.FC = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12 animate-fade-up" style={{ animationDelay: '0.6s' }}>
             <div className="bg-white rounded-xl shadow-sm border p-4 text-center hover:shadow-md transition-all">
-              <div className="font-bold text-3xl text-blue-600 mb-1">5+</div>
+              <div className="font-bold text-3xl text-blue-600 mb-1">10+</div>
               <p className="text-gray-600 text-sm">лет опыта</p>
             </div>
             <div className="bg-white rounded-xl shadow-sm border p-4 text-center hover:shadow-md transition-all">

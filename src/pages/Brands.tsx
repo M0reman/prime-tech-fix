@@ -1,5 +1,5 @@
-
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Search, FilterX, ChevronDown } from 'lucide-react';
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
@@ -169,7 +169,7 @@ const DEVICE_CATEGORIES = [
   { value: 'appliance', label: 'Бытовая техника' },
 ];
 
-const BrandCard = ({ brand }) => {
+const BrandCard = ({ brand }: { brand: typeof BRAND_DATA[0] }) => {
   const [expanded, setExpanded] = useState(false);
   
   return (
@@ -250,19 +250,29 @@ const BrandCard = ({ brand }) => {
 const Brands = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   
   const filteredBrands = useMemo(() => {
-    if (!searchQuery && categoryFilter === 'all') return BRAND_DATA;
-    
     return BRAND_DATA.filter(brand => {
-      const matchesSearch = searchQuery === '' || 
-        brand.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        brand.models.some(model => model.name.toLowerCase().includes(searchQuery.toLowerCase()));
+      const nameMatch = brand.name.toLowerCase().includes(searchQuery.toLowerCase());
       
-      // В реальном проекте тут была бы фильтрация по категориям
-      const matchesCategory = categoryFilter === 'all';
+      const modelMatch = brand.models.some(model => 
+        model.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
       
-      return matchesSearch && matchesCategory;
+      const categoryMatch = categoryFilter === 'all' || 
+        brand.models.some(model => {
+          const modelName = model.name.toLowerCase();
+          if (categoryFilter === 'smartphone') return modelName.includes('iphone') || modelName.includes('galaxy s') || modelName.includes('redmi') || modelName.includes('p50') || modelName.includes('rog phone');
+          if (categoryFilter === 'tablet') return modelName.includes('tab');
+          if (categoryFilter === 'laptop') return modelName.includes('macbook') || modelName.includes('matebook') || modelName.includes('zenbook');
+          return false;
+        });
+
+      return (nameMatch || modelMatch) && categoryMatch;
     });
   }, [searchQuery, categoryFilter]);
   
@@ -272,102 +282,63 @@ const Brands = () => {
   };
 
   return (
-    <main className="py-16 pt-32">
-      {/* SEO метаданные - реализовано через title и meta-description */}
-      <div className="container px-4 mx-auto">
-        <h1 className="text-3xl md:text-4xl font-bold mb-2">Бренды и устройства</h1>
-        <p className="text-lg text-gray-600 mb-8 max-w-3xl">
-          Ознакомьтесь с брендами и моделями устройств, с которыми мы работаем. 
-          Найдите информацию о распространенных проблемах и стоимости ремонта.
-        </p>
-        
-        <div className="bg-blue-50 rounded-xl p-6 mb-8">
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="relative flex-grow">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-              <Input
-                type="text"
-                placeholder="Поиск по брендам и моделям..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 py-6 h-auto"
-              />
-            </div>
-            <div className="w-full md:w-64">
-              <Select 
-                value={categoryFilter} 
-                onValueChange={setCategoryFilter}
-              >
-                <SelectTrigger className="py-6 h-auto">
-                  <SelectValue placeholder="Тип устройства" />
-                </SelectTrigger>
-                <SelectContent>
-                  {DEVICE_CATEGORIES.map(category => (
-                    <SelectItem key={category.value} value={category.value}>
-                      {category.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+    <div className="min-h-screen pt-20">
+      <Helmet>
+        <title>Ремонт Apple, Samsung, Xiaomi, Huawei | Сервисный центр Prime</title>
+        <meta name='description' content='Осуществляем профессиональный ремонт техники Apple, Samsung, Xiaomi, Huawei, ASUS и других брендов. Узнайте о частых неисправностях и стоимости ремонта.' />
+      </Helmet>
+      
+      <main className="py-16 pt-32">
+        <div className="container px-4 mx-auto">
+            <h1 className="text-3xl md:text-4xl font-bold mb-2">Бренды и устройства</h1>
+            <p className="text-gray-600 mb-8">
+                Мы ремонтируем технику большинства популярных брендов. Найдите свое устройство.
+            </p>
+            
+            <div className="sticky top-20 bg-white/80 backdrop-blur-md py-4 mb-8 z-10">
+                <div className="flex flex-col md:flex-row gap-4">
+                    <div className="relative flex-grow">
+                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
+                        <Input
+                            type="text"
+                            placeholder="Поиск по брендам и моделям..."
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            className="pl-10 py-6 h-auto"
+                        />
+                    </div>
+                    
+                    <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+                        <SelectTrigger className="w-full md:w-[200px] py-6 h-auto">
+                            <SelectValue placeholder="Категория" />
+                        </SelectTrigger>
+                        <SelectContent>
+                            {DEVICE_CATEGORIES.map(cat => (
+                                <SelectItem key={cat.value} value={cat.value}>{cat.label}</SelectItem>
+                            ))}
+                        </SelectContent>
+                    </Select>
+                    
+                    {(searchQuery || categoryFilter !== 'all') && (
+                        <button
+                            onClick={resetFilters}
+                            className="flex items-center justify-center gap-2 text-sm text-gray-600 hover:text-gray-900"
+                        >
+                            <FilterX size={16} />
+                            <span>Сбросить</span>
+                        </button>
+                    )}
+                </div>
             </div>
             
-            {(searchQuery || categoryFilter !== 'all') && (
-              <button
-                onClick={resetFilters}
-                className="flex items-center gap-2 bg-white border border-gray-200 px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50"
-              >
-                <FilterX size={18} />
-                <span>Сбросить</span>
-              </button>
-            )}
-          </div>
-        </div>
-        
-        {filteredBrands.length === 0 ? (
-          <div className="text-center py-16">
-            <h3 className="text-xl font-medium mb-2">Ничего не найдено</h3>
-            <p className="text-gray-600 mb-4">
-              Попробуйте изменить параметры поиска или сбросить фильтры
-            </p>
-            <button 
-              onClick={resetFilters}
-              className="text-blue-600 font-medium hover:text-blue-700"
-            >
-              Сбросить фильтры
-            </button>
-          </div>
-        ) : (
-          <div className="space-y-6">
-            {filteredBrands.map(brand => (
-              <BrandCard key={brand.id} brand={brand} />
-            ))}
-          </div>
-        )}
-        
-        <div className="mt-12 bg-blue-600 rounded-xl p-8 text-white">
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-2xl font-bold mb-4">Не нашли свое устройство?</h2>
-            <p className="mb-6">
-              Свяжитесь с нами, и мы подскажем, возможен ли ремонт вашего устройства и сколько это будет стоить.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link 
-                to="/contact" 
-                className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium"
-              >
-                Оставить заявку
-              </Link>
-              <a 
-                href="tel:+78001234567" 
-                className="border border-white hover:bg-blue-700 px-6 py-3 rounded-lg font-medium"
-              >
-                Позвонить нам
-              </a>
+            <div className="grid grid-cols-1 gap-6">
+                {filteredBrands.map(brand => (
+                    <BrandCard key={brand.id} brand={brand} />
+                ))}
             </div>
-          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </div>
   );
 };
 
