@@ -55,7 +55,7 @@ const BRAND_DATA = [
       { 
         id: 'galaxy-s23',
         name: 'Galaxy S23', 
-        image: '/models/galaxy-s23.jpg',
+        image: '/models/iphone-15-pro.jpg',
         commonProblems: [
           'Замена дисплея - от 13000 ₽',
           'Проблемы с батареей - от 5000 ₽',
@@ -65,7 +65,7 @@ const BRAND_DATA = [
       { 
         id: 'galaxy-tab-s9',
         name: 'Galaxy Tab S9', 
-        image: '/models/galaxy-tab-s9.jpg',
+        image: '/models/iphone-15-pro.jpg',
         commonProblems: [
           'Замена сенсорного стекла - от 7000 ₽',
           'Не заряжается - диагностика бесплатно',
@@ -83,7 +83,7 @@ const BRAND_DATA = [
       { 
         id: 'redmi-note-12',
         name: 'Redmi Note 12', 
-        image: '/models/redmi-note-12.jpg',
+        image: '/models/iphone-15-pro.jpg',
         commonProblems: [
           'Замена экрана - от 6000 ₽',
           'Проблемы со звуком - от 3000 ₽',
@@ -93,7 +93,7 @@ const BRAND_DATA = [
       { 
         id: 'mi-13',
         name: 'Mi 13', 
-        image: '/models/mi-13.jpg',
+        image: '/models/iphone-15-pro.jpg',
         commonProblems: [
           'Замена стекла - от 8000 ₽',
           'Проблемы с камерой - от 4000 ₽',
@@ -111,7 +111,7 @@ const BRAND_DATA = [
       { 
         id: 'p50-pro',
         name: 'P50 Pro', 
-        image: '/models/p50-pro.jpg',
+        image: '/models/iphone-15-pro.jpg',
         commonProblems: [
           'Разбитый экран - от 10000 ₽',
           'Проблемы с батареей - от 4500 ₽',
@@ -121,7 +121,7 @@ const BRAND_DATA = [
       { 
         id: 'matebook-x',
         name: 'MateBook X', 
-        image: '/models/matebook-x.jpg',
+        image: '/models/iphone-15-pro.jpg',
         commonProblems: [
           'Проблемы с клавиатурой - от 6000 ₽',
           'Замена SSD - от 5000 ₽',
@@ -139,7 +139,7 @@ const BRAND_DATA = [
       { 
         id: 'zenbook',
         name: 'ZenBook', 
-        image: '/models/zenbook.jpg',
+        image: '/models/iphone-15-pro.jpg',
         commonProblems: [
           'Замена матрицы - от 12000 ₽',
           'Не заряжается - от 4000 ₽',
@@ -149,7 +149,7 @@ const BRAND_DATA = [
       { 
         id: 'rog-phone',
         name: 'ROG Phone', 
-        image: '/models/rog-phone.jpg',
+        image: '/models/iphone-15-pro.jpg',
         commonProblems: [
           'Перегрев при играх - от 3500 ₽',
           'Замена аккумулятора - от 5000 ₽',

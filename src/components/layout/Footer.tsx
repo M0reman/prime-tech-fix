@@ -1,14 +1,13 @@
-
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Clock, Mail, MapPin, Phone } from 'lucide-react';
-import WarrantyTermsModal from '../modals/WarrantyTermsModal';
-import PrivacyPolicyModal from '../modals/PrivacyPolicyModal';
 
-const Footer: React.FC = () => {
-  const [warrantyModalOpen, setWarrantyModalOpen] = useState(false);
-  const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
+interface FooterProps {
+  setWarrantyModalOpen: (open: boolean) => void;
+  setPrivacyModalOpen: (open: boolean) => void;
+}
 
+const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen, setPrivacyModalOpen }) => {
   return (
     <footer className="bg-secondary py-12 mt-12">
       <div className="container px-4 mx-auto">
@@ -153,12 +152,13 @@ const Footer: React.FC = () => {
         </div>
         
         <div className="border-t border-muted mt-8 pt-8 text-center text-muted-foreground">
+          <div className="text-xs mb-4">
+            <p>ИП Косынкин Андрей Сергеевич</p>
+            <p>ОГРНИП: 311132822000044, ИНН: 132813311343</p>
+          </div>
           <p>© 2011 - {new Date().getFullYear()} СЦ PRIME. Все права защищены.</p>
         </div>
       </div>
-      
-      <WarrantyTermsModal open={warrantyModalOpen} onOpenChange={setWarrantyModalOpen} />
-      <PrivacyPolicyModal open={privacyModalOpen} onOpenChange={setPrivacyModalOpen} />
     </footer>
   );
 };

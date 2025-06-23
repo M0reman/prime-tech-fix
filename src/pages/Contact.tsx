@@ -19,7 +19,11 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-const Contact: React.FC = () => {
+interface ContactProps {
+  setPrivacyModalOpen: (open: boolean) => void;
+}
+
+const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -186,9 +190,13 @@ const Contact: React.FC = () => {
                     
                     <p className="text-sm text-muted-foreground">
                       Нажимая кнопку «Отправить заявку», вы соглашаетесь с нашей {" "}
-                      <a href="#" className="text-primary hover:underline">
+                      <button
+                        type="button"
+                        onClick={() => setPrivacyModalOpen(true)}
+                        className="text-primary hover:underline"
+                      >
                         Политикой конфиденциальности
-                      </a>
+                      </button>
                     </p>
                   </form>
                 </Form>

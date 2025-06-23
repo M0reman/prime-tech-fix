@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -14,33 +15,42 @@ import Contact from "./pages/Contact";
 import Faq from "./pages/Faq";
 import Brands from "./pages/Brands";
 import NotFound from "./pages/NotFound";
+import WarrantyTermsModal from './components/modals/WarrantyTermsModal';
+import PrivacyPolicyModal from './components/modals/PrivacyPolicyModal';
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <HelmetProvider>
-        <BrowserRouter>
-          <Navbar />
-          <AnimatedTransition>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/services" element={<Services />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/faq" element={<Faq />} />
-              <Route path="/brands" element={<Brands />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </AnimatedTransition>
-          <Footer />
-        </BrowserRouter>
-      </HelmetProvider>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+const App = () => {
+  const [warrantyModalOpen, setWarrantyModalOpen] = useState(false);
+  const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <HelmetProvider>
+          <BrowserRouter>
+            <Navbar />
+            <AnimatedTransition>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact setPrivacyModalOpen={setPrivacyModalOpen} />} />
+                <Route path="/faq" element={<Faq />} />
+                <Route path="/brands" element={<Brands />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </AnimatedTransition>
+            <Footer setWarrantyModalOpen={setWarrantyModalOpen} setPrivacyModalOpen={setPrivacyModalOpen} />
+          </BrowserRouter>
+        </HelmetProvider>
+        <WarrantyTermsModal open={warrantyModalOpen} onOpenChange={setWarrantyModalOpen} />
+        <PrivacyPolicyModal open={privacyModalOpen} onOpenChange={setPrivacyModalOpen} />
+      </TooltipProvider>
+    </QueryClientProvider>
+  );
+}
 
 export default App;

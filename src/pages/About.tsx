@@ -53,7 +53,7 @@ const About: React.FC = () => {
             <div className="order-1 lg:order-2 relative">
               <div className="rounded-xl overflow-hidden shadow-lg">
                 <img 
-                  src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" 
+                  src="/logos/company-background.jpg" 
                   alt="Наша команда за работой" 
                   className="w-full h-auto object-cover rounded-xl"
                 />
@@ -120,7 +120,7 @@ const About: React.FC = () => {
               <div className="bg-background rounded-xl overflow-hidden border border-border shadow-sm">
                 <div className="h-64 overflow-hidden">
                   <img 
-                    src="https://images.unsplash.com/photo-1560250097-0b93528c311a" 
+                    src="/logos/company-background.jpg" 
                     alt="Андрей Смирнов" 
                     className="w-full h-full object-cover object-center"
                   />
@@ -137,7 +137,7 @@ const About: React.FC = () => {
               <div className="bg-background rounded-xl overflow-hidden border border-border shadow-sm">
                 <div className="h-64 overflow-hidden">
                   <img 
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2" 
+                    src="/logos/company-background.jpg" 
                     alt="Елена Козлова" 
                     className="w-full h-full object-cover object-center"
                   />
@@ -154,7 +154,7 @@ const About: React.FC = () => {
               <div className="bg-background rounded-xl overflow-hidden border border-border shadow-sm">
                 <div className="h-64 overflow-hidden">
                   <img 
-                    src="https://images.unsplash.com/photo-1607990281513-2c110a25bd8c" 
+                    src="/logos/company-background.jpg" 
                     alt="Михаил Петров" 
                     className="w-full h-full object-cover object-center"
                   />
@@ -199,16 +199,16 @@ const About: React.FC = () => {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div className="bg-background rounded-lg p-4 flex items-center justify-center h-32 border border-border">
-                  <img src="https://via.placeholder.com/120x60?text=Samsung" alt="Сертификат Samsung" className="max-h-12" />
+                  <img src="/logos/company-logo-square.png" alt="Сертификат Samsung" className="max-h-12" />
                 </div>
                 <div className="bg-background rounded-lg p-4 flex items-center justify-center h-32 border border-border">
-                  <img src="https://via.placeholder.com/120x60?text=Apple" alt="Сертификат Apple" className="max-h-12" />
+                  <img src="/logos/company-logo-square.png" alt="Сертификат Apple" className="max-h-12" />
                 </div>
                 <div className="bg-background rounded-lg p-4 flex items-center justify-center h-32 border border-border">
-                  <img src="https://via.placeholder.com/120x60?text=Lenovo" alt="Сертификат Lenovo" className="max-h-12" />
+                  <img src="/logos/company-logo-square.png" alt="Сертификат Lenovo" className="max-h-12" />
                 </div>
                 <div className="bg-background rounded-lg p-4 flex items-center justify-center h-32 border border-border">
-                  <img src="https://via.placeholder.com/120x60?text=TechAwards" alt="Награда TechAwards" className="max-h-12" />
+                  <img src="/logos/company-logo-square.png" alt="Награда TechAwards" className="max-h-12" />
                 </div>
               </div>
             </div>
