@@ -23,147 +23,147 @@ const getServicesData = (): ServiceCategoryData[] => [
         description: "",
         price: "от 400 ₽",
         features: [],
-        imageSrc: "/serviceCards/smartphone.jpeg"
+        imageSrc: "/serviceCards/smartphone.webp"
       },
       {
         title: "Ремонт планшетов",
         description: "",
         price: "от 400 ₽",
         features: [],
-        imageSrc: "/serviceCards/tablet.jpeg",
+        imageSrc: "/serviceCards/tablet.webp",
       },
       {
         title: "Ремонт компьютеров/ ноутбуков/ мониторов/ системных блоков",
         description: "",
         price: "от 600 ₽",
         features: [],
-        imageSrc: "/serviceCards/laptop.jpeg"
+        imageSrc: "/serviceCards/laptop.webp"
       },
       {
         title: "Ремонт лазерных принтеров/ сканеров/ МФУ",
         description: "",
         price: "от 400 ₽",
         features: [],
-        imageSrc: "/serviceCards/printer.jpeg"
+        imageSrc: "/serviceCards/printer.webp"
       },
       {
         title: "Ремонт телевизоров ЖК/ LED/ QLED/ OLED/ HD/ ТВ-приставок",
         description: "",
         price: "от 800 ₽",
         features: [],
-        imageSrc: "/serviceCards/tv.jpeg"
+        imageSrc: "/serviceCards/tv.webp"
       },
       {
         title: "Ремонт ЧПУ станков",
         description: "",
         price: "Согласование цены после диагностики",
         features: [],
-        imageSrc: "/serviceCards/cnc.jpeg"
+        imageSrc: "/serviceCards/cnc.webp"
       },
       {
         title: "Ремонт аудио-видео техники",
         description: "",
         price: "от 600 ₽",
         features: [],
-        imageSrc: "/serviceCards/audio-video-devices.jpeg"
+        imageSrc: "/serviceCards/audio-video-devices.webp"
       },
       {
         title: "Ремонт автоусилителей",
         description: "",
         price: "от 500 ₽",
         features: [],
-        imageSrc: "/serviceCards/car-amplifier.jpg"
+        imageSrc: "/serviceCards/car-amplifier.webp"
       },
       {
         title: "Ремонт ресиверов",
         description: "",
         price: "от 500 ₽",
         features: [],
-        imageSrc: "/serviceCards/tv-reciever.jpg"
+        imageSrc: "/serviceCards/tv-reciever.webp"
       },
       {
         title: "Ремонт зеркальных/ цифровых фотоаппаратов/ видеокамер/ экшн камер",
         description: "",
         price: "от 800 ₽",
         features: [],
-        imageSrc: "/serviceCards/camera.jpeg"
+        imageSrc: "/serviceCards/camera.webp"
       },
       {
         title: "Ремонт техники Apple (iPhone/ iPad/ iMac/ MacBook/Apple Watch) ",
         description: "",
         price: "от 400 ₽",
         features: [],
-        imageSrc: "/serviceCards/apple-devices.jpg"
+        imageSrc: "/serviceCards/apple-devices.webp"
       },
       {
         title: "Ремонт игровых приставок ( PSP/ xBox360/ xBoxOne/ PS 1,2,3,4,5 и тд.)",
         description: "",
         price: "от 800 ₽",
         features: [],
-        imageSrc: "/serviceCards/playstation.jpeg"
+        imageSrc: "/serviceCards/playstation.webp"
       },
       {
         title: "Ремонт навигаторов/ автомагнитол/ регистраторов/ радар-детекторов",
         description: "",
         price: "от 600 ₽",
         features: [],
-        imageSrc: "/serviceCards/car-multimedia.jpeg"
+        imageSrc: "/serviceCards/car-multimedia.webp"
       },
       {
         title: "Ремонт раций",
         description: "",
         price: "от 600 ₽",
         features: [],
-        imageSrc: "/serviceCards/walkie-talkie.jpg"
+        imageSrc: "/serviceCards/walkie-talkie.webp"
       },
       {
         title: "Ремонт любой бытовой техники (СВЧ-печей/  пылесосов/ пароотпаривателей/ утюгов и т.д.)",
         description: "",
         price: "от 500 ₽",
         features: [],
-        imageSrc: "/serviceCards/appliances.jpeg"
+        imageSrc: "/serviceCards/appliances.webp"
       },
       {
         title: "Ремонт беспроводных колонок",
         description: "",
         price: "от 500 ₽",
         features: [],
-        imageSrc: "/serviceCards/wireless-audio.jpeg"
+        imageSrc: "/serviceCards/wireless-audio.webp"
       },
       {
         title: "Ремонт самокатов",
         description: "",
         price: "от 1 000 ₽",
         features: [],
-        imageSrc: "/serviceCards/scooter.jpg"
+        imageSrc: "/serviceCards/scooter.webp"
       },
       {
         title: "Антивирусная профилактика",
         description: "",
         price: "от 400 ₽",
         features: [],
-        imageSrc: "/serviceCards/antivirus.jpeg"
+        imageSrc: "/serviceCards/antivirus.webp"
       },
       {
         title: "Техническое обслуживание",
         description: "",
         price: "от 600 ₽",
         features: [],
-        imageSrc: "/serviceCards/maintenance.jpeg"
+        imageSrc: "/serviceCards/maintenance.webp"
       },
       {
         title: "Апгрейд ноутбуков, моноблоков, системных блоков",
         description: "",
         price: "от 1 500 ₽",
         features: [],
-        imageSrc: "/serviceCards/pc-upgrade.jpg"
+        imageSrc: "/serviceCards/pc-upgrade.webp"
       },
       {
         title: "Выездной ремонт",
         description: "",
         price: "После согласования с мастером",
         features: [],
-        imageSrc: "/serviceCards/outride-maintenance.jpg"
+        imageSrc: "/serviceCards/outride-maintenance.webp"
       },
     ]
   },

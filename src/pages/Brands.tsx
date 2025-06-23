@@ -23,7 +23,7 @@ const BRAND_DATA = [
       {
         id: "Iphone X",
         name: "Iphone X",
-        image: "/models/apple/iphone-x.jpg",
+        image: "/models/apple/iphone-x.webp",
         commonProblems: [
           "Проблемы с Face ID - Заменить модуль фронтальной камеры",
           "Разбитый задний стеклянный корпус - Заменить заднее стекло",
@@ -33,7 +33,7 @@ const BRAND_DATA = [
       {
         id: "MacBook Pro",
         name: "MacBook Pro",
-        image: "/models/apple/macbook-pro.jpg",
+        image: "/models/apple/macbook-pro.webp",
         commonProblems: [
           "Проблема Flexgate - Заменить шлейф дисплея или дисплей",
           "Неисправность клавиатуры - Заменить верхнюю панель с клавиатурой",
@@ -43,7 +43,7 @@ const BRAND_DATA = [
       {
         id: "iPad Pro",
         name: "iPad Pro",
-        image: "/models/apple/Ipad-pro.jpg",
+        image: "/models/apple/Ipad-pro.webp",
         commonProblems: [
           "Изгиб корпуса - Заменить корпус",
           "Проблемы с сенсорным экраном - Заменить дисплей",
@@ -53,7 +53,7 @@ const BRAND_DATA = [
       {
         id: "Apple Watch Series 4",
         name: "Apple Watch Series 4",
-        image: "/models/apple/apple-watch.jpg",
+        image: "/models/apple/apple-watch.webp",
         commonProblems: [
           "Трещины на экране - Заменить дисплей",
           "Проблемы с батареей - Заменить аккумулятор",
@@ -72,7 +72,7 @@ const BRAND_DATA = [
       {
         id: "Galaxy S21 FE",
         name: "Galaxy S21 FE",
-        image: "/models/samsung/s21-fe.jpg",
+        image: "/models/samsung/s21-fe.webp",
         commonProblems: [
           "Зелёная линия на экране - Заменить OLED-дисплей",
           "Быстрый разряд батареи - Заменить аккумулятор",
@@ -82,7 +82,7 @@ const BRAND_DATA = [
       {
         id: "Galaxy Note 20 Ultra",
         name: "Galaxy Note 20 Ultra",
-        image: "/models/samsung/note20-ultra.jpg",
+        image: "/models/samsung/note20-ultra.webp",
         commonProblems: [
           "Трещины на экране - Заменить дисплейный модуль",
           "Стилус теряет соединение или не реагирует - Замена стилуса или обновление ПО",
@@ -92,7 +92,7 @@ const BRAND_DATA = [
       {
         id: "Galaxy Tab S7",
         name: "Galaxy Tab S7",
-        image: "/models/samsung/tab-s7.jpg",
+        image: "/models/samsung/tab-s7.webp",
         commonProblems: [
           "Неработающий сенсорный экран - Заменить дисплей",
           "Проблемы с Wi-Fi - Сбросить сетевые настройки или заменить Wi-Fi модуль",
@@ -102,7 +102,7 @@ const BRAND_DATA = [
       {
         id: "Galaxy Watch 4",
         name: "Galaxy Watch 4",
-        image: "/models/samsung/smartwatch.jpg",
+        image: "/models/samsung/smartwatch.webp",
         commonProblems: [
           "Трещины на экране - Заменить дисплейный модуль",
           "Быстрый разряд батареи - Заменить аккумулятор",
@@ -121,7 +121,7 @@ const BRAND_DATA = [
       {
         id: "Mi 11",
         name: "Mi 11",
-        image: "/models/xiaomi/mi11.jpg",
+        image: "/models/xiaomi/mi11.webp",
         commonProblems: [
           "Проблемы со звуком (динамик/наушник) - Перепаять процессор или заменить его",
           "Разбитый экран - Заменить дисплейный модуль",
@@ -131,7 +131,7 @@ const BRAND_DATA = [
       {
         id: "Redmi Note 10 Pro",
         name: "Redmi Note 10 Pro",
-        image: "/models/xiaomi/note-10-pro.jpg",
+        image: "/models/xiaomi/note-10-pro.webp",
         commonProblems: [
           "Зелёная линия на экране - Заменить AMOLED-дисплей",
           "Застревание на логотипе Mi - Перепрошить устройство",
@@ -141,7 +141,7 @@ const BRAND_DATA = [
       {
         id: "Pad 5",
         name: "Pad 5",
-        image: "/models/xiaomi/pad5.jpg",
+        image: "/models/xiaomi/pad5.webp",
         commonProblems: [
           "Неработающий сенсорный экран - Перепрошить планшет или заменить дисплей",
           "Проблемы с Wi-Fi - Сбросить сетевые настройки или заменить Wi-Fi модуль",
@@ -151,7 +151,7 @@ const BRAND_DATA = [
       {
         id: "Watch S1",
         name: "Watch S1",
-        image: "/models/xiaomi/watch-s1.jpg",
+        image: "/models/xiaomi/watch-s1.webp",
         commonProblems: [
           "Трещины на экране - Заменить дисплей",
           "Сбой датчиков здоровья - Обновить ПО или заменить сенсорный модуль",
@@ -170,7 +170,7 @@ const BRAND_DATA = [
       {
         id: "P30 Pro",
         name: "P30 Pro",
-        image: "/models/huawei/p30-pro.jpg",
+        image: "/models/huawei/p30-pro.webp",
         commonProblems: [
           "Разбитый экран - Заменить дисплейный модуль",
           "Проблемы с зарядкой - Очистить или заменить порт USB-C",
@@ -180,7 +180,7 @@ const BRAND_DATA = [
       {
         id: "Mate 20 Pro",
         name: "Mate 20 Pro",
-        image: "/models/huawei/mate-20-pro.jpg",
+        image: "/models/huawei/mate-20-pro.webp",
         commonProblems: [
           "Зелёный оттенок экрана - Заменить OLED-дисплей",
           "Неработающий сенсорный экран - Перепрошить устройство или заменить дисплей",
@@ -190,7 +190,7 @@ const BRAND_DATA = [
       {
         id: "Nova 5T",
         name: "Nova 5T",
-        image: "/models/huawei/nova-5t.jpg",
+        image: "/models/huawei/nova-5t.webp",
         commonProblems: [
           "Проблемы с Wi-Fi - Сбросить сетевые настройки или заменить Wi-Fi модуль",
           "Застревание на логотипе - Перепрошить устройство через HiSuite",
@@ -200,7 +200,7 @@ const BRAND_DATA = [
       {
         id: "Watch GT 2",
         name: "Watch GT 2",
-        image: "/models/huawei/watch-gt-2.jpg",
+        image: "/models/huawei/watch-gt-2.webp",
         commonProblems: [
           "Трещины на экране - Заменить дисплей",
           "Сбой датчиков здоровья - Обновить ПО или заменить сенсорный модуль",
@@ -219,7 +219,7 @@ const BRAND_DATA = [
       {
         id: "ZenFone 8",
         name: "ZenFone 8",
-        image: "/models/asus/zenfone-8.jpg",
+        image: "/models/asus/zenfone-8.webp",
         commonProblems: [
           "Разбитый экран - Заменить AMOLED-дисплей",
           "Проблемы с зарядкой - Очистить или заменить порт USB-C",
@@ -229,7 +229,7 @@ const BRAND_DATA = [
       {
         id: "ROG Phone 5",
         name: "ROG Phone 5",
-        image: "/models/asus/rog-phone-5.jpg",
+        image: "/models/asus/rog-phone-5.webp",
         commonProblems: [
           "Перегрев при играх - Очистить систему охлаждения или заменить термопасту",
           "Неработающий сенсорный экран - Перепрошить устройство или заменить дисплей",
@@ -239,7 +239,7 @@ const BRAND_DATA = [
       {
         id: "ZenPad 10",
         name: "ZenPad 10",
-        image: "/models/asus/zenpad-10.jpg",
+        image: "/models/asus/zenpad-10.webp",
         commonProblems: [
           "Проблемы с Wi-Fi - Сбросить сетевые настройки или заменить Wi-Fi модуль",
           "Торможение системы - Перепрошить планшет или сбросить до заводских настроек",
@@ -249,7 +249,7 @@ const BRAND_DATA = [
       {
         id: "ROG Flow Z13",
         name: "ROG Flow Z13",
-        image: "/models/asus/rog-flow-z13.jpg",
+        image: "/models/asus/rog-flow-z13.webp",
         commonProblems: [
           "Перегрев - Очистить систему охлаждения и заменить термопасту",
           "Проблемы с клавиатурой - Заменить клавиатуру или проверить подключение",
@@ -268,7 +268,7 @@ const BRAND_DATA = [
       {
         id: "Legion 5 Pro",
         name: "Legion 5 Pro",
-        image: "/models/lenovo/legion-5-pro.jpg",
+        image: "/models/lenovo/legion-5-pro.webp",
         commonProblems: [
           "Перегрев - Очистить систему охлаждения и заменить термопасту",
           "Проблемы с клавиатурой - Заменить клавиатуру или проверить шлейф",
@@ -278,7 +278,7 @@ const BRAND_DATA = [
       {
         id: "ThinkPad X1 Carbon Gen 9",
         name: "ThinkPad X1 Carbon Gen 9",
-        image: "/models/lenovo/thinkpad-x1-carbon-gen9.jpg",
+        image: "/models/lenovo/thinkpad-x1-carbon-gen9.webp",
         commonProblems: [
           "Неисправность трекпада - Заменить трекпад или обновить драйверы",
           "Проблемы с Wi-Fi - Сбросить сетевые настройки или заменить Wi-Fi модуль",
@@ -288,7 +288,7 @@ const BRAND_DATA = [
       {
         id: "Tab P11 Pro",
         name: "Tab P11 Pro",
-        image: "/models/lenovo/tab-p11-pro.jpg",
+        image: "/models/lenovo/tab-p11-pro.webp",
         commonProblems: [
           "Неработающий сенсорный экран - Перепрошить планшет или заменить дисплей",
           "Быстрый разряд батареи - Заменить аккумулятор",
@@ -298,7 +298,7 @@ const BRAND_DATA = [
       {
         id: "K14 Plus",
         name: "K14 Plus",
-        image: "/models/lenovo/k14-plus.jpg",
+        image: "/models/lenovo/k14-plus.webp",
         commonProblems: [
           "Разбитый экран - Заменить дисплейный модуль",
           "Проблемы с зарядкой - Очистить или заменить порт USB-C",
@@ -317,7 +317,7 @@ const BRAND_DATA = [
       {
         id: "Envy x360",
         name: "Envy x360",
-        image: "/models/hp/envy-x360.jpg",
+        image: "/models/hp/envy-x360.webp",
         commonProblems: [
           "Проблемы с шарнирами - Заменить крышку дисплея или шарниры",
           "Быстрый разряд батареи - Заменить аккумулятор",
@@ -327,7 +327,7 @@ const BRAND_DATA = [
       {
         id: "Pavilion 15",
         name: "Pavilion 15",
-        image: "/models/hp/pavilion-15.jpg",
+        image: "/models/hp/pavilion-15.webp",
         commonProblems: [
           "Разбитый экран - Заменить дисплейный модуль",
           "Неисправность клавиатуры - Очистить или заменить клавиатуру",
@@ -337,7 +337,7 @@ const BRAND_DATA = [
       {
         id: "ProBook 445 G10",
         name: "ProBook 445 G10",
-        image: "/models/hp/probook-445-g10.jpg",
+        image: "/models/hp/probook-445-g10.webp",
         commonProblems: [
           "Перегрев - Очистить систему охлаждения и заменить термопасту",
           "Неисправность трекпада - Заменить трекпад или обновить драйверы",
@@ -347,7 +347,7 @@ const BRAND_DATA = [
       {
         id: "OfficeJet Pro 9125e",
         name: "OfficeJet Pro 9125e",
-        image: "/models/hp/officejet-pro-9125e.jpg",
+        image: "/models/hp/officejet-pro-9125e.webp",
         commonProblems: [
           "Замятие бумаги - Очистить лоток и ролики подачи бумаги",
           "Ошибки картриджа - Заменить картридж или обновить прошивку",
@@ -366,7 +366,7 @@ const BRAND_DATA = [
       {
         id: "Aspire 5",
         name: "Aspire 5",
-        image: "/models/acer/aspire-5.jpg",
+        image: "/models/acer/aspire-5.webp",
         commonProblems: [
           "Разбитый экран - Заменить дисплейный модуль",
           "Быстрый разряд батареи - Заменить аккумулятор",
@@ -376,7 +376,7 @@ const BRAND_DATA = [
       {
         id: "Nitro 5",
         name: "Nitro 5",
-        image: "/models/acer/nitro-5.jpg",
+        image: "/models/acer/nitro-5.webp",
         commonProblems: [
           "Перегрев - Очистить систему охлаждения и заменить термопасту",
           "Проблемы с Wi-Fi - Сбросить сетевые настройки или заменить Wi-Fi модуль",
@@ -386,7 +386,7 @@ const BRAND_DATA = [
       {
         id: "Swift 3",
         name: "Swift 3",
-        image: "/models/acer/swift-3.jpg",
+        image: "/models/acer/swift-3.webp",
         commonProblems: [
           "Неисправность трекпада - Заменить трекпад или обновить драйверы",
           "Износ батареи - Заменить аккумулятор",
@@ -396,7 +396,7 @@ const BRAND_DATA = [
       {
         id: "Chromebook Spin 713",
         name: "Chromebook Spin 713",
-        image: "/models/acer/chromebook-spin-713.jpg",
+        image: "/models/acer/chromebook-spin-713.webp",
         commonProblems: [
           "Неработающий сенсорный экран - Перепрошить устройство или заменить дисплей",
           "Проблемы с зарядкой - Очистить или заменить порт USB-C",
