@@ -14,6 +14,10 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Faq from "./pages/Faq";
 import Brands from "./pages/Brands";
+import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
+import AdminLogin from "./pages/admin/AdminLogin";
+import AdminBlog from "./pages/admin/AdminBlog";
 import NotFound from "./pages/NotFound";
 import WarrantyTermsModal from './components/modals/WarrantyTermsModal';
 import PrivacyPolicyModal from './components/modals/PrivacyPolicyModal';
@@ -62,6 +66,10 @@ const App = () => {
                 <Route path="/contact" element={<Contact setPrivacyModalOpen={setPrivacyModalOpen} setSuccessModalOpen={setSuccessModalOpen} />} />
                 <Route path="/faq" element={<Faq />} />
                 <Route path="/brands" element={<Brands />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/admin/login" element={<AdminLogin />} />
+                <Route path="/admin/blog" element={<AdminBlog />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </AnimatedTransition>
