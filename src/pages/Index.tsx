@@ -6,6 +6,7 @@ import CompanyLogos from '@/components/home/CompanyLogos';
 import YandexReviews from '@/components/home/YandexReviews';
 import ContactCard from '@/components/common/ContactCard';
 import { Shield, Clock, Settings, Award } from 'lucide-react';
+import { companyInfo } from '@/data/companyInfo';
 
 const Index: React.FC = () => {
   useEffect(() => {
@@ -32,6 +33,28 @@ const Index: React.FC = () => {
         <meta name="twitter:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         {/* Canonical */}
         <link rel="canonical" href="https://serviceprime13.ru/" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "http://schema.org",
+            "@type": "LocalBusiness",
+            "name": companyInfo.name,
+            "image": companyInfo.image,
+            "address": {
+              "@type": "PostalAddress",
+              ...companyInfo.address
+            },
+            "telephone": companyInfo.telephone,
+            "email": companyInfo.email,
+            "url": companyInfo.url,
+            "openingHours": companyInfo.openingHours,
+            "priceRange": companyInfo.priceRange,
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": companyInfo.ratingValue,
+              "reviewCount": companyInfo.reviewCount
+            }
+          })}
+        </script>
     </Helmet>
     <Hero />
     

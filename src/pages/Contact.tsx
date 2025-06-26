@@ -21,6 +21,7 @@ import {
 import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 import ruLabels from 'react-phone-number-input/locale/ru.json';
+import { companyInfo } from '@/data/companyInfo';
 
 interface ContactProps {
   setPrivacyModalOpen: (open: boolean) => void;
@@ -103,6 +104,28 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, setSuccessModalO
         <meta name="twitter:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         {/* Canonical */}
         <link rel="canonical" href="https://serviceprime13.ru/contact" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "http://schema.org",
+            "@type": "LocalBusiness",
+            "name": companyInfo.name,
+            "image": companyInfo.image,
+            "address": {
+              "@type": "PostalAddress",
+              ...companyInfo.address
+            },
+            "telephone": companyInfo.telephone,
+            "email": companyInfo.email,
+            "url": companyInfo.url,
+            "openingHours": companyInfo.openingHours,
+            "priceRange": companyInfo.priceRange,
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": companyInfo.ratingValue,
+              "reviewCount": companyInfo.reviewCount
+            }
+          })}
+        </script>
       </Helmet>
       <section className="py-20">
         <div className="container px-4">

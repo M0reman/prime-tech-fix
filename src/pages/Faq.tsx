@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, ReactNode } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from '@/components/ui/button';
@@ -222,6 +222,23 @@ const Faq: React.FC = () => {
         <meta name="twitter:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         {/* Canonical */}
         <link rel="canonical" href="https://serviceprime13.ru/faq" />
+        {/* Schema.org FAQPage (автоматически) */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqCategories.flatMap(category =>
+              category.items.map(item => ({
+                "@type": "Question",
+                "name": item.question,
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": extractText(item.answer)
+                }
+              }))
+            )
+          })}
+        </script>
       </Helmet>
       <section className="py-20">
         <div className="container px-4">
@@ -310,5 +327,20 @@ const Faq: React.FC = () => {
     </div>
   );
 };
+
+function extractText(node: ReactNode): string {
+  if (typeof node === 'string' || typeof node === 'number') return String(node);
+  if (Array.isArray(node)) return node.map(extractText).join(' ');
+  if (
+    node &&
+    typeof node === 'object' &&
+    'props' in node &&
+    (node as React.ReactElement).props &&
+    (node as React.ReactElement).props.children
+  ) {
+    return extractText((node as React.ReactElement).props.children);
+  }
+  return '';
+}
 
 export default Faq;

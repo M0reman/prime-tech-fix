@@ -6,6 +6,7 @@ import ContactCard from '@/components/common/ContactCard';
 import { ShieldCheck, Users, Trophy, Clock } from 'lucide-react';
 import { Certificate } from 'crypto';
 import Certificates from '@/components/common/Certificates';
+import { companyInfo } from '@/data/companyInfo';
 
 const About: React.FC = () => {
   useEffect(() => {
@@ -32,6 +33,21 @@ const About: React.FC = () => {
         <meta name="twitter:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         {/* Canonical */}
         <link rel="canonical" href="https://serviceprime13.ru/about" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "http://schema.org",
+            "@type": "Organization",
+            "name": companyInfo.name,
+            "url": companyInfo.url,
+            "logo": companyInfo.image,
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "telephone": companyInfo.telephone,
+              "contactType": "customer service",
+              "areaServed": "RU"
+            }
+          })}
+        </script>
       </Helmet>
       <section className="py-20">
         <div className="container px-4">
