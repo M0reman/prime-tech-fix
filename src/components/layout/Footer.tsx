@@ -188,8 +188,10 @@ const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen, setPrivacyModalOp
             <p>
               <meta itemProp="identifier" content="ОГРНИП: 311132822000044" />
               <meta itemProp="identifier" content="ИНН: 132813311343" />
-              ИП Косынкин Андрей Сергеевич
+              ИП Косынкин Андрей Сергеевич<br />
+              ОГРНИП: 311132822000044, ИНН: 132813311343
             </p>
+            <br />
             <p>© 2011 - {new Date().getFullYear()} СЦ PRIME. Все права защищены.</p>
           </div>
         </div>
