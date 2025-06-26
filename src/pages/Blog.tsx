@@ -28,6 +28,24 @@ interface BlogResponse {
   has_prev: boolean;
 }
 
+// Удаляет Markdown-теги из текста
+function stripMarkdown(content: string): string {
+  return content
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, '') // images
+    .replace(/\[[^\]]*\]\([^)]*\)/g, '') // links
+    .replace(/`{1,3}[^`]*`{1,3}/g, '') // inline code
+    .replace(/\*\*([^*]+)\*\*/g, '$1') // bold
+    .replace(/\*([^*]+)\*/g, '$1') // italic
+    .replace(/_([^_]+)_/g, '$1') // italic
+    .replace(/#{1,6}\s?/g, '') // headers
+    .replace(/>\s?/g, '') // blockquotes
+    .replace(/-\s?/g, '') // lists
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, '') // images
+    .replace(/\r?\n|\r/g, ' ') // newlines
+    .replace(/\s{2,}/g, ' ') // extra spaces
+    .trim();
+}
+
 const Blog: React.FC = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
@@ -278,7 +296,7 @@ const Blog: React.FC = () => {
                   </CardHeader>
                   <CardContent>
                     <p className="text-gray-600 mb-4 line-clamp-3">
-                      {truncateContent(post.content)}
+                      {truncateContent(stripMarkdown(post.content))}
                     </p>
                     {post.tags.length > 0 && (
                       <div className="flex flex-wrap gap-2">
