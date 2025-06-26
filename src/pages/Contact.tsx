@@ -288,16 +288,20 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, setSuccessModalO
                 </div>
               </div>
               
-              <div className="bg-background rounded-xl p-6 shadow-sm border border-border">
+              <div className="bg-background rounded-xl p-6 shadow-sm border border-border" itemScope itemType="https://schema.org/LocalBusiness">
                 <h2 className="text-2xl font-semibold mb-6">Наш адрес</h2>
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
                     <MapPin size={24} className="text-primary shrink-0 mt-1" />
                     <div>
-                      <h3 className="text-lg font-medium mb-1">Сервисный центр PRIME</h3>
-                      <p className="text-muted-foreground">
-                        г. Саранск, ул. Севастопольская, д. 56/2
-                      </p>
+                      <h3 className="text-lg font-medium mb-1" itemProp="name">Сервисный центр PRIME</h3>
+                      <div className="text-muted-foreground" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                        <span itemProp="streetAddress">ул. Севастопольская, д. 56/2</span>,
+                        <span itemProp="addressLocality">Саранск</span>,
+                        <span itemProp="addressRegion">Республика Мордовия</span>,
+                        <span itemProp="postalCode">430000</span>,
+                        <span itemProp="addressCountry">RU</span>
+                      </div>
                     </div>
                   </div>
                   
@@ -306,9 +310,29 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, setSuccessModalO
                     <div>
                       <h3 className="text-lg font-medium mb-1">Часы работы</h3>
                       <p className="text-muted-foreground">
-                        Пн-Пт: 10:00-19:00<br />
-                        Сб: 10:00-14:00
+                        <span itemProp="openingHours">Mo-Fr 10:00-19:00</span><br />
+                        <span itemProp="openingHours">Sa 10:00-14:00</span>
                       </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <Phone size={24} className="text-primary shrink-0 mt-1" />
+                    <div>
+                      <h3 className="text-lg font-medium mb-1">Телефон</h3>
+                      <a href="tel:+79297474511" className="block text-primary hover:underline" itemProp="telephone">
+                        8 (929) 747-45-11
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-4">
+                    <Mail size={24} className="text-primary shrink-0 mt-1" />
+                    <div>
+                      <h3 className="text-lg font-medium mb-1">Email</h3>
+                      <a href="mailto:serviceprime@mail.ru" className="block text-primary hover:underline" itemProp="email">
+                        serviceprime@mail.ru
+                      </a>
                     </div>
                   </div>
                 </div>

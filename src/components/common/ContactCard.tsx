@@ -1,11 +1,10 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
 const ContactCard: React.FC = () => {
   return (
-    <div className="rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 p-5 md:p-10 relative overflow-hidden shadow-md text-white">
+    <div className="rounded-xl bg-gradient-to-br from-blue-600 to-blue-800 p-5 md:p-10 relative overflow-hidden shadow-md text-white" itemScope itemType="https://schema.org/LocalBusiness">
       <div className="absolute w-64 h-64 rounded-full bg-blue-500/30 -top-32 -right-32 blur-3xl pointer-events-none" />
       <div className="absolute w-64 h-64 rounded-full bg-blue-700/30 -bottom-32 -left-32 blur-3xl pointer-events-none" />
       
@@ -21,7 +20,7 @@ const ContactCard: React.FC = () => {
             </Link>
           </Button>
           <Button size="lg" asChild className="border border-white bg-blue-700/30 text-white hover:bg-blue-700/100 px-8 py-3 rounded-md font-medium transition-colors">
-            <a href="tel:+79297474511" className="font-medium">
+            <a href="tel:+79297474511" className="font-medium" itemProp="telephone">
               8 (929) 747-45-11
             </a>
           </Button>

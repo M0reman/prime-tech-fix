@@ -23,19 +23,19 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen, setPrivacyModalOpen }) => {
   return (
     <footer className="bg-secondary py-12 mt-12">
-      <div className="container px-4 mx-auto">
+      <div className="container px-4 mx-auto" itemScope itemType="https://schema.org/LocalBusiness">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
           <div className="space-y-4">
             <Link to="/" className="font-bold text-2xl flex items-center gap-1">
-              <img src="/logos/company-logo-square.png" alt="Logo" className="w-8 h-8"></img>
-              <span className="text-primary">СЦ</span>
+              <img src="/logos/company-logo-square.png" alt="Logo" className="w-8 h-8" />
+              <span className="text-primary" itemProp="name">СЦ</span>
               <span className="text-foreground">PRIME</span>
             </Link>
             <p className="text-muted-foreground mt-2">
               Профессиональный ремонт цифровой и бытовой техники с гарантией качества
             </p>
             <div className="flex space-x-4 pt-2">
-              <a href="https://vk.com/serviceprime" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://vk.com/serviceprime" className="text-muted-foreground hover:text-primary transition-colors" itemProp="sameAs">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0,0,256,256">
                   <g fill="#717479" fill-rule="nonzero" stroke="currentColor" stroke-width="1.2" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none">
                     <g transform="scale(5.12,5.12)">
@@ -53,6 +53,7 @@ const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen, setPrivacyModalOp
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-green-500 transition-colors"
                 title="Написать в WhatsApp"
+                itemProp="sameAs"
               >
                 <WhatsAppIcon />
               </a>
@@ -64,11 +65,12 @@ const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen, setPrivacyModalOp
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-blue-500 transition-colors"
                 title="Написать в Telegram"
+                itemProp="sameAs"
               >
                 <TelegramIcon />
               </a>
               
-              <a href="https://www.instagram.com/service_prime_13" className="text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://www.instagram.com/service_prime_13" className="text-muted-foreground hover:text-primary transition-colors" itemProp="sameAs">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -147,7 +149,7 @@ const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen, setPrivacyModalOp
               <li className="flex items-start gap-2">
                 <Phone size={18} className="text-primary mt-1 flex-shrink-0" />
                 <div>
-                  <a href="tel:+79297474511" className="hover:text-primary transition-colors">
+                  <a href="tel:+79297474511" className="hover:text-primary transition-colors" itemProp="telephone">
                     8 (929) 747-45-11
                   </a>
                 </div>
@@ -155,22 +157,26 @@ const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen, setPrivacyModalOp
               <li className="flex items-start gap-2">
                 <Mail size={18} className="text-primary mt-1 flex-shrink-0" />
                 <div>
-                  <a href="mailto:serviceprime@mail.ru" className="hover:text-primary transition-colors">
+                  <a href="mailto:serviceprime@mail.ru" className="hover:text-primary transition-colors" itemProp="email">
                     serviceprime@mail.ru
                   </a>
                 </div>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin size={18} className="text-primary mt-1 flex-shrink-0" />
-                <div>
-                 г.Саранск, ул.Севастопольская, д. 56/2
+                <div itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                  <span itemProp="streetAddress">ул. Севастопольская, д. 56/2</span>,
+                  <span itemProp="addressLocality">Саранск</span>,
+                  <span itemProp="addressRegion">Республика Мордовия</span>,
+                  <span itemProp="postalCode">430000</span>,
+                  <span itemProp="addressCountry">RU</span>
                 </div>
               </li>
               <li className="flex items-start gap-2">
                 <Clock size={18} className="text-primary mt-1 flex-shrink-0" />
                 <div>
-                  Пн-Пт: 10:00-19:00<br />
-                  Сб: 10:00-14:00
+                  <span itemProp="openingHours">Mo-Fr 10:00-19:00</span><br />
+                  <span itemProp="openingHours">Sa 10:00-14:00</span>
                 </div>
               </li>
             </ul>
@@ -179,10 +185,13 @@ const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen, setPrivacyModalOp
         
         <div className="border-t border-muted mt-8 pt-8 text-center text-muted-foreground">
           <div className="text-xs mb-4">
-            <p>ИП Косынкин Андрей Сергеевич</p>
-            <p>ОГРНИП: 311132822000044, ИНН: 132813311343</p>
+            <p>
+              <meta itemProp="identifier" content="ОГРНИП: 311132822000044" />
+              <meta itemProp="identifier" content="ИНН: 132813311343" />
+              ИП Косынкин Андрей Сергеевич
+            </p>
+            <p>© 2011 - {new Date().getFullYear()} СЦ PRIME. Все права защищены.</p>
           </div>
-          <p>© 2011 - {new Date().getFullYear()} СЦ PRIME. Все права защищены.</p>
         </div>
       </div>
     </footer>
