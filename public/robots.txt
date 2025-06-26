@@ -17,4 +17,3 @@ Allow: /
 Disallow: /admin/
 
 Sitemap: https://serviceprime13.ru/sitemap.xml
-RSS: https://serviceprime13.ru/rss.xml
