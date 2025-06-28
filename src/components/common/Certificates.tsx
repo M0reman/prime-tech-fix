@@ -5,29 +5,29 @@ const Certificates: React.FC = () => {
   const certificates = [
     {
       id: 1,
-      imageSrc: "/brands/apple.png",
-      altText: "Apple",
+      imageSrc: "/brands-img/apple.png",
+      altText: "Apple сертификат"
     },
     {
       id: 2,
-      imageSrc: "/brands/samsung.png",
-      altText: "Samsung",
+      imageSrc: "/brands-img/samsung.png",
+      altText: "Samsung сертификат"
     },
     {
       id: 3,
-      imageSrc: "/brands/lenovo.png",
-      altText: "Lenovo",
+      imageSrc: "/brands-img/lenovo.png",
+      altText: "Lenovo сертификат"
     },
     {
       id: 4,
-      imageSrc: "/brands/hp.png",
-      altText: "Hp",
+      imageSrc: "/brands-img/hp.png",
+      altText: "HP сертификат"
     },
     {
       id: 5,
-      imageSrc: "/brands/acer.png",
-      altText: "Acer",
-    },
+      imageSrc: "/brands-img/acer.png",
+      altText: "Acer сертификат"
+    }
   ];
 
   return (

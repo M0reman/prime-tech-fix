@@ -1,27 +1,26 @@
-
 import React from 'react';
 
 const CompanyLogos: React.FC = () => {
   const companies = [
     {
       name: 'Apple',
-      logo: '/brands/apple.png'
+      logo: '/brands-img/apple.png'
     },
     {
       name: 'Samsung',
-      logo: '/brands/samsung.png'
+      logo: '/brands-img/samsung.png'
     },
     {
       name: 'Xiaomi',
-      logo: '/brands/xiaomi.png'
+      logo: '/brands-img/xiaomi.png'
     },
     {
       name: 'Huawei',
-      logo: '/brands/huawei.png'
+      logo: '/brands-img/huawei.png'
     },
     {
       name: 'ASUS',
-      logo: '/brands/asus.png'
+      logo: '/brands-img/asus.png'
     }
   ];
 

@@ -10,13 +10,14 @@ import {
 } from "@/components/ui/select";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
+import { Helmet } from "react-helmet-async";
 
 // Данные о брендах и моделях
 const BRAND_DATA = [
   {
     id: "apple",
     name: "Apple",
-    logo: "/brands/apple.png",
+    logo: "/brands-img/apple.png",
     description:
       "Apple Inc. - американская технологическая компания, производитель iPhone, iPad, Mac, Apple Watch и других устройств.",
     models: [
@@ -65,7 +66,7 @@ const BRAND_DATA = [
   {
     id: "samsung",
     name: "Samsung",
-    logo: "/brands/samsung.png",
+    logo: "/brands-img/samsung.png",
     description:
       "Samsung Electronics - южнокорейская компания, один из крупнейших производителей электроники, включая смартфоны, телевизоры и бытовую технику.",
     models: [
@@ -114,7 +115,7 @@ const BRAND_DATA = [
   {
     id: "xiaomi",
     name: "Xiaomi",
-    logo: "/brands/xiaomi.png",
+    logo: "/brands-img/xiaomi.png",
     description:
       "Xiaomi Corporation - китайская компания, известная своими доступными смартфонами, планшетами, умными часами и другой электроникой с высоким качеством.",
     models: [
@@ -163,7 +164,7 @@ const BRAND_DATA = [
   {
     id: "huawei",
     name: "Huawei",
-    logo: "/brands/huawei.png",
+    logo: "/brands-img/huawei.png",
     description:
       "Huawei Technologies - китайская компания, один из крупнейших производителей смартфонов, планшетов и носимых устройств, известная инновационными технологиями и высококачественным оборудованием.",
     models: [
@@ -212,7 +213,7 @@ const BRAND_DATA = [
   {
     id: "asus",
     name: "ASUS",
-    logo: "/brands/asus.png",
+    logo: "/brands-img/asus.png",
     description:
       "ASUS - тайваньская компания, известная производством ноутбуков, смартфонов, планшетов и компьютерных комплектующих с акцентом на инновации и производительность.",
     models: [
@@ -261,7 +262,7 @@ const BRAND_DATA = [
   {
     id: "lenovo",
     name: "Lenovo",
-    logo: "/brands/lenovo.png",
+    logo: "/brands-img/lenovo.png",
     description:
       "Lenovo - китайская компания, один из ведущих производителей ноутбуков, планшетов и смартфонов, известная надежными устройствами для работы и развлечений.",
     models: [
@@ -310,7 +311,7 @@ const BRAND_DATA = [
   {
     id: "hp",
     name: "HP",
-    logo: "/brands/hp.png",
+    logo: "/brands-img/hp.png",
     description:
       "HP Inc. - американская компания, ведущий производитель ноутбуков, настольных компьютеров, принтеров и другой электроники, известная надежностью и инновациями для дома и бизнеса.",
     models: [
@@ -359,7 +360,7 @@ const BRAND_DATA = [
   {
     id: "acer",
     name: "Acer",
-    logo: "/brands/acer.png",
+    logo: "/brands-img/acer.png",
     description:
       "Acer Inc. - тайваньская компания, производитель ноутбуков, настольных компьютеров, планшетов и мониторов, известная доступными и производительными устройствами для широкого круга пользователей.",
     models: [
@@ -539,107 +540,127 @@ const Brands = () => {
   };
 
   return (
-    <main className="py-16 pt-32">
-      {/* SEO метаданные - реализовано через title и meta-description */}
-      <div className="container px-4 mx-auto">
-        <h1 className="text-3xl md:text-4xl font-bold mb-2">
-          Бренды и устройства
-        </h1>
-        <p className="text-lg text-gray-600 mb-8 max-w-3xl">
-          Ознакомьтесь с брендами и моделями устройств, с которыми мы работаем.
-          Найдите информацию о распространенных проблемах и стоимости ремонта.
-        </p>
+    <>
+      <Helmet>
+        <title>Бренды и устройства - Сервисный центр Prime</title>
+        <meta name="description" content="Ознакомьтесь с брендами и моделями устройств, с которыми мы работаем. Найдите информацию о распространенных проблемах и стоимости ремонта Apple, Samsung, Xiaomi, Huawei, ASUS, Lenovo, HP, Acer." />
+        <meta name="keywords" content="ремонт техники, сервисный центр, Apple, Samsung, Xiaomi, Huawei, ASUS, Lenovo, HP, Acer, iPhone, MacBook, Galaxy, ремонт смартфонов, ремонт ноутбуков" />
+        <link rel="canonical" href="https://serviceprime13.ru/brands" />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content="Бренды и устройства - Сервисный центр Prime" />
+        <meta property="og:description" content="Ознакомьтесь с брендами и моделями устройств, с которыми мы работаем. Найдите информацию о распространенных проблемах и стоимости ремонта." />
+        <meta property="og:url" content="https://serviceprime13.ru/brands" />
+        <meta property="og:type" content="website" />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Бренды и устройства - Сервисный центр Prime" />
+        <meta name="twitter:description" content="Ознакомьтесь с брендами и моделями устройств, с которыми мы работаем." />
+      </Helmet>
+      
+      <main className="py-16 pt-32">
+        {/* SEO метаданные - реализовано через title и meta-description */}
+        <div className="container px-4 mx-auto">
+          <h1 className="text-3xl md:text-4xl font-bold mb-2">
+            Бренды и устройства
+          </h1>
+          <p className="text-lg text-gray-600 mb-8 max-w-3xl">
+            Ознакомьтесь с брендами и моделями устройств, с которыми мы работаем.
+            Найдите информацию о распространенных проблемах и стоимости ремонта.
+          </p>
 
-        <div className="bg-blue-50 rounded-xl p-6 mb-8">
-          <div className="flex flex-col md:flex-row gap-4">
-            <div className="relative flex-grow">
-              <Search
-                className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
-                size={20}
-              />
-              <Input
-                type="text"
-                placeholder="Поиск по брендам и моделям..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 py-6 h-auto"
-              />
-            </div>
-            <div className="w-full md:w-64">
-              <Select value={categoryFilter} onValueChange={setCategoryFilter}>
-                <SelectTrigger className="py-6 h-auto">
-                  <SelectValue placeholder="Тип устройства" />
-                </SelectTrigger>
-                <SelectContent>
-                  {DEVICE_CATEGORIES.map((category) => (
-                    <SelectItem key={category.value} value={category.value}>
-                      {category.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
+          <div className="bg-blue-50 rounded-xl p-6 mb-8">
+            <div className="flex flex-col md:flex-row gap-4">
+              <div className="relative flex-grow">
+                <Search
+                  className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"
+                  size={20}
+                />
+                <Input
+                  type="text"
+                  placeholder="Поиск по брендам и моделям..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-10 py-6 h-auto"
+                />
+              </div>
+              <div className="w-full md:w-64">
+                <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+                  <SelectTrigger className="py-6 h-auto">
+                    <SelectValue placeholder="Тип устройства" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {DEVICE_CATEGORIES.map((category) => (
+                      <SelectItem key={category.value} value={category.value}>
+                        {category.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
 
-            {(searchQuery || categoryFilter !== "all") && (
+              {(searchQuery || categoryFilter !== "all") && (
+                <button
+                  onClick={resetFilters}
+                  className="flex items-center gap-2 bg-white border border-gray-200 px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50"
+                >
+                  <FilterX size={18} />
+                  <span>Сбросить</span>
+                </button>
+              )}
+            </div>
+          </div>
+
+          {filteredBrands.length === 0 ? (
+            <div className="text-center py-16">
+              <h3 className="text-xl font-medium mb-2">Ничего не найдено</h3>
+              <p className="text-gray-600 mb-4">
+                Попробуйте изменить параметры поиска или сбросить фильтры
+              </p>
               <button
                 onClick={resetFilters}
-                className="flex items-center gap-2 bg-white border border-gray-200 px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50"
+                className="text-blue-600 font-medium hover:text-blue-700"
               >
-                <FilterX size={18} />
-                <span>Сбросить</span>
+                Сбросить фильтры
               </button>
-            )}
-          </div>
-        </div>
+            </div>
+          ) : (
+            <div className="space-y-6">
+              {filteredBrands.map((brand) => (
+                <BrandCard key={brand.id} brand={brand} />
+              ))}
+            </div>
+          )}
 
-        {filteredBrands.length === 0 ? (
-          <div className="text-center py-16">
-            <h3 className="text-xl font-medium mb-2">Ничего не найдено</h3>
-            <p className="text-gray-600 mb-4">
-              Попробуйте изменить параметры поиска или сбросить фильтры
-            </p>
-            <button
-              onClick={resetFilters}
-              className="text-blue-600 font-medium hover:text-blue-700"
-            >
-              Сбросить фильтры
-            </button>
-          </div>
-        ) : (
-          <div className="space-y-6">
-            {filteredBrands.map((brand) => (
-              <BrandCard key={brand.id} brand={brand} />
-            ))}
-          </div>
-        )}
-
-        <div className="mt-12 bg-blue-600 rounded-xl p-8 text-white">
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-2xl font-bold mb-4">
-              Не нашли свое устройство?
-            </h2>
-            <p className="mb-6">
-              Свяжитесь с нами, и мы подскажем, возможен ли ремонт вашего
-              устройства и сколько это будет стоить.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/contact"
-                className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium"
-              >
-                Оставить заявку
-              </Link>
-              <a
-                href="tel:+78001234567"
-                className="border border-white hover:bg-blue-700 px-6 py-3 rounded-lg font-medium"
-              >
-                Позвонить нам
-              </a>
+          <div className="mt-12 bg-blue-600 rounded-xl p-8 text-white">
+            <div className="text-center max-w-2xl mx-auto">
+              <h2 className="text-2xl font-bold mb-4">
+                Не нашли свое устройство?
+              </h2>
+              <p className="mb-6">
+                Свяжитесь с нами, и мы подскажем, возможен ли ремонт вашего
+                устройства и сколько это будет стоить.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  to="/contact"
+                  className="bg-white text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium"
+                >
+                  Оставить заявку
+                </Link>
+                <a
+                  href="tel:+78001234567"
+                  className="border border-white hover:bg-blue-700 px-6 py-3 rounded-lg font-medium"
+                >
+                  Позвонить нам
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 };
 
