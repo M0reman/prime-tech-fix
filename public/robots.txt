@@ -1,19 +1,50 @@
+# Robots.txt для сервисного центра Prime
+# https://serviceprime13.ru
+
+# Основные правила для всех роботов
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+
+# Специальные правила для Яндекса
+User-agent: Yandex
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Crawl-delay: 1
+
+# Специальные правила для Google
 User-agent: Googlebot
 Allow: /
 Disallow: /admin/
+Disallow: /api/
 
+# Специальные правила для Bing
 User-agent: Bingbot
 Allow: /
 Disallow: /admin/
+Disallow: /api/
 
+# Специальные правила для социальных сетей
 User-agent: Twitterbot
 Allow: /
 
 User-agent: facebookexternalhit
 Allow: /
 
-User-agent: *
+User-agent: LinkedInBot
 Allow: /
-Disallow: /admin/
 
+# Специальные правила для VK
+User-agent: VkBot
+Allow: /
+
+# Специальные правила для Telegram
+User-agent: TelegramBot
+Allow: /
+
+# Указание sitemap (генерируется автоматически при сборке)
 Sitemap: https://serviceprime13.ru/sitemap.xml

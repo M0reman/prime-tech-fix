@@ -1,0 +1,118 @@
+# .htaccess для сервисного центра Prime
+# https://serviceprime13.ru
+
+# Включаем модуль перезаписи
+RewriteEngine On
+
+# Базовый путь (если сайт в подпапке)
+# RewriteBase /
+
+# Принудительный HTTPS (раскомментировать при необходимости)
+# RewriteCond %{HTTPS} off
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Убираем www (раскомментировать при необходимости)
+# RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+# RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# Обработка 404 ошибок для несуществующих файлов
+ErrorDocument 404 /404.html
+
+# Кэширование статических файлов
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Изображения
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # Видео
+    ExpiresByType video/mp4 "access plus 1 month"
+    ExpiresByType video/webm "access plus 1 month"
+    
+    # CSS, JavaScript
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType text/javascript "access plus 1 month"
+    
+    # Шрифты
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+    
+    # HTML
+    ExpiresByType text/html "access plus 1 hour"
+</IfModule>
+
+# Сжатие файлов
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+    AddOutputFilterByType DEFLATE application/json
+</IfModule>
+
+# Защита от доступа к системным файлам
+<FilesMatch "^\.">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|inc|bak)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Защита от доступа к конфигурационным файлам
+<Files "package.json">
+    Order allow,deny
+    Deny from all
+</Files>
+
+<Files "package-lock.json">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Настройки безопасности
+<IfModule mod_headers.c>
+    # Защита от XSS атак
+    Header always set X-XSS-Protection "1; mode=block"
+    
+    # Защита от MIME-sniffing
+    Header always set X-Content-Type-Options "nosniff"
+    
+    # Защита от clickjacking
+    Header always set X-Frame-Options "SAMEORIGIN"
+    
+    # HSTS (раскомментировать при использовании HTTPS)
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+</IfModule>
+
+# Перенаправление для SPA (Single Page Application)
+<IfModule mod_rewrite.c>
+    # Если файл или директория не существует
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    
+    # И это не API запрос
+    RewriteCond %{REQUEST_URI} !^/api/
+    
+    # И это не статические файлы
+    RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg|jpeg|gif|ico|svg|webp|woff|woff2|ttf|eot)$
+    
+    # Перенаправляем на index.html
+    RewriteRule ^(.*)$ /index.html [L]
+</IfModule> 

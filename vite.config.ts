@@ -42,7 +42,8 @@ export default defineConfig(async ({ mode }) => {
           '/blog',
           '/rss.xml',
           ...blogRoutes
-        ]
+        ],
+        readable: true
       })
     ],
     resolve: {
