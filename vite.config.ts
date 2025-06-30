@@ -43,7 +43,8 @@ export default defineConfig(async ({ mode }) => {
           '/rss.xml',
           ...blogRoutes
         ],
-        readable: true
+        readable: true,
+        generateRobotsTxt: false
       })
     ],
     resolve: {
