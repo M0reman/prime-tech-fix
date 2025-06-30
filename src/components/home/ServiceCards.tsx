@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -17,16 +16,17 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, del
     <div 
       className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 transition-all duration-300 hover:shadow-md hover:translate-y-[-5px] group service-card overflow-hidden"
       style={{ animationDelay: `${delay}s` }}
+      itemScope itemType="https://schema.org/Service"
     >
       <div className="relative overflow-hidden mb-6 h-44 -mx-6 -mt-6">
-        <img src={imageSrc} alt={title} className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+        <img src={imageSrc} alt={title} itemProp="image" loading="lazy" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
         <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
       </div>
       <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-blue-100 text-blue-600 mb-4 transition-colors group-hover:bg-blue-600 group-hover:text-white">
         {icon}
       </div>
-      <h3 className="text-xl font-semibold mb-3 text-gray-900">{title}</h3>
-      <p className="text-gray-600 mb-4">{description}</p>
+      <h3 className="text-xl font-semibold mb-3 text-gray-900" itemProp="serviceType">{title}</h3>
+      <p className="text-gray-600 mb-4" itemProp="description">{description}</p>
       <Button variant="link" className="p-0 h-auto text-blue-600" asChild>
         <Link to="/services">Подробнее →</Link>
       </Button>

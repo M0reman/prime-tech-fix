@@ -22,6 +22,8 @@ const BreadcrumbList = React.forwardRef<
       "flex flex-wrap items-center gap-1.5 break-words text-sm text-muted-foreground sm:gap-2.5",
       className
     )}
+    itemScope
+    itemType="https://schema.org/BreadcrumbList"
     {...props}
   />
 ))
@@ -34,6 +36,9 @@ const BreadcrumbItem = React.forwardRef<
   <li
     ref={ref}
     className={cn("inline-flex items-center gap-1.5", className)}
+    itemProp="itemListElement"
+    itemScope
+    itemType="https://schema.org/ListItem"
     {...props}
   />
 ))
@@ -51,6 +56,7 @@ const BreadcrumbLink = React.forwardRef<
     <Comp
       ref={ref}
       className={cn("transition-colors hover:text-foreground", className)}
+      itemProp="item"
       {...props}
     />
   )
@@ -67,6 +73,7 @@ const BreadcrumbPage = React.forwardRef<
     aria-disabled="true"
     aria-current="page"
     className={cn("font-normal text-foreground", className)}
+    itemProp="name"
     {...props}
   />
 ))
