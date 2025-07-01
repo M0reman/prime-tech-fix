@@ -542,21 +542,44 @@ const Brands = () => {
   return (
     <>
       <Helmet>
-        <title>Бренды и устройства - Сервисный центр Prime</title>
-        <meta name="description" content="Ознакомьтесь с брендами и моделями устройств, с которыми мы работаем. Найдите информацию о распространенных проблемах и стоимости ремонта Apple, Samsung, Xiaomi, Huawei, ASUS, Lenovo, HP, Acer." />
-        <meta name="keywords" content="ремонт техники, сервисный центр, Apple, Samsung, Xiaomi, Huawei, ASUS, Lenovo, HP, Acer, iPhone, MacBook, Galaxy, ремонт смартфонов, ремонт ноутбуков" />
-        <link rel="canonical" href="https://serviceprime13.ru/brands" />
-        
-        {/* Open Graph */}
-        <meta property="og:title" content="Бренды и устройства - Сервисный центр Prime" />
-        <meta property="og:description" content="Ознакомьтесь с брендами и моделями устройств, с которыми мы работаем. Найдите информацию о распространенных проблемах и стоимости ремонта." />
+        <title>Ремонт техники по брендам | Сервисный центр Prime в Саранске</title>
+        <meta name="description" content="Ремонт техники Apple, Samsung, Xiaomi, Huawei, Lenovo, Asus, HP, Acer и других брендов в Саранске. Профессиональный ремонт смартфонов, ноутбуков, планшетов с гарантией качества." />
+        <meta name="keywords" content="ремонт Apple, ремонт Samsung, ремонт Xiaomi, ремонт Huawei, ремонт Lenovo, ремонт Asus, ремонт HP, ремонт Acer, ремонт смартфонов, ремонт ноутбуков, ремонт планшетов, сервисный центр, Саранск, Prime" />
+        {/* Open Graph для соцсетей */}
+        <meta property="og:title" content="Ремонт техники по брендам | Сервисный центр Prime" />
+        <meta property="og:description" content="Ремонт техники Apple, Samsung, Xiaomi, Huawei, Lenovo, Asus, HP, Acer и других брендов. Профессиональный ремонт с гарантией качества." />
+        <meta property="og:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         <meta property="og:url" content="https://serviceprime13.ru/brands" />
         <meta property="og:type" content="website" />
-        
+        <meta property="og:locale" content="ru_RU" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Бренды и устройства - Сервисный центр Prime" />
-        <meta name="twitter:description" content="Ознакомьтесь с брендами и моделями устройств, с которыми мы работаем." />
+        <meta name="twitter:title" content="Ремонт техники по брендам | Сервисный центр Prime" />
+        <meta name="twitter:description" content="Ремонт техники Apple, Samsung, Xiaomi, Huawei, Lenovo, Asus, HP, Acer и других брендов." />
+        <meta name="twitter:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
+        {/* Canonical */}
+        <link rel="canonical" href="https://serviceprime13.ru/brands" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Ремонт техники по брендам",
+            "description": "Ремонт техники различных брендов в сервисном центре Prime",
+            "url": "https://serviceprime13.ru/brands",
+            "mainEntity": {
+              "@type": "ItemList",
+              "itemListElement": BRAND_DATA.map((brand, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "item": {
+                  "@type": "Brand",
+                  "name": brand.name,
+                  "description": brand.description
+                }
+              }))
+            }
+          })}
+        </script>
       </Helmet>
       
       <main className="py-16 pt-32">

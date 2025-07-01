@@ -228,9 +228,17 @@ const AdminBlog: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Управление блогом - Prime Tech</title>
-        <meta name="description" content="Административная панель для управления блогом" />
+        <title>Управление блогом | Админ-панель Prime Tech</title>
+        <meta name="description" content="Административная панель для управления блогом сервисного центра Prime. Создание, редактирование и удаление статей о ремонте техники." />
         <meta name="robots" content="noindex, nofollow" />
+        <meta name="author" content="Prime Tech Admin" />
+        {/* Open Graph */}
+        <meta property="og:title" content="Управление блогом | Админ-панель Prime Tech" />
+        <meta property="og:description" content="Административная панель для управления блогом сервисного центра Prime." />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="ru_RU" />
+        {/* Canonical */}
+        <link rel="canonical" href="https://serviceprime13.ru/admin/blog" />
       </Helmet>
 
       <div className="min-h-screen bg-gray-50 py-12 pt-28">

@@ -81,9 +81,17 @@ const AdminLogin: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Вход в админ-панель - Prime Tech</title>
-        <meta name="description" content="Вход в административную панель для управления блогом" />
+        <title>Вход в админ-панель | Prime Tech</title>
+        <meta name="description" content="Вход в административную панель сервисного центра Prime для управления блогом и контентом сайта." />
         <meta name="robots" content="noindex, nofollow" />
+        <meta name="author" content="Prime Tech Admin" />
+        {/* Open Graph */}
+        <meta property="og:title" content="Вход в админ-панель | Prime Tech" />
+        <meta property="og:description" content="Вход в административную панель сервисного центра Prime." />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="ru_RU" />
+        {/* Canonical */}
+        <link rel="canonical" href="https://serviceprime13.ru/admin/login" />
       </Helmet>
 
       <div className="min-h-screen bg-gray-50 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
