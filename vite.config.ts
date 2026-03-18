@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import sitemap from 'vite-plugin-sitemap';
+import { vitePluginInjectSeo } from './vite-plugin-inject-seo';
 
 // Функция для получения всех slug'ов статей блога
 async function getBlogSlugs() {
@@ -30,6 +31,7 @@ export default defineConfig(async ({ mode }) => {
     },
     plugins: [
       react(),
+      vitePluginInjectSeo(),
       sitemap({
         hostname: 'https://serviceprime13.ru',
         dynamicRoutes: [

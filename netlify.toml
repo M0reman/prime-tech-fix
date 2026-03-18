@@ -1,0 +1,13 @@
+# Сборка и публикация
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+# Страница 404: Netlify автоматически отдаёт 404.html с кодом 404 для несуществующих путей.
+# Не используем catch-all (/* → index.html), чтобы неизвестные URL возвращали 404 для Яндекса.
+
+# SPA: маршруты блога /blog/:slug отдаём index.html, т.к. для них не генерируется отдельный HTML.
+[[redirects]]
+  from = "/blog/*"
+  to = "/index.html"
+  status = 200

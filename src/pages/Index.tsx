@@ -15,21 +15,21 @@ const Index: React.FC = () => {
 
   return <div className="min-h-screen">
     <Helmet>
-        <title>Сервисный центр Prime: Ремонт телефонов, ноутбуков и бытовой техники</title>
-        <meta name='description' content='Профессиональный ремонт цифровой и бытовой техники в сервисном центре Prime. Быстрая диагностика, гарантия на все работы до 1 года. Ремонтируем телефоны, ноутбуки, планшеты и многое другое.' />
+        <title>Ремонт бытовой и цифровой техники в Саранске | Prime - Сервисный центр</title>
+        <meta name='description' content='Сервисный центр Prime в Саранске. Профессиональный ремонт бытовой и цифровой техники. Диагностика и качественный ремонт по доступным ценам.' />
         {/* SEO: максимально полное облако тегов для keywords */}
         <meta name="keywords" content="ремонт техники, сервисный центр, ремонт смартфонов, ремонт ноутбуков, ремонт планшетов, ремонт телевизоров, ремонт бытовой техники, диагностика, гарантия, Саранск, Республика Мордовия, Prime, ремонт Apple, ремонт Samsung, ремонт Xiaomi, ремонт Huawei, ремонт Lenovo, ремонт Asus, ремонт HP, ремонт Acer, профессиональный ремонт, срочный ремонт, бесплатная диагностика, оригинальные запчасти" />
         {/* Open Graph для соцсетей */}
-        <meta property="og:title" content="Сервисный центр Prime: Ремонт телефонов, ноутбуков и бытовой техники" />
-        <meta property="og:description" content="Профессиональный ремонт цифровой и бытовой техники в сервисном центре Prime. Быстрая диагностика, гарантия на все работы до 1 года. Ремонтируем телефоны, ноутбуки, планшеты и многое другое." />
+        <meta property="og:title" content="Ремонт бытовой и цифровой техники в Саранске | Prime - Сервисный центр" />
+        <meta property="og:description" content="Сервисный центр Prime в Саранске. Профессиональный ремонт бытовой и цифровой техники. Диагностика и качественный ремонт по доступным ценам." />
         <meta property="og:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         <meta property="og:url" content="https://serviceprime13.ru/" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="ru_RU" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Сервисный центр Prime: Ремонт телефонов, ноутбуков и бытовой техники" />
-        <meta name="twitter:description" content="Профессиональный ремонт цифровой и бытовой техники в сервисном центре Prime. Быстрая диагностика, гарантия на все работы до 1 года. Ремонтируем телефоны, ноутбуки, планшеты и многое другое." />
+        <meta name="twitter:title" content="Ремонт бытовой и цифровой техники в Саранске | Prime - Сервисный центр" />
+        <meta name="twitter:description" content="Сервисный центр Prime в Саранске. Профессиональный ремонт бытовой и цифровой техники. Диагностика и качественный ремонт по доступным ценам." />
         <meta name="twitter:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         {/* Canonical */}
         <link rel="canonical" href="https://serviceprime13.ru/" />
