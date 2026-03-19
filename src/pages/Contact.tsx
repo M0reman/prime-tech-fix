@@ -311,8 +311,8 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, setSuccessModalO
                     <div>
                       <h3 className="text-lg font-medium mb-1">Часы работы</h3>
                       <p className="text-muted-foreground">
-                        <span itemProp="openingHours">Mo-Fr 10:00-19:00</span><br />
-                        <span itemProp="openingHours">Sa 10:00-14:00</span>
+                        <span itemProp="openingHours" content="Mo-Fr 10:00-19:00">Пн-Пт 10:00-19:00</span><br />
+                        <span itemProp="openingHours" content="Sa 10:00-14:00">Сб 10:00-14:00</span>
                       </p>
                     </div>
                   </div>
