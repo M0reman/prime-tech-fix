@@ -35,7 +35,7 @@ const Index: React.FC = () => {
         <link rel="canonical" href="https://serviceprime13.ru/" />
         <script type="application/ld+json">
           {JSON.stringify({
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": companyInfo.name,
             "image": companyInfo.image,

@@ -123,17 +123,21 @@ async function main() {
     process.exit(1);
   }
 
-  const criticalPath = path.join(distDir, 'remont-televizorov', 'index.html');
-  if (fs.existsSync(criticalPath)) {
-    const criticalHtml = fs.readFileSync(criticalPath, 'utf-8');
-    if (criticalHtml.includes(SSR_OUTLET)) {
-      console.error('Ошибка: в remont-televizorov/index.html остался плейсхолдер. Контент не подставлен. Проверьте dist/server/entry-server.js.');
-      process.exit(1);
+  const pagesToCheck = ['remont-televizorov', 'contact'];
+  for (const name of pagesToCheck) {
+    const p = path.join(distDir, name, 'index.html');
+    if (fs.existsSync(p)) {
+      const content = fs.readFileSync(p, 'utf-8');
+      if (content.includes(SSR_OUTLET)) {
+        console.error(`Ошибка: в ${name}/index.html остался плейсхолдер. Контент не подставлен.`);
+        process.exit(1);
+      }
     }
   }
 
   console.log('Готово.');
   console.log('Для деплоя на статический хостинг (Timeweb и др.) загрузите всю папку dist. Команда сборки: npm run build:static');
+  console.log('Важно: хостинг должен отдавать по путям (например /contact → contact/index.html), а не один index.html для всех URL.');
 }
 
 main().catch((err) => {

@@ -580,6 +580,7 @@ const Brands = () => {
         <meta property="og:url" content="https://serviceprime13.ru/brands" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="ru_RU" />
+        <meta property="og:site_name" content="Сервисный центр Prime" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Ремонт техники по брендам | Сервисный центр Prime" />

@@ -4,6 +4,7 @@ import { StaticRouter } from 'react-router-dom/server';
 import App from './App';
 import type { BlogPostPreload } from './contexts/PreloadContext';
 import { ROUTES_META, getCanonicalUrl, DEFAULT_IMAGE } from './seo/routesMeta';
+import { stripMarkdownForMeta } from './seo/stripMarkdown';
 
 const SSR_OUTLET = '<!--ssr-outlet-->';
 const BASE_URL = 'https://serviceprime13.ru';
@@ -52,9 +53,10 @@ export function render(options: RenderOptions): RenderResult {
 
   if (blogMatch && preloadedBlogPost) {
     const post = preloadedBlogPost;
-    const desc = post.content.substring(0, 160) + '...';
+    const descPlain = stripMarkdownForMeta(post.content, 160);
+    const desc = descPlain ? `${descPlain}...` : '';
     title = `${escapeHtml(post.title)} | Сервисный центр Prime - Ремонт техники в Саранске`;
-    description = `${desc} Сервисный центр Prime в Саранске - профессиональный ремонт техники с гарантией.`;
+    description = desc ? `${desc} Сервисный центр Prime в Саранске - профессиональный ремонт техники с гарантией.` : 'Сервисный центр Prime в Саранске - профессиональный ремонт техники с гарантией.';
     const canonical = `${BASE_URL}/blog/${post.slug}`;
     const image = post.image_url || DEFAULT_IMAGE;
     const keywords = post.tags.join(', ') + ', ремонт техники, сервисный центр, Prime, Саранск';
@@ -68,6 +70,7 @@ export function render(options: RenderOptions): RenderResult {
       `<meta property="og:url" content="${canonical}" />`,
       `<meta property="og:type" content="article" />`,
       `<meta property="og:locale" content="ru_RU" />`,
+      `<meta property="og:site_name" content="Сервисный центр Prime" />`,
       `<meta property="article:published_time" content="${post.created_at}" />`,
       `<meta property="article:modified_time" content="${post.updated_at}" />`,
       `<meta name="twitter:card" content="summary_large_image" />`,
@@ -82,7 +85,7 @@ export function render(options: RenderOptions): RenderResult {
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
       headline: post.title,
-      description: post.content.substring(0, 160) + '...',
+      description: desc ? `${desc} Сервисный центр Prime в Саранске.` : 'Сервисный центр Prime в Саранске - профессиональный ремонт техники.',
       image: image,
       author: { '@type': 'Organization', name: 'Сервисный центр Prime', url: BASE_URL },
       publisher: { '@type': 'Organization', name: 'Сервисный центр Prime', url: BASE_URL, logo: { '@type': 'ImageObject', url: DEFAULT_IMAGE } },

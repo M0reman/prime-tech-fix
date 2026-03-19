@@ -35,7 +35,7 @@ const About: React.FC = () => {
         <link rel="canonical" href="https://serviceprime13.ru/about" />
         <script type="application/ld+json">
           {JSON.stringify({
-            "@context": "http://schema.org",
+            "@context": "https://schema.org",
             "@type": "Organization",
             "name": companyInfo.name,
             "url": companyInfo.url,

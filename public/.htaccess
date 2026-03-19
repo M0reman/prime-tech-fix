@@ -101,18 +101,14 @@ ErrorDocument 404 /404.html
     Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
 </IfModule>
 
-# Перенаправление для SPA (Single Page Application)
-<IfModule mod_rewrite.c>
-    # Если файл или директория не существует
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    
-    # И это не API запрос
-    RewriteCond %{REQUEST_URI} !^/api/
-    
-    # И это не статические файлы
-    RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg|jpeg|gif|ico|svg|webp|woff|woff2|ttf|eot)$
-    
-    # Перенаправляем на index.html
-    RewriteRule ^(.*)$ /index.html [L]
-</IfModule> 
+# SPA fallback отключён: при сборке build:static у каждого маршрута свой index.html.
+# Несуществующие пути должны возвращать 404 (см. ErrorDocument 404 выше), иначе Яндекс
+# и другие поисковики фиксируют «некорректную настройку отображения несуществующих страниц».
+# Не раскомментируйте блок ниже без необходимости — иначе все неизвестные URL будут отдавать 200.
+# <IfModule mod_rewrite.c>
+#     RewriteCond %{REQUEST_FILENAME} !-f
+#     RewriteCond %{REQUEST_FILENAME} !-d
+#     RewriteCond %{REQUEST_URI} !^/api/
+#     RewriteCond %{REQUEST_URI} !\.(css|js|png|jpg|jpeg|gif|ico|svg|webp|woff|woff2|ttf|eot)$
+#     RewriteRule ^(.*)$ /index.html [L]
+# </IfModule> 

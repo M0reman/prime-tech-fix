@@ -19,7 +19,7 @@ export const ROUTES_META: Record<string, RouteMeta> = {
     keywords:
       'ремонт техники, сервисный центр, ремонт смартфонов, ремонт ноутбуков, ремонт планшетов, ремонт телевизоров, ремонт бытовой техники, диагностика, гарантия, Саранск, Республика Мордовия, Prime, ремонт Apple, ремонт Samsung, ремонт Xiaomi, ремонт Huawei, ремонт Lenovo, ремонт Asus, ремонт HP, ремонт Acer, профессиональный ремонт, срочный ремонт, бесплатная диагностика, оригинальные запчасти',
     ldJson: JSON.stringify({
-      '@context': 'http://schema.org',
+      '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
       name: companyInfo.name,
       image: companyInfo.image,

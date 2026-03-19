@@ -8,6 +8,7 @@ import { ArrowLeft, Calendar, Tag, Share2, Clock } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { usePreload } from '@/contexts/PreloadContext';
+import { stripMarkdownForMeta } from '@/seo/stripMarkdown';
 
 export interface BlogPost {
   id: number;
@@ -125,19 +126,23 @@ const BlogPost: React.FC = () => {
     );
   }
 
+  const metaDesc = stripMarkdownForMeta(post.content, 160);
+  const metaDescFull = metaDesc ? `${metaDesc}... Сервисный центр Prime в Саранске - профессиональный ремонт техники с гарантией. Диагностика бесплатно.` : 'Сервисный центр Prime в Саранске - профессиональный ремонт техники с гарантией. Диагностика бесплатно.';
+
   return (
     <>
       <Helmet>
         <title>{post.title} | Сервисный центр Prime - Ремонт техники в Саранске</title>
-        <meta name='description' content={`${post.content.substring(0, 160)}... Сервисный центр Prime в Саранске - профессиональный ремонт техники с гарантией. Диагностика бесплатно.`} />
+        <meta name='description' content={metaDescFull} />
         <meta name="keywords" content={`${post.tags.join(', ')}, ремонт техники, сервисный центр, Prime, Саранск, диагностика, гарантия, профессиональный ремонт, срочный ремонт, бесплатная диагностика, ремонт смартфонов, ремонт ноутбуков, ремонт бытовой техники, ремонт Apple, ремонт Samsung, ремонт Xiaomi, ремонт Huawei, ремонт Lenovo, ремонт Asus, ремонт HP, ремонт Acer`} />
         {/* Open Graph для соцсетей */}
         <meta property="og:title" content={`${post.title} | Сервисный центр Prime`} />
-        <meta property="og:description" content={`${post.content.substring(0, 160)}... Сервисный центр Prime в Саранске - профессиональный ремонт техники с гарантией.`} />
+        <meta property="og:description" content={metaDesc ? `${metaDesc}... Сервисный центр Prime в Саранске - профессиональный ремонт техники с гарантией.` : 'Сервисный центр Prime в Саранске - профессиональный ремонт техники с гарантией.'} />
         <meta property="og:image" content={post.image_url || "https://serviceprime13.ru/logos/company-logo.jpg"} />
         <meta property="og:url" content={`https://serviceprime13.ru/blog/${post.slug}`} />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="ru_RU" />
+        <meta property="og:site_name" content="Сервисный центр Prime" />
         <meta property="article:published_time" content={post.created_at} />
         <meta property="article:modified_time" content={post.updated_at} />
         {post.tags.map((tag, index) => (
@@ -146,7 +151,7 @@ const BlogPost: React.FC = () => {
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${post.title} | Сервисный центр Prime`} />
-        <meta name="twitter:description" content={`${post.content.substring(0, 160)}... Сервисный центр Prime в Саранске - профессиональный ремонт техники с гарантией.`} />
+        <meta name="twitter:description" content={metaDesc ? `${metaDesc}... Сервисный центр Prime в Саранске - профессиональный ремонт техники с гарантией.` : 'Сервисный центр Prime в Саранске - профессиональный ремонт техники с гарантией.'} />
         <meta name="twitter:image" content={post.image_url || "https://serviceprime13.ru/logos/company-logo.jpg"} />
         {/* Canonical */}
         <link rel="canonical" href={`https://serviceprime13.ru/blog/${post.slug}`} />
@@ -156,7 +161,7 @@ const BlogPost: React.FC = () => {
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             "headline": post.title,
-            "description": post.content.substring(0, 160) + '...',
+            "description": metaDesc ? `${metaDesc}... Сервисный центр Prime в Саранске.` : 'Сервисный центр Prime в Саранске - профессиональный ремонт техники.',
             "image": post.image_url || "https://serviceprime13.ru/logos/company-logo.jpg",
             "author": {
               "@type": "Organization",
