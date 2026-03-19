@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import AnimatedTransition from "./components/ui/AnimatedTransition";
 import Navbar from "./components/layout/Navbar";
@@ -16,6 +16,7 @@ import Faq from "./pages/Faq";
 import Brands from "./pages/Brands";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
+import RemontTelevizorov from "./pages/RemontTelevizorov";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminBlog from "./pages/admin/AdminBlog";
 import NotFound from "./pages/NotFound";
@@ -23,13 +24,17 @@ import WarrantyTermsModal from './components/modals/WarrantyTermsModal';
 import PrivacyPolicyModal from './components/modals/PrivacyPolicyModal';
 import SubscriptionModal from './components/modals/SubscriptionModal';
 import SuccessModal from './components/modals/SuccessModal';
-import JivoSite from './components/common/JivoSite';
 import UrgencyBanner from "./components/common/UrgencyBanner";
 import useSiteTimer from './hooks/use-site-timer';
+import { PreloadProvider, type BlogPostPreload } from './contexts/PreloadContext';
 
 const queryClient = new QueryClient();
 
-const App = () => {
+export interface AppProps {
+  preloadedBlogPost?: BlogPostPreload | null;
+}
+
+const App = ({ preloadedBlogPost = null }: AppProps = {}) => {
   const [warrantyModalOpen, setWarrantyModalOpen] = useState(false);
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
   const [successModalOpen, setSuccessModalOpen] = useState(false);
@@ -56,7 +61,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <HelmetProvider>
-          <BrowserRouter>
+          <PreloadProvider blogPost={preloadedBlogPost}>
             <Navbar />
             <AnimatedTransition>
               <Routes>
@@ -68,6 +73,7 @@ const App = () => {
                 <Route path="/brands" element={<Brands />} />
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/remont-televizorov" element={<RemontTelevizorov />} />
                 <Route path="/admin/login" element={<AdminLogin />} />
                 <Route path="/admin/blog" element={<AdminBlog />} />
                 <Route path="*" element={<NotFound />} />
@@ -87,7 +93,7 @@ const App = () => {
               onSubscribeClick={handleSubscribeClick}
             />
             <UrgencyBanner />
-          </BrowserRouter>
+          </PreloadProvider>
         </HelmetProvider>
       </TooltipProvider>
     </QueryClientProvider>

@@ -408,6 +408,28 @@ const BRAND_DATA = [
   },
 ];
 
+function modelMatchesDeviceCategory(modelName: string, filter: string): boolean {
+  if (filter === 'all') return true;
+  const n = modelName.toLowerCase();
+  const isTablet =
+    /ipad|galaxy tab|tab s7|tab s6|\btab p11|\btab p\b|zenpad|\bpad 5\b|^tab\s/i.test(
+      modelName
+    );
+  const isLaptop =
+    /macbook|chromebook|nitro|swift\s*3|legion|thinkpad|victus|pavilion|envy|flow z13|rog flow|x1 carbon/i.test(
+      n
+    );
+  if (filter === 'tablet') return isTablet;
+  if (filter === 'laptop') return isLaptop;
+  if (filter === 'appliance') {
+    return /стиральн|холодильн|плита|посудомоечн|микроволнов|пылесос/i.test(n);
+  }
+  if (filter === 'smartphone') {
+    return !isTablet && !isLaptop && !/стиральн|холодильн|плита|посудомоечн/i.test(n);
+  }
+  return true;
+}
+
 // Категории устройств для фильтрации
 const DEVICE_CATEGORIES = [
   { value: "all", label: "Все устройства" },
@@ -447,8 +469,9 @@ const BrandCard = ({ brand }: { brand: (typeof BRAND_DATA)[0] }) => {
             </div>
           </div>
           <button
+            type="button"
             onClick={() => setExpanded(!expanded)}
-            className="text-blue-600 flex items-center gap-1 font-medium"
+            className="text-blue-600 flex items-center gap-1 font-medium hover:underline"
           >
             {expanded ? "Свернуть" : "Показать модели"}
             <ChevronDown
@@ -514,21 +537,26 @@ const BrandCard = ({ brand }: { brand: (typeof BRAND_DATA)[0] }) => {
 
 const Brands = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [categoryFilter, setCategoryFilter] = useState("all");
+  const [categoryFilter, setCategoryFilter] = useState<string>("all");
 
   const filteredBrands = useMemo(() => {
-    if (!searchQuery && categoryFilter === "all") return BRAND_DATA;
+    const category = categoryFilter || "all";
+    if (!searchQuery.trim() && category === "all") return BRAND_DATA;
 
+    const query = searchQuery.trim().toLowerCase();
     return BRAND_DATA.filter((brand) => {
       const matchesSearch =
-        searchQuery === "" ||
-        brand.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        !query ||
+        brand.name.toLowerCase().includes(query) ||
         brand.models.some((model) =>
-          model.name.toLowerCase().includes(searchQuery.toLowerCase())
+          model.name.toLowerCase().includes(query)
         );
 
-      // В реальном проекте тут была бы фильтрация по категориям
-      const matchesCategory = categoryFilter === "all";
+      const matchesCategory =
+        category === "all" ||
+        brand.models.some((model) =>
+          modelMatchesDeviceCategory(model.name, category)
+        );
 
       return matchesSearch && matchesCategory;
     });
@@ -609,9 +637,12 @@ const Brands = () => {
                 />
               </div>
               <div className="w-full md:w-64">
-                <Select value={categoryFilter} onValueChange={setCategoryFilter}>
+                <Select
+                  value={categoryFilter || "all"}
+                  onValueChange={(v) => setCategoryFilter(v || "all")}
+                >
                   <SelectTrigger className="py-6 h-auto">
-                    <SelectValue placeholder="Тип устройства" />
+                    <SelectValue placeholder="Все устройства" />
                   </SelectTrigger>
                   <SelectContent>
                     {DEVICE_CATEGORIES.map((category) => (
@@ -623,7 +654,7 @@ const Brands = () => {
                 </Select>
               </div>
 
-              {(searchQuery || categoryFilter !== "all") && (
+              {(searchQuery.trim() || (categoryFilter && categoryFilter !== "all")) && (
                 <button
                   onClick={resetFilters}
                   className="flex items-center gap-2 bg-white border border-gray-200 px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-50"

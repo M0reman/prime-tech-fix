@@ -9,6 +9,7 @@ export interface ServiceData {
   price: string;
   features: string[];
   imageSrc?: string;
+  detailUrl?: string;
 }
 
 export interface ServiceCategoryData {
@@ -51,7 +52,8 @@ const getServicesData = (): ServiceCategoryData[] => [
         description: "",
         price: "от 800 ₽",
         features: [],
-        imageSrc: "/serviceCards/tv.webp"
+        imageSrc: "/serviceCards/tv.webp",
+        detailUrl: "/remont-televizorov"
       },
       {
         title: "Ремонт ЧПУ станков",

@@ -28,8 +28,10 @@ async function generateStaticRSS() {
     // Генерируем RSS XML
     const rssContent = generateRSSXML(posts);
     
-    // Записываем в dist/rss.xml
-    const outputPath = path.join(__dirname, '..', 'dist', 'rss.xml');
+    const distDir = fs.existsSync(path.join(__dirname, '..', 'dist', 'client'))
+      ? path.join(__dirname, '..', 'dist', 'client')
+      : path.join(__dirname, '..', 'dist');
+    const outputPath = path.join(distDir, 'rss.xml');
     fs.writeFileSync(outputPath, rssContent);
     
     console.log(`✅ RSS файл создан: ${outputPath}`);
@@ -38,10 +40,11 @@ async function generateStaticRSS() {
   } catch (error) {
     console.error('❌ Ошибка генерации RSS:', error.message);
     
-    // Создаем пустой RSS если API недоступен
     const emptyRSS = generateEmptyRSS();
-    const outputPath = path.join(__dirname, '..', 'dist', 'rss.xml');
-    fs.writeFileSync(outputPath, emptyRSS);
+    const distDir = fs.existsSync(path.join(__dirname, '..', 'dist', 'client'))
+      ? path.join(__dirname, '..', 'dist', 'client')
+      : path.join(__dirname, '..', 'dist');
+    fs.writeFileSync(path.join(distDir, 'rss.xml'), emptyRSS);
     
     console.log('⚠️  Создан пустой RSS файл (API недоступен)');
   }

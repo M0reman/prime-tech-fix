@@ -37,6 +37,7 @@ const Navbar: React.FC = () => {
   const navigation = [
     { name: 'Главная', href: '/' },
     { name: 'Услуги', href: '/services' },
+    { name: 'Ремонт ТВ', href: '/remont-televizorov' },
     { name: 'Бренды', href: '/brands' },
     { name: 'Блог', href: '/blog' },
     { name: 'О нас', href: '/about' },

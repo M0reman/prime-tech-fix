@@ -12,9 +12,10 @@ interface ServiceItemProps {
   price: string;
   features: string[];
   imageSrc?: string;
+  detailUrl?: string;
 }
 
-const ServiceItem: React.FC<ServiceItemProps> = ({ title, description, price, features, imageSrc }) => {
+const ServiceItem: React.FC<ServiceItemProps> = ({ title, description, price, features, imageSrc, detailUrl }) => {
   return (
     <div className="bg-background rounded-xl p-6 md:p-8 border border-border shadow-sm transition-all duration-300 hover:shadow-md hover:translate-y-[-3px] overflow-hidden">
       {imageSrc && (
@@ -37,9 +38,16 @@ const ServiceItem: React.FC<ServiceItemProps> = ({ title, description, price, fe
           </li>
         ))}
       </ul>
-      <Button className="w-full" asChild>
-        <Link to="/contact">Заказать услугу</Link>
-      </Button>
+      <div className="flex flex-col gap-2">
+        {detailUrl && (
+          <Button variant="outline" className="w-full" asChild>
+            <Link to={detailUrl}>Подробнее</Link>
+          </Button>
+        )}
+        <Button className="w-full" asChild>
+          <Link to="/contact">Заказать услугу</Link>
+        </Button>
+      </div>
     </div>
   );
 };
@@ -55,11 +63,11 @@ const Services: React.FC = () => {
     <div className="min-h-screen pt-20">
       <Helmet>
         <title>Услуги по ремонту техники | Сервисный центр Prime</title>
-        <meta name='description' content='Полный спектр услуг по ремонту цифровой и бытовой техники. Ремонт смартфонов, ноутбуков, телевизоров, бытовой техники и многого другого. Гарантия качества и доступные цены.' />
-        <meta name="keywords" content="ремонт техники, сервисный центр, ремонт смартфонов, ремонт ноутбуков, ремонт телевизоров, ремонт бытовой техники, диагностика, гарантия, Саранск, Prime, услуги, цены, консультация, оригинальные запчасти, профессиональный ремонт, срочный ремонт, бесплатная диагностика, ремонт Apple, ремонт Samsung, ремонт Xiaomi, ремонт Huawei, ремонт Lenovo, ремонт Asus, ремонт HP, ремонт Acer" />
+        <meta name='description' content='Ремонт телевизоров в Саранске в сервисном центре. Полный спектр услуг: смартфоны, ноутбуки, бытовая техника. Гарантия качества, доступные цены.' />
+        <meta name="keywords" content="ремонт техники, ремонт телевизоров в саранске, сервисный центр, ремонт смартфонов, ремонт ноутбуков, ремонт телевизоров, ремонт бытовой техники, диагностика, гарантия, Саранск, Prime, услуги, цены, консультация, оригинальные запчасти, профессиональный ремонт, срочный ремонт, бесплатная диагностика, ремонт Apple, ремонт Samsung, ремонт Xiaomi, ремонт Huawei, ремонт Lenovo, ремонт Asus, ремонт HP, ремонт Acer" />
         {/* Open Graph для соцсетей */}
         <meta property="og:title" content="Услуги по ремонту техники | Сервисный центр Prime" />
-        <meta property="og:description" content="Полный спектр услуг по ремонту цифровой и бытовой техники. Ремонт смартфонов, ноутбуков, телевизоров, бытовой техники и многого другого. Гарантия качества и доступные цены." />
+        <meta property="og:description" content="Ремонт телевизоров в Саранске в сервисном центре. Полный спектр услуг: смартфоны, ноутбуки, бытовая техника. Гарантия качества, доступные цены." />
         <meta property="og:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         <meta property="og:url" content="https://serviceprime13.ru/services" />
         <meta property="og:type" content="website" />
@@ -67,7 +75,7 @@ const Services: React.FC = () => {
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Услуги по ремонту техники | Сервисный центр Prime" />
-        <meta name="twitter:description" content="Полный спектр услуг по ремонту цифровой и бытовой техники. Ремонт смартфонов, ноутбуков, телевизоров, бытовой техники и многого другого. Гарантия качества и доступные цены." />
+        <meta name="twitter:description" content="Ремонт телевизоров в Саранске в сервисном центре. Полный спектр услуг: смартфоны, ноутбуки, бытовая техника. Гарантия качества, доступные цены." />
         <meta name="twitter:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         {/* Canonical */}
         <link rel="canonical" href="https://serviceprime13.ru/services" />
@@ -117,6 +125,7 @@ const Services: React.FC = () => {
                       price={service.price}
                       features={service.features}
                       imageSrc={service.imageSrc}
+                      detailUrl={service.detailUrl}
                     />
                   ))}
                 </div>

@@ -21,22 +21,29 @@ async function getBlogSlugs() {
 
 // https://vitejs.dev/config/
 export default defineConfig(async ({ mode }) => {
-  // Получаем динамические маршруты блога
   const blogRoutes = await getBlogSlugs();
-  
+  const isSsrBuild = mode === 'ssr';
+  // Сборка под scripts/prerender.js: мета только из entry-server, без дубля с vite-plugin-inject-seo
+  const isPrerenderBuild = mode === 'prerender';
+
   return {
     server: {
       host: "::",
       port: 8080,
     },
+    build: {
+      outDir: isSsrBuild ? 'dist/client' : 'dist',
+      emptyOutDir: !isSsrBuild,
+    },
     plugins: [
       react(),
-      vitePluginInjectSeo(),
+      ...(isSsrBuild || isPrerenderBuild ? [] : [vitePluginInjectSeo()]),
       sitemap({
         hostname: 'https://serviceprime13.ru',
         dynamicRoutes: [
           '/',
           '/services',
+          '/remont-televizorov',
           '/about',
           '/contact',
           '/faq',
@@ -53,6 +60,9 @@ export default defineConfig(async ({ mode }) => {
       alias: {
         "@": path.resolve(__dirname, "./src"),
       },
+    },
+    ssr: {
+      noExternal: ['react-helmet-async'],
     },
   };
 });

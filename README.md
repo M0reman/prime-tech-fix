@@ -1,69 +1,70 @@
-# Welcome to your Lovable project
+# Prime — сайт сервисного центра
 
-## Project info
+Публичный сайт сервисного центра Prime (Саранск): услуги, блог, заявки, админка статей блога. Фронтенд на React с раздачей через Vite.
 
-**URL**: https://lovable.dev/projects/2d527fdd-5eac-4384-8f89-bac265cbd28f
+## Требования
 
-## How can I edit this code?
+- **Node.js** 18+ (рекомендуется LTS)
+- **npm**
 
-There are several ways of editing your application.
+## Быстрый старт
 
-**Use Lovable**
+```bash
+git clone <URL_репозитория>
+cd prime-tech-fix
+npm install
+```
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/2d527fdd-5eac-4384-8f89-bac265cbd28f) and start prompting.
+Создайте файл `.env` в корне (см. раздел «Переменные окружения»).
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Сервер разработки: по умолчанию [http://localhost:8080](http://localhost:8080) (порт задан в `vite.config.ts`).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Переменные окружения
 
-**Use GitHub Codespaces**
+| Переменная | Назначение |
+|------------|------------|
+| `VITE_BACKEND_URL` | URL бэкенда (API блога, формы и т.д.) |
+| `VITE_RECAPTCHA_SITE_KEY` | Ключ reCAPTCHA v3 для клиента |
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+На этапе сборки для пре-рендера и RSS должен быть доступен бэкенд по `VITE_BACKEND_URL`, иначе список статей и RSS могут собраться пустыми.
 
-## What technologies are used for this project?
+## Скрипты npm
 
-This project is built with .
+| Команда | Описание |
+|---------|----------|
+| `npm run dev` | Режим разработки (HMR) |
+| `npm run build` | Продакшен-сборка SPA в `dist/` + RSS |
+| `npm run build:static` | Статическая сборка с **пре-рендером** страниц в `dist/` (для хостинга без Node) |
+| `npm run build:ssr` | Клиент в `dist/client/` + SSR-бандл в `dist/server/` |
+| `npm run serve` | Запуск Express с SSR после `build:ssr` (порт из `PORT` или `4173`) |
+| `npm run preview` | Локальный просмотр собранного `vite preview` |
+| `npm run lint` | Проверка ESLint |
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## SEO и деплой
 
-## How can I deploy this project?
+- **Только статика** (например, Timeweb Apps без Node): используйте `npm run build:static`, в настройках деплоя укажите артефакт каталога **`dist`** и задайте `VITE_BACKEND_URL` при сборке.
+- **SSR на своём сервере**: `npm run build:ssr`, затем `npm run serve` за reverse-proxy (nginx и т.п.).
 
-Simply open [Lovable](https://lovable.dev/projects/2d527fdd-5eac-4384-8f89-bac265cbd28f) and click on Share -> Publish.
+## Стек
 
-## I want to use a custom domain - is that possible?
+- **Vite** 5  
+- **React** 18, **TypeScript**  
+- **React Router**  
+- **Tailwind CSS**  
+- **shadcn/ui** (Radix)  
+- **TanStack Query**, **react-hook-form**, **Zod** (по месту использования)
 
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+## Структура (кратко)
+
+- `src/` — приложение (страницы, компоненты, SEO-метаданные маршрутов)
+- `server/server.js` — продакшен-сервер SSR
+- `scripts/` — генерация RSS, пре-рендер, список URL
+- `public/` — статика (`robots.txt`, фавиконки, манифест)
+
+## Лицензия
+
+Проект приватный; распространение определяется владельцем репозитория.

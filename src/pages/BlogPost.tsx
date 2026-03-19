@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, Calendar, Tag, Share2, Clock } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import { usePreload } from '@/contexts/PreloadContext';
 
-interface BlogPost {
+export interface BlogPost {
   id: number;
   title: string;
   slug: string;
@@ -21,18 +22,19 @@ interface BlogPost {
 const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const [post, setPost] = useState<BlogPost | null>(null);
-  const [loading, setLoading] = useState(true);
+  const { blogPost: preloaded } = usePreload();
+  const [post, setPost] = useState<BlogPost | null>(preloaded && preloaded.slug === slug ? preloaded : null);
+  const [loading, setLoading] = useState(!(preloaded && preloaded.slug === slug));
   const [error, setError] = useState<string | null>(null);
 
   const API_BASE_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 
-  // Загрузка статьи
   const fetchPost = useCallback(async () => {
+    if (!slug) return;
     try {
       setLoading(true);
       const response = await fetch(`${API_BASE_URL}/api/blog/${slug}`);
-      
+
       if (!response.ok) {
         if (response.status === 404) {
           throw new Error('Статья не найдена');
@@ -50,10 +52,15 @@ const BlogPost: React.FC = () => {
   }, [slug, API_BASE_URL]);
 
   useEffect(() => {
+    if (preloaded && preloaded.slug === slug) {
+      setPost(preloaded);
+      setLoading(false);
+      return;
+    }
     if (slug) {
       fetchPost();
     }
-  }, [slug, fetchPost]);
+  }, [slug, preloaded, fetchPost]);
 
   // Форматирование даты
   const formatDate = (dateString: string) => {

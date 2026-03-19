@@ -17,19 +17,20 @@ interface UseSiteTimerReturn {
 }
 
 const useSiteTimer = (options: UseSiteTimerOptions): UseSiteTimerReturn => {
-  const { 
-    showModalAfter, 
-    storageKey = 'subscription-modal-shown', 
-    showOnce = true 
+  const {
+    showModalAfter,
+    storageKey = 'subscription-modal-shown',
+    showOnce = true
   } = options;
 
+  // Начальное состояние одинаково на сервере и при гидрации — эффекты на сервере не выполняются
   const [timeSpent, setTimeSpent] = useState(0);
   const [shouldShowModal, setShouldShowModal] = useState(false);
   const [isActive, setIsActive] = useState(true);
 
-  // Проверяем, было ли уже показано модальное окно
   const hasBeenShown = useCallback(() => {
     if (!showOnce) return false;
+    if (typeof window === 'undefined' || typeof localStorage === 'undefined') return false;
     try {
       return localStorage.getItem(storageKey) === 'true';
     } catch {
@@ -37,9 +38,10 @@ const useSiteTimer = (options: UseSiteTimerOptions): UseSiteTimerReturn => {
     }
   }, [storageKey, showOnce]);
 
-  // Отмечаем, что модальное окно было показано
+  // Отмечаем, что модальное окно было показано (только в браузере)
   const markAsShown = useCallback(() => {
     if (!showOnce) return;
+    if (typeof window === 'undefined' || typeof localStorage === 'undefined') return;
     try {
       localStorage.setItem(storageKey, 'true');
     } catch {
@@ -86,8 +88,9 @@ const useSiteTimer = (options: UseSiteTimerOptions): UseSiteTimerReturn => {
     };
   }, [isActive, showModalAfter, shouldShowModal, hasBeenShown]);
 
-  // Останавливаем таймер при неактивности вкладки
+  // Останавливаем таймер при неактивности вкладки (только в браузере)
   useEffect(() => {
+    if (typeof document === 'undefined') return;
     const handleVisibilityChange = () => {
       if (document.hidden) {
         setIsActive(false);
@@ -97,7 +100,7 @@ const useSiteTimer = (options: UseSiteTimerOptions): UseSiteTimerReturn => {
     };
 
     document.addEventListener('visibilitychange', handleVisibilityChange);
-    
+
     return () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
