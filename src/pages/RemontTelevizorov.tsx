@@ -10,6 +10,23 @@ import {
   TV_REPAIR_STATS,
 } from '@/data/tvRepairData';
 
+const baseUrl = import.meta.env.BASE_URL;
+
+const TV_BRAND_LOGOS = [
+  { name: 'Samsung', src: `${baseUrl}brands/tv/samsung.svg`, imageClass: '' },
+  { name: 'LG', src: `${baseUrl}brands/tv/lg.svg`, imageClass: '' },
+  { name: 'Sony', src: `${baseUrl}brands/tv/sony.svg`, imageClass: '' },
+  { name: 'TCL', src: `${baseUrl}brands/tv/tcl.svg`, imageClass: 'scale-125' },
+  { name: 'Hisense', src: `${baseUrl}brands/tv/hisense.svg`, imageClass: '' },
+  { name: 'Philips', src: `${baseUrl}brands/tv/philips.svg`, imageClass: '' },
+  { name: 'Xiaomi', src: `${baseUrl}brands/tv/xiaomi.svg`, imageClass: '' },
+  { name: 'BBK', src: `${baseUrl}brands/tv/bbk.svg`, imageClass: '' },
+  { name: 'Hyundai', src: `${baseUrl}brands/tv/hyundai.svg`, imageClass: '' },
+  { name: 'Telefunken', src: `${baseUrl}brands/tv/telefunken.svg`, imageClass: '' },
+  { name: 'Яндекс', src: `${baseUrl}brands/tv/yandex.svg`, imageClass: '' },
+  { name: 'Sber', src: `${baseUrl}brands/tv/sber.svg`, imageClass: '' },
+];
+
 const RemontTelevizorov: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -35,9 +52,32 @@ const RemontTelevizorov: React.FC = () => {
             <p className="body-lg text-muted-foreground max-w-3xl mx-auto mb-4">
               Ремонт телевизоров {TV_TYPES.join(', ')} в сервисном центре Прайм. Забор техники в сервис, бесплатная диагностика при ремонте, гарантия на работы.
             </p>
-            <p className="text-sm text-muted-foreground max-w-2xl mx-auto mb-8">
-              Работаем с марками: Samsung, LG, Sony, TCL, Hisense, Philips, Xiaomi, BBK, Hyundai, Telefunken, Яндекс, Sber и другими.
-            </p>
+            <div className="max-w-4xl mx-auto mb-8">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 md:gap-4">
+                {TV_BRAND_LOGOS.map((brand) => (
+                  <div
+                    key={brand.name}
+                    className="h-14 md:h-16 rounded-lg border border-border bg-background px-2 md:px-3 flex items-center justify-center"
+                  >
+                    <img
+                      src={brand.src}
+                      alt={`${brand.name} logo`}
+                      className={`h-7 md:h-8 w-full object-contain origin-center ${brand.imageClass}`}
+                      loading="lazy"
+                      onError={(e) => {
+                        e.currentTarget.style.display = 'none';
+                        const fallback = e.currentTarget.nextElementSibling as HTMLElement | null;
+                        if (fallback) fallback.style.display = 'inline';
+                      }}
+                    />
+                    <span className="hidden text-xs font-medium text-foreground">{brand.name}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="text-xs text-muted-foreground mt-3">
+                Показаны не все бренды телевизоров — работаем и с другими производителями.
+              </p>
+            </div>
             <div className="w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg bg-muted aspect-video min-h-[200px] sm:min-h-[240px] md:min-h-[280px]">
               <img
                 src="/remont-tv/remont-tv-hero.webp"
@@ -82,9 +122,47 @@ const RemontTelevizorov: React.FC = () => {
 
           <div className="mb-16 rounded-xl bg-muted/50 border border-border p-6 md:p-8">
             <h2 className="heading-md mb-4">Какие неисправности телевизоров мы устраняем</h2>
-            <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
-              В сервисном центре Прайм выполняют ремонт телевизоров при любых типичных неисправностях: телевизор не включается (блок питания, предохранитель); есть звук, нет изображения — замена подсветки LED, инверторов, светодиодов; есть изображение, нет звука — замена аудиоусилителей и динамиков; телевизор включается и сразу выключается; полосы на экране и искажения — замена матрицы, ремонт T-CON и шлейфа; ремонт нижней планки телевизора при полосах на матрице; не видит HDMI, нет сигнала — замена разъёмов HDMI и USB, прошивка; зависает или тормозит — прошивка, сброс настроек, замена флеш- и NAND-памяти; пятна и затемнения — замена подсветки; сам перезагружается — прошивка, main board; не ловит каналы — ремонт TV-тюнера; отсутствует Wi‑Fi — ремонт модуля Wi‑Fi. Ремонт нижней планки ТВ и нижней планки телевизора, замена подсветки, блока питания, main board и матрицы — по прайсу от 500 ₽. Точная цена после диагностики.
+            <p className="text-muted-foreground text-sm md:text-base mb-5">
+              Устраняем типовые и сложные неисправности телевизоров в сервисном центре.
             </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="rounded-lg border border-border bg-background p-4">
+                <h3 className="font-semibold mb-2">Проблемы с питанием и запуском</h3>
+                <ul className="space-y-1.5 text-sm text-muted-foreground">
+                  <li>• Телевизор не включается (блок питания, предохранитель)</li>
+                  <li>• Включается и сразу выключается</li>
+                  <li>• Самопроизвольная перезагрузка (прошивка, main board)</li>
+                </ul>
+              </div>
+              <div className="rounded-lg border border-border bg-background p-4">
+                <h3 className="font-semibold mb-2">Проблемы с изображением</h3>
+                <ul className="space-y-1.5 text-sm text-muted-foreground">
+                  <li>• Есть звук, нет изображения (подсветка LED, инвертор, светодиоды)</li>
+                  <li>• Полосы и искажения (матрица, T-CON, шлейф)</li>
+                  <li>• Пятна и затемнения (замена подсветки)</li>
+                  <li>• Ремонт нижней планки телевизора при полосах матрицы</li>
+                </ul>
+              </div>
+              <div className="rounded-lg border border-border bg-background p-4">
+                <h3 className="font-semibold mb-2">Проблемы со звуком и интерфейсами</h3>
+                <ul className="space-y-1.5 text-sm text-muted-foreground">
+                  <li>• Есть изображение, нет звука (аудиоусилитель, динамики)</li>
+                  <li>• Не видит HDMI / нет сигнала (ремонт HDMI/USB, прошивка)</li>
+                  <li>• Не ловит каналы (ремонт TV-тюнера)</li>
+                </ul>
+              </div>
+              <div className="rounded-lg border border-border bg-background p-4">
+                <h3 className="font-semibold mb-2">Проблемы Smart TV и связи</h3>
+                <ul className="space-y-1.5 text-sm text-muted-foreground">
+                  <li>• Зависает или тормозит (прошивка, сброс, флеш/NAND-память)</li>
+                  <li>• Отсутствует Wi‑Fi (ремонт модуля Wi‑Fi)</li>
+                </ul>
+              </div>
+            </div>
+            <div className="mt-5 rounded-lg border border-primary/20 bg-primary/5 p-4 text-sm text-muted-foreground">
+              Ремонт нижней планки ТВ, замена подсветки, блока питания, main board и матрицы — от 500 ₽.
+              Точная стоимость определяется после диагностики.
+            </div>
           </div>
 
           <div className="mb-16">
@@ -131,9 +209,6 @@ const RemontTelevizorov: React.FC = () => {
                 </div>
               ))}
             </div>
-            <p className="text-muted-foreground text-sm mt-4">
-              Замена матрицы — один из самых дорогостоящих видов ремонта; остальные неисправности чаще устраняются в диапазоне от 700 до 2 500 ₽ (без учёта запчастей).
-            </p>
           </div>
 
           <div className="mb-16">
