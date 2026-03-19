@@ -10,11 +10,11 @@ const NotFound = () => {
   return (
     <HttpStatusHandler status={404}>
       <Helmet>
-        <title>404 - Страница не найдена | Сервисный центр Prime в Саранске</title>
-        <meta name="description" content="Запрашиваемая страница не найдена. Вернитесь на главную страницу сервисного центра Prime в Саранске." />
+        <title>404 - Страница не найдена | Сервисный центр Прайм в Саранске</title>
+        <meta name="description" content="Запрашиваемая страница не найдена. Вернитесь на главную страницу сервисного центра Прайм в Саранске." />
         <meta name="robots" content="noindex, nofollow" />
         {/* Open Graph */}
-        <meta property="og:title" content="404 - Страница не найдена | Сервисный центр Prime" />
+        <meta property="og:title" content="404 - Страница не найдена | Сервисный центр Прайм" />
         <meta property="og:description" content="Запрашиваемая страница не найдена. Вернитесь на главную страницу." />
         <meta property="og:type" content="website" />
         {/* Canonical */}

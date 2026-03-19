@@ -23,7 +23,7 @@ const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen, setPrivacyModalOp
             <Link to="/" className="font-bold text-2xl flex items-center gap-1">
               <img src="/logos/company-logo-square.png" alt="Logo" className="w-8 h-8" />
               <span className="text-primary" itemProp="name">СЦ</span>
-              <span className="text-foreground">PRIME</span>
+              <span className="text-foreground">ПРАЙМ</span>
             </Link>
             <p className="text-muted-foreground mt-2">
               Профессиональный ремонт цифровой и бытовой техники с гарантией качества
@@ -167,7 +167,7 @@ const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen, setPrivacyModalOp
               ОГРНИП: 311132822000044, ИНН: 132813311343
             </p>
             <br />
-            <p>© 2011 - {new Date().getFullYear()} СЦ PRIME. Все права защищены.</p>
+            <p>© 2011 - {new Date().getFullYear()} СЦ ПРАЙМ. Все права защищены.</p>
           </div>
         </div>
       </div>

@@ -46,7 +46,7 @@ export function render(options: RenderOptions): RenderResult {
     </StaticRouter>
   );
   const blogMatch = pathname.match(/^\/blog\/([^/]+)$/);
-  let title = 'Сервисный центр Prime';
+  let title = 'Сервисный центр Прайм';
   let description = 'Ремонт бытовой и цифровой техники в Саранске.';
   let metaTags = '';
   let linkTags = '';
@@ -55,26 +55,26 @@ export function render(options: RenderOptions): RenderResult {
     const post = preloadedBlogPost;
     const descPlain = stripMarkdownForMeta(post.content, 160);
     const desc = descPlain ? `${descPlain}...` : '';
-    title = `${escapeHtml(post.title)} | Сервисный центр Prime - Ремонт техники в Саранске`;
-    description = desc ? `${desc} Сервисный центр Prime в Саранске - профессиональный ремонт техники с гарантией.` : 'Сервисный центр Prime в Саранске - профессиональный ремонт техники с гарантией.';
+    title = `${escapeHtml(post.title)} | Сервисный центр Прайм - Ремонт техники в Саранске`;
+    description = desc ? `${desc} Сервисный центр Прайм в Саранске - профессиональный ремонт техники с гарантией.` : 'Сервисный центр Прайм в Саранске - профессиональный ремонт техники с гарантией.';
     const canonical = `${BASE_URL}/blog/${post.slug}`;
     const image = post.image_url || DEFAULT_IMAGE;
-    const keywords = post.tags.join(', ') + ', ремонт техники, сервисный центр, Prime, Саранск';
+    const keywords = post.tags.join(', ') + ', ремонт техники, сервисный центр, Прайм, Саранск';
 
     // description и title подставляются в шаблон через replace в server.js/prerender.js, в metaTags не дублируем
     metaTags = [
       `<meta name="keywords" content="${escapeHtml(keywords)}" />`,
-      `<meta property="og:title" content="${escapeHtml(post.title)} | Сервисный центр Prime" />`,
+      `<meta property="og:title" content="${escapeHtml(post.title)} | Сервисный центр Прайм" />`,
       `<meta property="og:description" content="${escapeHtml(description)}" />`,
       `<meta property="og:image" content="${escapeHtml(image)}" />`,
       `<meta property="og:url" content="${canonical}" />`,
       `<meta property="og:type" content="article" />`,
       `<meta property="og:locale" content="ru_RU" />`,
-      `<meta property="og:site_name" content="Сервисный центр Prime" />`,
+      `<meta property="og:site_name" content="Сервисный центр Прайм" />`,
       `<meta property="article:published_time" content="${post.created_at}" />`,
       `<meta property="article:modified_time" content="${post.updated_at}" />`,
       `<meta name="twitter:card" content="summary_large_image" />`,
-      `<meta name="twitter:title" content="${escapeHtml(post.title)} | Сервисный центр Prime" />`,
+      `<meta name="twitter:title" content="${escapeHtml(post.title)} | Сервисный центр Прайм" />`,
       `<meta name="twitter:description" content="${escapeHtml(description)}" />`,
       `<meta name="twitter:image" content="${escapeHtml(image)}" />`,
     ].join('\n    ');
@@ -85,10 +85,10 @@ export function render(options: RenderOptions): RenderResult {
       '@context': 'https://schema.org',
       '@type': 'BlogPosting',
       headline: post.title,
-      description: desc ? `${desc} Сервисный центр Prime в Саранске.` : 'Сервисный центр Prime в Саранске - профессиональный ремонт техники.',
+      description: desc ? `${desc} Сервисный центр Прайм в Саранске.` : 'Сервисный центр Прайм в Саранске - профессиональный ремонт техники.',
       image: image,
-      author: { '@type': 'Organization', name: 'Сервисный центр Prime', url: BASE_URL },
-      publisher: { '@type': 'Organization', name: 'Сервисный центр Prime', url: BASE_URL, logo: { '@type': 'ImageObject', url: DEFAULT_IMAGE } },
+      author: { '@type': 'Organization', name: 'Сервисный центр Прайм', url: BASE_URL },
+      publisher: { '@type': 'Organization', name: 'Сервисный центр Прайм', url: BASE_URL, logo: { '@type': 'ImageObject', url: DEFAULT_IMAGE } },
       datePublished: post.created_at,
       dateModified: post.updated_at,
       mainEntityOfPage: { '@type': 'WebPage', '@id': canonical },
@@ -100,8 +100,8 @@ export function render(options: RenderOptions): RenderResult {
   } else {
     const is404 = !(pathname in ROUTES_META);
     const routeMeta = ROUTES_META[pathname] ?? (is404 ? {
-      title: '404 - Страница не найдена | Сервисный центр Prime',
-      description: 'Запрашиваемая страница не найдена. Вернитесь на главную страницу сервисного центра Prime в Саранске.',
+      title: '404 - Страница не найдена | Сервисный центр Прайм',
+      description: 'Запрашиваемая страница не найдена. Вернитесь на главную страницу сервисного центра Прайм в Саранске.',
       keywords: '',
     } : ROUTES_META['/']);
     title = routeMeta.title;
@@ -118,7 +118,7 @@ export function render(options: RenderOptions): RenderResult {
       `<meta property="og:url" content="${canonical}" />`,
       `<meta property="og:type" content="website" />`,
       `<meta property="og:locale" content="ru_RU" />`,
-      `<meta property="og:site_name" content="Сервисный центр Prime" />`,
+      `<meta property="og:site_name" content="Сервисный центр Прайм" />`,
       `<meta name="twitter:card" content="summary_large_image" />`,
       `<meta name="twitter:title" content="${escapeHtml(title)}" />`,
       `<meta name="twitter:description" content="${escapeHtml(description)}" />`,

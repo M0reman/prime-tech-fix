@@ -81,13 +81,13 @@ const AdminLogin: React.FC = () => {
   return (
     <>
       <Helmet>
-        <title>Вход в админ-панель | Prime Tech</title>
-        <meta name="description" content="Вход в административную панель сервисного центра Prime для управления блогом и контентом сайта." />
+        <title>Вход в админ-панель | Прайм</title>
+        <meta name="description" content="Вход в административную панель сервисного центра Прайм для управления блогом и контентом сайта." />
         <meta name="robots" content="noindex, nofollow" />
-        <meta name="author" content="Prime Tech Admin" />
+        <meta name="author" content="Прайм Admin" />
         {/* Open Graph */}
-        <meta property="og:title" content="Вход в админ-панель | Prime Tech" />
-        <meta property="og:description" content="Вход в административную панель сервисного центра Prime." />
+        <meta property="og:title" content="Вход в админ-панель | Прайм" />
+        <meta property="og:description" content="Вход в административную панель сервисного центра Прайм." />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="ru_RU" />
         {/* Canonical */}
@@ -102,7 +102,7 @@ const AdminLogin: React.FC = () => {
               Вход в админ-панель
             </h2>
             <p className="mt-2 text-sm text-gray-600">
-              Управление блогом Prime Tech
+              Управление блогом Прайм
             </p>
           </div>
 

@@ -570,20 +570,20 @@ const Brands = () => {
   return (
     <>
       <Helmet>
-        <title>Ремонт техники по брендам | Сервисный центр Prime в Саранске</title>
+        <title>Ремонт техники по брендам | Сервисный центр Прайм в Саранске</title>
         <meta name="description" content="Ремонт техники Apple, Samsung, Xiaomi, Huawei, Lenovo, Asus, HP, Acer и других брендов в Саранске. Профессиональный ремонт смартфонов, ноутбуков, планшетов с гарантией качества." />
-        <meta name="keywords" content="ремонт Apple, ремонт Samsung, ремонт Xiaomi, ремонт Huawei, ремонт Lenovo, ремонт Asus, ремонт HP, ремонт Acer, ремонт смартфонов, ремонт ноутбуков, ремонт планшетов, сервисный центр, Саранск, Prime" />
+        <meta name="keywords" content="ремонт Apple, ремонт Samsung, ремонт Xiaomi, ремонт Huawei, ремонт Lenovo, ремонт Asus, ремонт HP, ремонт Acer, ремонт смартфонов, ремонт ноутбуков, ремонт планшетов, сервисный центр, Саранск, Прайм" />
         {/* Open Graph для соцсетей */}
-        <meta property="og:title" content="Ремонт техники по брендам | Сервисный центр Prime" />
+        <meta property="og:title" content="Ремонт техники по брендам | Сервисный центр Прайм" />
         <meta property="og:description" content="Ремонт техники Apple, Samsung, Xiaomi, Huawei, Lenovo, Asus, HP, Acer и других брендов. Профессиональный ремонт с гарантией качества." />
         <meta property="og:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         <meta property="og:url" content="https://serviceprime13.ru/brands" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="ru_RU" />
-        <meta property="og:site_name" content="Сервисный центр Prime" />
+        <meta property="og:site_name" content="Сервисный центр Прайм" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Ремонт техники по брендам | Сервисный центр Prime" />
+        <meta name="twitter:title" content="Ремонт техники по брендам | Сервисный центр Прайм" />
         <meta name="twitter:description" content="Ремонт техники Apple, Samsung, Xiaomi, Huawei, Lenovo, Asus, HP, Acer и других брендов." />
         <meta name="twitter:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         {/* Canonical */}
@@ -593,7 +593,7 @@ const Brands = () => {
             "@context": "https://schema.org",
             "@type": "WebPage",
             "name": "Ремонт техники по брендам",
-            "description": "Ремонт техники различных брендов в сервисном центре Prime",
+            "description": "Ремонт техники различных брендов в сервисном центре Прайм",
             "url": "https://serviceprime13.ru/brands",
             "mainEntity": {
               "@type": "ItemList",

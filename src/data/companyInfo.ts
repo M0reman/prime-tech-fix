@@ -1,5 +1,5 @@
 export const companyInfo = {
-  name: "Сервисный центр Prime",
+  name: "Сервисный центр Прайм",
   image: "https://serviceprime13.ru/logos/company-logo.jpg",
   address: {
     streetAddress: "ул. Севастопольская, д. 56/2",

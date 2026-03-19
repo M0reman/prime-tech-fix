@@ -37,7 +37,7 @@ const RemontTelevizorov: React.FC = () => {
             </span>
             <h1 className="heading-lg mb-4">Ремонт телевизоров в Саранске</h1>
             <p className="body-lg text-muted-foreground max-w-3xl mx-auto mb-8">
-              Ремонт телевизоров ЖК, LED, QLED, OLED в сервисном центре Prime. Забор техники в сервис, бесплатная диагностика при ремонте, гарантия на работы.
+              Ремонт телевизоров ЖК, LED, QLED, OLED в сервисном центре Прайм. Забор техники в сервис, бесплатная диагностика при ремонте, гарантия на работы.
             </p>
             <div className="w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg bg-muted aspect-video min-h-[200px] sm:min-h-[240px] md:min-h-[280px]">
               <img

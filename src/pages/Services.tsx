@@ -62,11 +62,11 @@ const Services: React.FC = () => {
   return (
     <div className="min-h-screen pt-20">
       <Helmet>
-        <title>Услуги по ремонту техники | Сервисный центр Prime</title>
+        <title>Услуги по ремонту техники | Сервисный центр Прайм</title>
         <meta name='description' content='Ремонт телевизоров в Саранске в сервисном центре. Полный спектр услуг: смартфоны, ноутбуки, бытовая техника. Гарантия качества, доступные цены.' />
-        <meta name="keywords" content="ремонт техники, ремонт телевизоров в саранске, сервисный центр, ремонт смартфонов, ремонт ноутбуков, ремонт телевизоров, ремонт бытовой техники, диагностика, гарантия, Саранск, Prime, услуги, цены, консультация, оригинальные запчасти, профессиональный ремонт, срочный ремонт, бесплатная диагностика, ремонт Apple, ремонт Samsung, ремонт Xiaomi, ремонт Huawei, ремонт Lenovo, ремонт Asus, ремонт HP, ремонт Acer" />
+        <meta name="keywords" content="ремонт техники, ремонт телевизоров в саранске, сервисный центр, ремонт смартфонов, ремонт ноутбуков, ремонт телевизоров, ремонт бытовой техники, диагностика, гарантия, Саранск, Прайм, услуги, цены, консультация, оригинальные запчасти, профессиональный ремонт, срочный ремонт, бесплатная диагностика, ремонт Apple, ремонт Samsung, ремонт Xiaomi, ремонт Huawei, ремонт Lenovo, ремонт Asus, ремонт HP, ремонт Acer" />
         {/* Open Graph для соцсетей */}
-        <meta property="og:title" content="Услуги по ремонту техники | Сервисный центр Prime" />
+        <meta property="og:title" content="Услуги по ремонту техники | Сервисный центр Прайм" />
         <meta property="og:description" content="Ремонт телевизоров в Саранске в сервисном центре. Полный спектр услуг: смартфоны, ноутбуки, бытовая техника. Гарантия качества, доступные цены." />
         <meta property="og:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         <meta property="og:url" content="https://serviceprime13.ru/services" />
@@ -74,7 +74,7 @@ const Services: React.FC = () => {
         <meta property="og:locale" content="ru_RU" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Услуги по ремонту техники | Сервисный центр Prime" />
+        <meta name="twitter:title" content="Услуги по ремонту техники | Сервисный центр Прайм" />
         <meta name="twitter:description" content="Ремонт телевизоров в Саранске в сервисном центре. Полный спектр услуг: смартфоны, ноутбуки, бытовая техника. Гарантия качества, доступные цены." />
         <meta name="twitter:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         {/* Canonical */}

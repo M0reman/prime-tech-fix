@@ -205,20 +205,20 @@ const Faq: React.FC = () => {
   return (
     <div className="min-h-screen pt-20" itemScope itemType="https://schema.org/FAQPage">
       <Helmet>
-        <title>FAQ: Ответы на вопросы | Сервисный центр Prime</title>
-        <meta name='description' content='Ответы на часто задаваемые вопросы о ремонте техники. Узнайте о сроках диагностики, гарантии, выездном ремонте и многом другом в сервисном центре Prime.' />
-        <meta name="keywords" content="ремонт техники, сервисный центр, вопросы, ответы, FAQ, гарантия, диагностика, выездной ремонт, консультация, Саранск, Prime, услуги, цены, ремонт Apple, ремонт Samsung, ремонт Xiaomi, ремонт Huawei, ремонт Lenovo, ремонт Asus, ремонт HP, ремонт Acer" />
+        <title>FAQ: Ответы на вопросы | Сервисный центр Прайм</title>
+        <meta name='description' content='Ответы на часто задаваемые вопросы о ремонте техники. Узнайте о сроках диагностики, гарантии, выездном ремонте и многом другом в сервисном центре Прайм.' />
+        <meta name="keywords" content="ремонт техники, сервисный центр, вопросы, ответы, FAQ, гарантия, диагностика, выездной ремонт, консультация, Саранск, Прайм, услуги, цены, ремонт Apple, ремонт Samsung, ремонт Xiaomi, ремонт Huawei, ремонт Lenovo, ремонт Asus, ремонт HP, ремонт Acer" />
         {/* Open Graph для соцсетей */}
-        <meta property="og:title" content="FAQ: Ответы на вопросы | Сервисный центр Prime" />
-        <meta property="og:description" content="Ответы на часто задаваемые вопросы о ремонте техники. Узнайте о сроках диагностики, гарантии, выездном ремонте и многом другом в сервисном центре Prime." />
+        <meta property="og:title" content="FAQ: Ответы на вопросы | Сервисный центр Прайм" />
+        <meta property="og:description" content="Ответы на часто задаваемые вопросы о ремонте техники. Узнайте о сроках диагностики, гарантии, выездном ремонте и многом другом в сервисном центре Прайм." />
         <meta property="og:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         <meta property="og:url" content="https://serviceprime13.ru/faq" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="ru_RU" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="FAQ: Ответы на вопросы | Сервисный центр Prime" />
-        <meta name="twitter:description" content="Ответы на часто задаваемые вопросы о ремонте техники. Узнайте о сроках диагностики, гарантии, выездном ремонте и многом другом в сервисном центре Prime." />
+        <meta name="twitter:title" content="FAQ: Ответы на вопросы | Сервисный центр Прайм" />
+        <meta name="twitter:description" content="Ответы на часто задаваемые вопросы о ремонте техники. Узнайте о сроках диагностики, гарантии, выездном ремонте и многом другом в сервисном центре Прайм." />
         <meta name="twitter:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         {/* Canonical */}
         <link rel="canonical" href="https://serviceprime13.ru/faq" />

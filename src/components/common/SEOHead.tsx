@@ -17,7 +17,7 @@ interface SEOHeadProps {
 const SEOHead: React.FC<SEOHeadProps> = ({
   title,
   description,
-  keywords = "ремонт техники, сервисный центр, ремонт смартфонов, ремонт ноутбуков, ремонт планшетов, ремонт телевизоров, ремонт бытовой техники, диагностика, гарантия, Саранск, Prime, ремонт Apple, ремонт Samsung, ремонт Xiaomi, ремонт Huawei, ремонт Lenovo, ремонт Asus, ремонт HP, ремонт Acer, профессиональный ремонт, срочный ремонт, бесплатная диагностика, оригинальные запчасти",
+  keywords = "ремонт техники, сервисный центр, ремонт смартфонов, ремонт ноутбуков, ремонт планшетов, ремонт телевизоров, ремонт бытовой техники, диагностика, гарантия, Саранск, Прайм, ремонт Apple, ремонт Samsung, ремонт Xiaomi, ремонт Huawei, ремонт Lenovo, ремонт Asus, ремонт HP, ремонт Acer, профессиональный ремонт, срочный ремонт, бесплатная диагностика, оригинальные запчасти",
   image = "https://serviceprime13.ru/logos/company-logo.jpg",
   url,
   type = 'website',
@@ -26,7 +26,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   tags = [],
   noindex = false
 }) => {
-  const fullTitle = title.includes('Prime') ? title : `${title} | Сервисный центр Prime`;
+  const fullTitle = title.includes('Прайм') ? title : `${title} | Сервисный центр Прайм`;
   const fullUrl = url ? `https://serviceprime13.ru${url}` : 'https://serviceprime13.ru';
 
   return (
@@ -45,7 +45,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       <meta property="og:url" content={fullUrl} />
       <meta property="og:type" content={type} />
       <meta property="og:locale" content="ru_RU" />
-      <meta property="og:site_name" content="Сервисный центр Prime" />
+      <meta property="og:site_name" content="Сервисный центр Прайм" />
       
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
@@ -68,7 +68,7 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       ))}
       
       {/* Additional meta tags */}
-      <meta name="author" content="Сервисный центр Prime" />
+      <meta name="author" content="Сервисный центр Прайм" />
       <meta name="language" content="ru" />
       <meta name="geo.region" content="RU-MO" />
       <meta name="geo.placename" content="Саранск" />

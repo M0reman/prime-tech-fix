@@ -35,7 +35,7 @@ function buildSeoBlock(meta: RouteMeta, routePath: string): string {
     `<meta property="og:url" content="${url}" />`,
     `<meta property="og:type" content="website" />`,
     `<meta property="og:locale" content="ru_RU" />`,
-    `<meta property="og:site_name" content="Сервисный центр Prime" />`,
+    `<meta property="og:site_name" content="Сервисный центр Прайм" />`,
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:title" content="${title}" />`,
     `<meta name="twitter:description" content="${desc}" />`,

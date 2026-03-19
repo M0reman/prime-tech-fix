@@ -87,21 +87,21 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, setSuccessModalO
   return (
     <div className="min-h-screen pt-20">
       <Helmet>
-        <title>Контакты | Сервисный центр Prime в Саранске</title>
-        <meta name='description' content='Свяжитесь с сервисным центром Prime. Адрес: г. Саранск, ул. Севастопольская, д. 56/2. Телефон: 8 (929) 747-45-11. Оставьте заявку на ремонт онлайн.' />
-        <meta name="keywords" content="ремонт техники, сервисный центр, контакты, адрес, телефон, Саранск, Prime, заявка, консультация, ремонт смартфонов, ремонт ноутбуков, ремонт телевизоров, ремонт бытовой техники, оригинальные запчасти, профессиональный ремонт, срочный ремонт, бесплатная диагностика, ремонт Apple, ремонт Samsung, ремонт Xiaomi, ремонт Huawei, ремонт Lenovo, ремонт Asus, ремонт HP, ремонт Acer" />
+        <title>Контакты | Сервисный центр Прайм в Саранске</title>
+        <meta name='description' content='Свяжитесь с сервисным центром Прайм. Адрес: г. Саранск, ул. Севастопольская, д. 56/2. Телефон: 8 (929) 747-45-11. Оставьте заявку на ремонт онлайн.' />
+        <meta name="keywords" content="ремонт техники, сервисный центр, контакты, адрес, телефон, Саранск, Прайм, заявка, консультация, ремонт смартфонов, ремонт ноутбуков, ремонт телевизоров, ремонт бытовой техники, оригинальные запчасти, профессиональный ремонт, срочный ремонт, бесплатная диагностика, ремонт Apple, ремонт Samsung, ремонт Xiaomi, ремонт Huawei, ремонт Lenovo, ремонт Asus, ремонт HP, ремонт Acer" />
         {/* Open Graph для соцсетей */}
-        <meta property="og:title" content="Контакты | Сервисный центр Prime в Саранске" />
-        <meta property="og:description" content="Свяжитесь с сервисным центром Prime. Адрес: г. Саранск, ул. Севастопольская, д. 56/2. Телефон: 8 (929) 747-45-11. Оставьте заявку на ремонт онлайн." />
+        <meta property="og:title" content="Контакты | Сервисный центр Прайм в Саранске" />
+        <meta property="og:description" content="Свяжитесь с сервисным центром Прайм. Адрес: г. Саранск, ул. Севастопольская, д. 56/2. Телефон: 8 (929) 747-45-11. Оставьте заявку на ремонт онлайн." />
         <meta property="og:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         <meta property="og:url" content="https://serviceprime13.ru/contact" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="ru_RU" />
-        <meta property="og:site_name" content="Сервисный центр Prime" />
+        <meta property="og:site_name" content="Сервисный центр Прайм" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Контакты | Сервисный центр Prime в Саранске" />
-        <meta name="twitter:description" content="Свяжитесь с сервисным центром Prime. Адрес: г. Саранск, ул. Севастопольская, д. 56/2. Телефон: 8 (929) 747-45-11. Оставьте заявку на ремонт онлайн." />
+        <meta name="twitter:title" content="Контакты | Сервисный центр Прайм в Саранске" />
+        <meta name="twitter:description" content="Свяжитесь с сервисным центром Прайм. Адрес: г. Саранск, ул. Севастопольская, д. 56/2. Телефон: 8 (929) 747-45-11. Оставьте заявку на ремонт онлайн." />
         <meta name="twitter:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         {/* Canonical */}
         <link rel="canonical" href="https://serviceprime13.ru/contact" />
@@ -295,7 +295,7 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, setSuccessModalO
                   <div className="flex items-start gap-4">
                     <MapPin size={24} className="text-primary shrink-0 mt-1" />
                     <div>
-                      <h3 className="text-lg font-medium mb-1" itemProp="name">Сервисный центр PRIME</h3>
+                      <h3 className="text-lg font-medium mb-1" itemProp="name">Сервисный центр ПРАЙМ</h3>
                       <div className="text-muted-foreground" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
                         <span itemProp="streetAddress">ул. Севастопольская, д. 56/2</span>,
                         <span itemProp="addressLocality">Саранск</span>,

@@ -16,20 +16,20 @@ const About: React.FC = () => {
   return (
     <div className="min-h-screen pt-20">
       <Helmet>
-        <title>О компании | Сервисный центр Prime</title>
-        <meta name='description' content='Узнайте больше о сервисном центре Prime. Наша миссия, команда профессионалов и гарантии качества. Работаем с 2011 года, чтобы ваша техника служила дольше.' />
-        <meta name="keywords" content="ремонт техники, сервисный центр, о компании, Prime, Саранск, команда, опыт, профессионалы, гарантия, история, ремонт смартфонов, ремонт ноутбуков, ремонт телевизоров, ремонт бытовой техники, оригинальные запчасти, профессиональный ремонт, срочный ремонт, бесплатная диагностика, ремонт Apple, ремонт Samsung, ремонт Xiaomi, ремонт Huawei, ремонт Lenovo, ремонт Asus, ремонт HP, ремонт Acer" />
+        <title>О компании | Сервисный центр Прайм</title>
+        <meta name='description' content='Узнайте больше о сервисном центре Прайм. Наша миссия, команда профессионалов и гарантии качества. Работаем с 2011 года, чтобы ваша техника служила дольше.' />
+        <meta name="keywords" content="ремонт техники, сервисный центр, о компании, Прайм, Саранск, команда, опыт, профессионалы, гарантия, история, ремонт смартфонов, ремонт ноутбуков, ремонт телевизоров, ремонт бытовой техники, оригинальные запчасти, профессиональный ремонт, срочный ремонт, бесплатная диагностика, ремонт Apple, ремонт Samsung, ремонт Xiaomi, ремонт Huawei, ремонт Lenovo, ремонт Asus, ремонт HP, ремонт Acer" />
         {/* Open Graph для соцсетей */}
-        <meta property="og:title" content="О компании | Сервисный центр Prime" />
-        <meta property="og:description" content="Узнайте больше о сервисном центре Prime. Наша миссия, команда профессионалов и гарантии качества. Работаем с 2011 года, чтобы ваша техника служила дольше." />
+        <meta property="og:title" content="О компании | Сервисный центр Прайм" />
+        <meta property="og:description" content="Узнайте больше о сервисном центре Прайм. Наша миссия, команда профессионалов и гарантии качества. Работаем с 2011 года, чтобы ваша техника служила дольше." />
         <meta property="og:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         <meta property="og:url" content="https://serviceprime13.ru/about" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="ru_RU" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="О компании | Сервисный центр Prime" />
-        <meta name="twitter:description" content="Узнайте больше о сервисном центре Prime. Наша миссия, команда профессионалов и гарантии качества. Работаем с 2011 года, чтобы ваша техника служила дольше." />
+        <meta name="twitter:title" content="О компании | Сервисный центр Прайм" />
+        <meta name="twitter:description" content="Узнайте больше о сервисном центре Прайм. Наша миссия, команда профессионалов и гарантии качества. Работаем с 2011 года, чтобы ваша техника служила дольше." />
         <meta name="twitter:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         {/* Canonical */}
         <link rel="canonical" href="https://serviceprime13.ru/about" />
@@ -55,7 +55,7 @@ const About: React.FC = () => {
             <span className="inline-block bg-primary/10 text-primary px-4 py-1 rounded-full text-sm font-medium mb-4">
               О компании
             </span>
-            <h1 className="heading-lg mb-4">Сервисный центр PRIME</h1>
+            <h1 className="heading-lg mb-4">Сервисный центр ПРАЙМ</h1>
             <p className="body-lg text-muted-foreground max-w-3xl mx-auto">
               Надежный партнер в электрическом ремонте и обслуживании любой цифровой и бытовой техники
             </p>
@@ -65,13 +65,13 @@ const About: React.FC = () => {
             <div className="order-2 lg:order-1">
               <h2 className="heading-md mb-4">Наша миссия</h2>
               <p className="body-md mb-4">
-                Сервисный центр «Prime» — ваш надежный партнер в сфере профессионального ремонта техники любой сложности.
+                Сервисный центр «Прайм» — ваш надежный партнер в сфере профессионального ремонта техники любой сложности.
                 Уже более 14 лет мы оказываем широкий спектр высококачественных услуг, помогая клиентам восстанавливать работоспособность устройств любых марок и моделей.
                 Команда опытных специалистов использует современные технологии и оригинальные комплектующие, чтобы ваша техника вновь радовала вас безупречной работой.
               </p>
               <p className="body-md mb-6">
                 Мы ценим ваше доверие и гарантируем индивидуальный подход, оперативность и прозрачность на каждом этапе обслуживания.
-                С «Prime» вы всегда можете быть уверены в надежности и качестве ремонта вашей техники!
+                С «Прайм» вы всегда можете быть уверены в надежности и качестве ремонта вашей техники!
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button asChild>

@@ -13,7 +13,7 @@ const HttpStatusHandler: React.FC<HttpStatusHandlerProps> = ({ status, children 
     // Устанавливаем HTTP статус для страницы
     if (status === 404) {
       // Для 404 страниц устанавливаем специальный заголовок
-      document.title = "404 - Страница не найдена | Сервисный центр Prime";
+      document.title = "404 - Страница не найдена | Сервисный центр Прайм";
       
       // Логируем 404 ошибку
       console.error(`404 Error: ${location.pathname}`);

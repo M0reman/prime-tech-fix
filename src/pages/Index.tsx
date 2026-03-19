@@ -15,21 +15,21 @@ const Index: React.FC = () => {
 
   return <div className="min-h-screen">
     <Helmet>
-        <title>Ремонт техники и телевизоров в Саранске | Prime - Сервисный центр</title>
-        <meta name='description' content='Ремонт телевизоров и бытовой техники в Саранске. Сервисный центр Prime: забор техники в сервис, диагностика в центре, гарантия. Качественный ремонт по доступным ценам.' />
+        <title>Ремонт техники и телевизоров в Саранске | Прайм - Сервисный центр</title>
+        <meta name='description' content='Ремонт телевизоров и бытовой техники в Саранске. Сервисный центр Прайм: забор техники в сервис, диагностика в центре, гарантия. Качественный ремонт по доступным ценам.' />
         {/* SEO: ключи по ремонту телевизоров и техники в Саранске */}
-        <meta name="keywords" content="ремонт телевизоров в саранске, ремонт техники, сервисный центр по ремонту телевизоров саранск, ремонт в сервисном центре, сервисный центр, ремонт смартфонов, ремонт ноутбуков, ремонт планшетов, ремонт телевизоров, ремонт бытовой техники, диагностика, гарантия, Саранск, Республика Мордовия, Prime, ремонт Apple, ремонт Samsung, ремонт Xiaomi, ремонт Huawei, ремонт Lenovo, ремонт Asus, ремонт HP, ремонт Acer, профессиональный ремонт, срочный ремонт, бесплатная диагностика, оригинальные запчасти" />
+        <meta name="keywords" content="ремонт телевизоров в саранске, ремонт техники, сервисный центр по ремонту телевизоров саранск, ремонт в сервисном центре, сервисный центр, ремонт смартфонов, ремонт ноутбуков, ремонт планшетов, ремонт телевизоров, ремонт бытовой техники, диагностика, гарантия, Саранск, Республика Мордовия, Прайм, ремонт Apple, ремонт Samsung, ремонт Xiaomi, ремонт Huawei, ремонт Lenovo, ремонт Asus, ремонт HP, ремонт Acer, профессиональный ремонт, срочный ремонт, бесплатная диагностика, оригинальные запчасти" />
         {/* Open Graph для соцсетей */}
-        <meta property="og:title" content="Ремонт техники и телевизоров в Саранске | Prime - Сервисный центр" />
-        <meta property="og:description" content="Ремонт телевизоров и бытовой техники в Саранске. Сервисный центр Prime: забор техники в сервис, диагностика в центре, гарантия. Качественный ремонт по доступным ценам." />
+        <meta property="og:title" content="Ремонт техники и телевизоров в Саранске | Прайм - Сервисный центр" />
+        <meta property="og:description" content="Ремонт телевизоров и бытовой техники в Саранске. Сервисный центр Прайм: забор техники в сервис, диагностика в центре, гарантия. Качественный ремонт по доступным ценам." />
         <meta property="og:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         <meta property="og:url" content="https://serviceprime13.ru/" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="ru_RU" />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Ремонт техники и телевизоров в Саранске | Prime - Сервисный центр" />
-        <meta name="twitter:description" content="Ремонт телевизоров и бытовой техники в Саранске. Сервисный центр Prime: забор техники в сервис, диагностика в центре, гарантия. Качественный ремонт по доступным ценам." />
+        <meta name="twitter:title" content="Ремонт техники и телевизоров в Саранске | Прайм - Сервисный центр" />
+        <meta name="twitter:description" content="Ремонт телевизоров и бытовой техники в Саранске. Сервисный центр Прайм: забор техники в сервис, диагностика в центре, гарантия. Качественный ремонт по доступным ценам." />
         <meta name="twitter:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         {/* Canonical */}
         <link rel="canonical" href="https://serviceprime13.ru/" />
@@ -62,7 +62,7 @@ const Index: React.FC = () => {
       <div className="container px-4">
         <div className="text-center mb-12">
           <span className="inline-block bg-blue-100 text-blue-700 px-4 py-1 rounded-full text-sm font-medium mb-4">
-            Почему PRIME
+            Почему ПРАЙМ
           </span>
           <h2 className="heading-lg mb-4 text-gray-900">Премиальное качество обслуживания</h2>
           <p className="body-lg text-gray-600 max-w-3xl mx-auto">

@@ -51,7 +51,7 @@ const Navbar: React.FC = () => {
         >
           <img src="/logos/company-logo-square.png" alt="Logo" className="w-8 h-8"></img>
           <span className="text-blue-600">СЦ</span>
-          <span className="text-gray-900">PRIME</span>
+          <span className="text-gray-900">ПРАЙМ</span>
         </Link>
         
         {/* Desktop Navigation */}
