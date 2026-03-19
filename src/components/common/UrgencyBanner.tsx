@@ -39,7 +39,7 @@ const UrgencyBanner: React.FC = () => {
       >
         <X size={20} />
       </button>
-      <div className="container mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-center gap-2 sm:gap-4 text-xs sm:text-sm md:text-base text-center sm:text-left">
+      <div className="container mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-center gap-2 sm:gap-4 text-xs sm:text-sm md:text-base text-center sm:text-left pr-10 sm:pr-12">
         <div className="flex flex-col sm:flex-row items-center justify-center w-full sm:w-auto mb-1 sm:mb-0">
           <div className="flex items-center justify-center gap-2 w-full">
             <AlertTriangle size={18} className="animate-pulse flex-shrink-0" />
@@ -65,9 +65,9 @@ const UrgencyBanner: React.FC = () => {
             </div>
           </div>
         </div>
-        <a 
+        <a
           href="tel:+79297474511"
-          className="bg-white text-red-500 px-4 py-1 rounded-lg font-semibold hover:bg-gray-100 transition-colors w-full sm:w-auto mt-2 sm:mt-0 text-center"
+          className="relative z-[52] bg-white text-red-500 px-4 py-1 rounded-lg font-semibold hover:bg-gray-100 transition-colors w-full sm:w-auto mt-2 sm:mt-0 text-center shrink-0"
         >
           ЗАКАЗАТЬ СЕЙЧАС
         </a>

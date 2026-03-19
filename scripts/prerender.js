@@ -116,6 +116,13 @@ async function main() {
     fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf-8');
   }
 
+  const rootIndexPath = path.join(distDir, 'index.html');
+  const rootHtml = fs.readFileSync(rootIndexPath, 'utf-8');
+  if (rootHtml.includes(SSR_OUTLET)) {
+    console.error('Ошибка: в dist/index.html (главная) остался плейсхолдер. Контент не подставлен.');
+    process.exit(1);
+  }
+
   const criticalPath = path.join(distDir, 'remont-televizorov', 'index.html');
   if (fs.existsSync(criticalPath)) {
     const criticalHtml = fs.readFileSync(criticalPath, 'utf-8');
@@ -126,6 +133,7 @@ async function main() {
   }
 
   console.log('Готово.');
+  console.log('Для деплоя на статический хостинг (Timeweb и др.) загрузите всю папку dist. Команда сборки: npm run build:static');
 }
 
 main().catch((err) => {
