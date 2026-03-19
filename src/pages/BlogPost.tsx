@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, Calendar, Tag, Share2, Clock } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { usePreload } from '@/contexts/PreloadContext';
 
 export interface BlogPost {
@@ -264,8 +265,8 @@ const BlogPost: React.FC = () => {
                 )}
 
                 {/* Контент статьи */}
-                <div className="prose prose-lg max-w-none">
-                  <ReactMarkdown>{post.content}</ReactMarkdown>
+                <div className="prose prose-lg max-w-none prose-table:border-collapse prose-th:border prose-th:border-border prose-th:bg-muted prose-th:px-4 prose-th:py-2 prose-td:border prose-td:border-border prose-td:px-4 prose-td:py-2">
+                  <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
                 </div>
 
                 {/* Разделитель */}
