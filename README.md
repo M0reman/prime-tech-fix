@@ -46,7 +46,7 @@ npm run dev
 
 ## SEO и деплой
 
-- **Только статика** (например, Timeweb Apps без Node): используйте `npm run build:static`, в настройках деплоя укажите артефакт каталога **`dist`** и задайте `VITE_BACKEND_URL` при сборке.
+- **Только статика** (Timeweb Apps и др. без Node): **обязательно** используйте **`npm run build:static`** — иначе в HTML попадёт только мета, а `<div id="root">` будет пустым и роботы не увидят текст страниц. В настройках деплоя укажите каталог **`dist`**, раздавайте файлы по путям (не редирект всех путей на index.html). Подробно: [docs/STATIC_DEPLOY.md](docs/STATIC_DEPLOY.md).
 - **SSR на своём сервере**: `npm run build:ssr`, затем `npm run serve` за reverse-proxy (nginx и т.п.).
 
 ## Стек

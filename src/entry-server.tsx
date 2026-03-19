@@ -59,8 +59,8 @@ export function render(options: RenderOptions): RenderResult {
     const image = post.image_url || DEFAULT_IMAGE;
     const keywords = post.tags.join(', ') + ', ремонт техники, сервисный центр, Prime, Саранск';
 
+    // description и title подставляются в шаблон через replace в server.js/prerender.js, в metaTags не дублируем
     metaTags = [
-      `<meta name="description" content="${escapeHtml(description)}" />`,
       `<meta name="keywords" content="${escapeHtml(keywords)}" />`,
       `<meta property="og:title" content="${escapeHtml(post.title)} | Сервисный центр Prime" />`,
       `<meta property="og:description" content="${escapeHtml(description)}" />`,
@@ -105,8 +105,8 @@ export function render(options: RenderOptions): RenderResult {
     description = routeMeta.description;
     const canonical = getCanonicalUrl(pathname);
 
+    // description и title подставляются в шаблон через replace в server.js/prerender.js, в metaTags не дублируем
     metaTags = [
-      `<meta name="description" content="${escapeHtml(description)}" />`,
       ...(routeMeta.keywords ? [`<meta name="keywords" content="${escapeHtml(routeMeta.keywords)}" />`] : []),
       ...(is404 ? ['<meta name="robots" content="noindex, nofollow" />'] : []),
       `<meta property="og:title" content="${escapeHtml(title)}" />`,

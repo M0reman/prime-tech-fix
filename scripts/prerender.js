@@ -67,9 +67,17 @@ async function main() {
   if (fs.existsSync(serverEntryPath)) {
     const mod = await import(pathToFileURL(serverEntryPath).href);
     render = mod.render;
+  } else {
+    console.error('Ошибка: dist/server/entry-server.js не найден. Выполните: npm run build:server');
+    process.exit(1);
   }
 
-  console.log(`Пре-рендер: ${urls.length} URL${render ? ' (с контентом)' : ''}`);
+  if (!template.includes(SSR_OUTLET)) {
+    console.error('Ошибка: в шаблоне dist/index.html нет плейсхолдера <!--ssr-outlet-->. Используйте сборку с режимом prerender (npm run build:static).');
+    process.exit(1);
+  }
+
+  console.log(`Пре-рендер: ${urls.length} URL (с контентом)`);
 
   for (const urlPath of urls) {
     let html = template;
@@ -106,6 +114,15 @@ async function main() {
     const dir = urlPath === '/' ? distDir : path.join(distDir, urlPath.replace(/^\//, ''));
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, 'index.html'), html, 'utf-8');
+  }
+
+  const criticalPath = path.join(distDir, 'remont-televizorov', 'index.html');
+  if (fs.existsSync(criticalPath)) {
+    const criticalHtml = fs.readFileSync(criticalPath, 'utf-8');
+    if (criticalHtml.includes(SSR_OUTLET)) {
+      console.error('Ошибка: в remont-televizorov/index.html остался плейсхолдер. Контент не подставлен. Проверьте dist/server/entry-server.js.');
+      process.exit(1);
+    }
   }
 
   console.log('Готово.');
