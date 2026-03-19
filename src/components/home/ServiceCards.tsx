@@ -68,7 +68,7 @@ const ServiceCards: React.FC = () => {
     {
       icon: <Tv size={24} />,
       title: "Ремонт телевизоров",
-      description: "Ремонт современных LED, OLED, QLED телевизоров. Замена матрицы, ремонт подсветки.",
+      description: "Ремонт ЖК, LED, OLED, QLED, Smart TV, 4K, 8K. Подсветка, блок питания, main board, матрица. Samsung, LG, Sony, TCL и др.",
       delay: 0.5,
       imageSrc: "/serviceCards/tv.webp",
       linkTo: "/remont-televizorov"

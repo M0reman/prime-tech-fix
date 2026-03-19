@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
+const YANDEX_MAPS_ORG_URL = 'https://yandex.ru/maps/';
+const HOROSHEE_MESTO_LOGO_SVG = 'https://logo-teka.com/wp-content/uploads/2026/03/yandex-horoshee-mesto-icon-logo.svg';
+
 const Certificates: React.FC = () => {
   const certificates = [
     {
@@ -58,9 +61,29 @@ const Certificates: React.FC = () => {
               <span className="text-primary">✓</span>
               <span>"Лучший сервисный центр 2022" по версии TechAwards</span>
             </li>
+            <li className="flex items-start gap-2">
+              <span className="text-primary">✓</span>
+              <span>Награда Яндекса «Хорошее место — 2026»</span>
+            </li>
           </ul>
         </div>
         <div className="grid grid-cols-2 gap-4">
+          <a
+            href={YANDEX_MAPS_ORG_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#FC3F1D]/10 rounded-lg p-4 flex flex-col items-center justify-center h-32 border border-[#FC3F1D]/30 hover:bg-[#FC3F1D]/15 transition-colors col-span-2"
+            title="Награда «Хорошее место» на Яндекс.Картах"
+          >
+            <img
+              src={HOROSHEE_MESTO_LOGO_SVG}
+              alt="Логотип награды Яндекс Карты — Хорошее место"
+              className="h-12 w-auto object-contain mb-1"
+              loading="lazy"
+            />
+            <span className="text-[#FC3F1D] font-semibold text-sm">Награда Яндекса</span>
+            <span className="text-foreground font-bold text-sm mt-0.5">«Хорошее место — 2026»</span>
+          </a>
           {certificates.map((cert) => (
             <div 
               key={cert.id}

@@ -28,6 +28,20 @@ const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen, setPrivacyModalOp
             <p className="text-muted-foreground mt-2">
               Профессиональный ремонт цифровой и бытовой техники с гарантией качества
             </p>
+            <a
+              href="https://yandex.ru/maps/-/CPFxnO9M"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 mt-2 p-2 rounded-lg bg-[#FC3F1D]/10 hover:bg-[#FC3F1D]/15 transition-colors"
+              title="Награда «Хорошее место» на Яндекс.Картах"
+            >
+              <img
+                src="https://logo-teka.com/wp-content/uploads/2026/03/yandex-horoshee-mesto-icon-logo.svg"
+                alt="Яндекс Карты — Хорошее место"
+                className="h-8 w-auto object-contain"
+              />
+              <span className="text-xs font-medium text-[#FC3F1D]">Хорошее место — 2026</span>
+            </a>
             <div className="flex space-x-4 pt-2">
               <a href="https://vk.com/serviceprime" className="text-muted-foreground hover:text-primary transition-colors" itemProp="sameAs">
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20" viewBox="0,0,256,256">
@@ -51,7 +65,17 @@ const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen, setPrivacyModalOp
               >
                 <TelegramIcon />
               </a>
-              
+              {/* MAX — канал */}
+              <a
+                href="https://max.ru/join/ZmZNX_ISCbSsaHaMAfFBq-wwu_Scp3i5Kos-Y_AcvqA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:opacity-80 transition-opacity"
+                title="Сервисный центр Прайм в MAX"
+                itemProp="sameAs"
+              >
+                <img src="/images/Max_logo_black.svg" alt="MAX — канал Сервисный центр Прайм" className="w-5 h-5" />
+              </a>
             </div>
           </div>
           

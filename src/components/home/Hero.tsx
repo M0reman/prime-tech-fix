@@ -70,22 +70,6 @@ const Hero: React.FC = () => {
           </div>
         </div>
       </div>
-      
-      {/* Floating Devices */}
-      <div className="absolute bottom-10 right-5 lg:right-20 w-40 h-40 md:w-64 md:h-64 animate-float hidden md:block">
-        <img 
-          src="https://images.unsplash.com/photo-1551515300-2d3b7bb80920?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
-          alt="Smartphone" 
-          className="object-contain w-full h-full drop-shadow-lg"
-        />
-      </div>
-      <div className="absolute bottom-20 left-5 lg:left-20 w-40 h-40 md:w-52 md:h-52 animate-float-delayed hidden md:block">
-        <img 
-          src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" 
-          alt="Laptop" 
-          className="object-contain w-full h-full drop-shadow-lg"
-        />
-      </div>
     </section>
   );
 };

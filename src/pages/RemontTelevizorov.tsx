@@ -1,18 +1,14 @@
 import React, { useEffect } from 'react';
-import { CheckCircle, Package, Shield, Wrench } from 'lucide-react';
+import { CheckCircle, Package, Shield, Wrench, BarChart3 } from 'lucide-react';
 import SEOHead from '@/components/common/SEOHead';
 import ContactCard from '@/components/common/ContactCard';
 import { ROUTES_META } from '@/seo/routesMeta';
-
-const TYPICAL_FAULTS = [
-  { name: 'Телевизор не включается, мигает индикатор', price: 'от 900 ₽', desc: 'Блок питания, конденсаторы, прошивка' },
-  { name: 'Есть звук, нет изображения (чёрный экран)', price: 'от 600 ₽', desc: 'LED-подсветка, инвертор' },
-  { name: 'Полосы, пятна, искажённые цвета на экране', price: 'от 800 ₽', desc: 'Матрица, шлейф, T-CON' },
-  { name: 'Нет сигнала, не ловит каналы', price: 'от 600 ₽', desc: 'Тюнер DVB-T2, антенный вход' },
-  { name: 'Нет звука или хрипит', price: 'от 700 ₽', desc: 'УНЧ, динамики, шлейф' },
-  { name: 'Сам выключается или перезагружается', price: 'от 800 ₽', desc: 'Перегрев, блок питания' },
-  { name: 'Не реагирует на пульт ДУ', price: 'от 400 ₽', desc: 'ИК-приёмник, батарейки, Bluetooth-пульт' },
-];
+import {
+  TV_TYPES,
+  TV_BRANDS,
+  TV_PRICE_TABLE,
+  TV_REPAIR_STATS,
+} from '@/data/tvRepairData';
 
 const RemontTelevizorov: React.FC = () => {
   useEffect(() => {
@@ -36,8 +32,11 @@ const RemontTelevizorov: React.FC = () => {
               Ремонт в сервисном центре
             </span>
             <h1 className="heading-lg mb-4">Ремонт телевизоров в Саранске</h1>
-            <p className="body-lg text-muted-foreground max-w-3xl mx-auto mb-8">
-              Ремонт телевизоров ЖК, LED, QLED, OLED в сервисном центре Прайм. Забор техники в сервис, бесплатная диагностика при ремонте, гарантия на работы.
+            <p className="body-lg text-muted-foreground max-w-3xl mx-auto mb-4">
+              Ремонт телевизоров {TV_TYPES.join(', ')} в сервисном центре Прайм. Забор техники в сервис, бесплатная диагностика при ремонте, гарантия на работы.
+            </p>
+            <p className="text-sm text-muted-foreground max-w-2xl mx-auto mb-8">
+              Работаем с марками: Samsung, LG, Sony, TCL, Hisense, Philips, Xiaomi, BBK, Hyundai, Telefunken, Яндекс, Sber и другими.
             </p>
             <div className="w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg bg-muted aspect-video min-h-[200px] sm:min-h-[240px] md:min-h-[280px]">
               <img
@@ -81,26 +80,33 @@ const RemontTelevizorov: React.FC = () => {
             </div>
           </div>
 
+          <div className="mb-16 rounded-xl bg-muted/50 border border-border p-6 md:p-8">
+            <h2 className="heading-md mb-4">Какие неисправности телевизоров мы устраняем</h2>
+            <p className="text-muted-foreground text-sm md:text-base leading-relaxed">
+              В сервисном центре Прайм выполняют ремонт телевизоров при любых типичных неисправностях: телевизор не включается (блок питания, предохранитель); есть звук, нет изображения — замена подсветки LED, инверторов, светодиодов; есть изображение, нет звука — замена аудиоусилителей и динамиков; телевизор включается и сразу выключается; полосы на экране и искажения — замена матрицы, ремонт T-CON и шлейфа; ремонт нижней планки телевизора при полосах на матрице; не видит HDMI, нет сигнала — замена разъёмов HDMI и USB, прошивка; зависает или тормозит — прошивка, сброс настроек, замена флеш- и NAND-памяти; пятна и затемнения — замена подсветки; сам перезагружается — прошивка, main board; не ловит каналы — ремонт TV-тюнера; отсутствует Wi‑Fi — ремонт модуля Wi‑Fi. Ремонт нижней планки ТВ и нижней планки телевизора, замена подсветки, блока питания, main board и матрицы — по прайсу от 500 ₽. Точная цена после диагностики.
+            </p>
+          </div>
+
           <div className="mb-16">
-            <h2 className="heading-md mb-6">Типичные неисправности телевизоров</h2>
+            <h2 className="heading-md mb-6">Прайс на ремонт телевизоров</h2>
             <p className="text-muted-foreground mb-6">
-              Ориентировочные цены на ремонт. Точная стоимость определяется после диагностики в сервисном центре.
+              Ориентировочные цены. Точная стоимость определяется после диагностики в сервисном центре. Запчасти оплачиваются отдельно.
             </p>
             <div className="overflow-x-auto">
               <table className="w-full border-collapse bg-background rounded-xl border border-border shadow-sm">
                 <thead>
                   <tr className="bg-muted/50">
-                    <th className="text-left p-4 font-semibold">Неисправность</th>
-                    <th className="text-left p-4 font-semibold hidden sm:table-cell">Возможная причина</th>
-                    <th className="text-right p-4 font-semibold whitespace-nowrap">Цена от</th>
+                    <th className="text-left p-3 md:p-4 font-semibold text-sm md:text-base">Проблема</th>
+                    <th className="text-left p-3 md:p-4 font-semibold text-sm md:text-base">Наименование услуги</th>
+                    <th className="text-right p-3 md:p-4 font-semibold whitespace-nowrap text-sm md:text-base">Прайс</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {TYPICAL_FAULTS.map((row, index) => (
-                    <tr key={index} className="border-t border-border">
-                      <td className="p-4">{row.name}</td>
-                      <td className="p-4 text-muted-foreground text-sm hidden sm:table-cell">{row.desc}</td>
-                      <td className="p-4 text-right font-semibold text-primary whitespace-nowrap">{row.price}</td>
+                  {TV_PRICE_TABLE.map((row, index) => (
+                    <tr key={index} className="border-t border-border hover:bg-muted/20">
+                      <td className="p-3 md:p-4 text-sm md:text-base">{row.problem}</td>
+                      <td className="p-3 md:p-4 text-muted-foreground text-sm">{row.service}</td>
+                      <td className="p-3 md:p-4 text-right font-semibold text-primary whitespace-nowrap">{row.price}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -109,14 +115,46 @@ const RemontTelevizorov: React.FC = () => {
           </div>
 
           <div className="mb-16">
+            <h2 className="heading-md mb-6">Частые причины поломок</h2>
+            <p className="text-muted-foreground mb-6">
+              По статистике ремонтов в сервисном центре чаще всего выходят из строя следующие узлы:
+            </p>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {TV_REPAIR_STATS.map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-background rounded-xl p-4 md:p-5 border border-border flex flex-col items-center text-center"
+                >
+                  <BarChart3 className="text-primary mb-2" size={28} />
+                  <span className="font-semibold text-sm md:text-base">{item.label}</span>
+                  <span className="text-primary font-bold text-lg mt-1">{item.percent}</span>
+                </div>
+              ))}
+            </div>
+            <p className="text-muted-foreground text-sm mt-4">
+              Замена матрицы — один из самых дорогостоящих видов ремонта; остальные неисправности чаще устраняются в диапазоне от 700 до 2 500 ₽ (без учёта запчастей).
+            </p>
+          </div>
+
+          <div className="mb-16">
             <h2 className="heading-md mb-6">Типы телевизоров</h2>
             <p className="text-muted-foreground mb-6">
-              Ремонтируем телевизоры любых типов в сервисном центре в Саранске: от классических ЖК до современных OLED. Принимаем технику в сервис, проводим диагностику и выполняем ремонт с гарантией.
+              Ремонтируем телевизоры любых типов: ЖК, LED, OLED, QLED, Smart TV, 4K, 8K. Принимаем технику в сервис, проводим диагностику и выполняем ремонт с гарантией.
             </p>
+            <div className="flex flex-wrap gap-2 mb-6">
+              {TV_TYPES.map((type) => (
+                <span
+                  key={type}
+                  className="inline-flex items-center rounded-full bg-primary/10 px-4 py-1.5 text-sm font-medium text-primary"
+                >
+                  {type}
+                </span>
+              ))}
+            </div>
             <div className="w-full max-w-2xl mx-auto rounded-xl overflow-hidden shadow-md mb-8 aspect-[16/10] min-h-[180px] sm:min-h-[200px] md:min-h-[220px]">
               <img
                 src="/remont-tv/remont-tv-types.webp"
-                alt="ЖК, LED и OLED телевизоры — ремонт в Саранске"
+                alt="ЖК, LED, OLED, QLED, Smart TV, 4K, 8K — ремонт в Саранске"
                 className="w-full h-full object-cover"
                 loading="lazy"
                 onError={(e) => { (e.target as HTMLImageElement).src = '/serviceCards/tv.webp'; }}
@@ -130,9 +168,9 @@ const RemontTelevizorov: React.FC = () => {
                 </p>
               </div>
               <div className="border border-border rounded-lg p-5 bg-background">
-                <h3 className="font-semibold text-lg mb-2">QLED и OLED</h3>
+                <h3 className="font-semibold text-lg mb-2">QLED, OLED, Smart TV, 4K, 8K</h3>
                 <p className="text-muted-foreground text-sm">
-                  Диагностика и ремонт современных панелей, замена подсветки, ремонт плат управления и блоков питания. Работаем с техникой Samsung, LG, Sony и других производителей.
+                  Диагностика и ремонт современных панелей, замена подсветки, ремонт плат управления и блоков питания. Прошивка, Wi‑Fi модули, HDMI. Работаем с техникой Samsung, LG, Sony, TCL, Hisense и других производителей.
                 </p>
               </div>
               <div className="border border-border rounded-lg p-5 bg-background">
@@ -142,12 +180,28 @@ const RemontTelevizorov: React.FC = () => {
                 </p>
               </div>
               <div className="border border-border rounded-lg p-5 bg-background">
-                <h3 className="font-semibold text-lg mb-2">Бренды</h3>
-                <p className="text-muted-foreground text-sm">
-                  Samsung, LG, Sony, Philips, Xiaomi, BBK, Hyundai, Telefunken, Rolsen, Supra и другие. Оригинальные и совместимые запчасти, гарантия на работы.
+                <h3 className="font-semibold text-lg mb-2">Марки телевизоров</h3>
+                <p className="text-muted-foreground text-sm mb-3">
+                  Оригинальные и совместимые запчасти, гарантия на работы.
                 </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {TV_BRANDS.slice(0, 24).map((brand) => (
+                    <span key={brand} className="text-xs bg-muted px-2 py-0.5 rounded">{brand}</span>
+                  ))}
+                  <span className="text-xs text-muted-foreground self-center">и другие</span>
+                </div>
               </div>
             </div>
+            <details className="mt-4">
+              <summary className="cursor-pointer text-sm font-medium text-primary hover:underline">
+                Показать все марки ({TV_BRANDS.length})
+              </summary>
+              <div className="flex flex-wrap gap-1.5 mt-3 p-4 bg-muted/30 rounded-lg">
+                {TV_BRANDS.map((brand) => (
+                  <span key={brand} className="text-xs bg-background border border-border px-2 py-1 rounded">{brand}</span>
+                ))}
+              </div>
+            </details>
           </div>
 
         </div>

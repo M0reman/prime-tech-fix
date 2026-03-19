@@ -48,9 +48,9 @@ const getServicesData = (): ServiceCategoryData[] => [
         imageSrc: "/serviceCards/printer.webp"
       },
       {
-        title: "Ремонт телевизоров ЖК/ LED/ QLED/ OLED/ HD/ ТВ-приставок",
+        title: "Ремонт телевизоров ЖК / LED / OLED / QLED / Smart TV / 4K / 8K",
         description: "",
-        price: "от 800 ₽",
+        price: "от 500 ₽",
         features: [],
         imageSrc: "/serviceCards/tv.webp",
         detailUrl: "/remont-televizorov"

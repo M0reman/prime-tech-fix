@@ -96,6 +96,28 @@ const Navbar: React.FC = () => {
             <TelegramIcon />
           </a>
           
+          <a
+            href="https://yandex.ru/maps/-/CPFxnO9M"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-2 py-1 rounded-md hover:bg-[#FC3F1D]/10 transition-colors"
+            title="Награда «Хорошее место» на Яндекс.Картах"
+          >
+            <img
+              src="https://logo-teka.com/wp-content/uploads/2026/03/yandex-horoshee-mesto-icon-logo.svg"
+              alt="Хорошее место"
+              className="h-7 w-auto object-contain"
+            />
+          </a>
+          <a
+            href="https://max.ru/join/ZmZNX_ISCbSsaHaMAfFBq-wwu_Scp3i5Kos-Y_AcvqA"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center px-2 py-1 rounded-md hover:opacity-80 transition-opacity"
+            title="Сервисный центр Прайм в MAX"
+          >
+            <img src="/images/MAX.svg" alt="MAX — канал" className="h-7 w-auto object-contain" />
+          </a>
           <Link
             to="/contact"
             className="bg-blue-600 text-white px-5 py-2 rounded-lg transition-all hover:bg-blue-700 font-medium"
@@ -157,6 +179,17 @@ const Navbar: React.FC = () => {
               >
                 <TelegramIcon />
                 <span>Telegram</span>
+              </a>
+              {/* Mobile MAX */}
+              <a
+                href="https://max.ru/join/ZmZNX_ISCbSsaHaMAfFBq-wwu_Scp3i5Kos-Y_AcvqA"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-gray-300 text-gray-700 font-medium hover:bg-gray-50"
+                title="Сервисный центр Прайм в MAX"
+              >
+                <img src="/images/MAX.svg" alt="" className="h-5 w-5" />
+                <span>MAX</span>
               </a>
             </nav>
           </div>
