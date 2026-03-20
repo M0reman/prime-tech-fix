@@ -35,39 +35,11 @@
        });
     </script>
     <!-- /Yandex.Metrika counter -->
-    
-    <!-- VK Pixel: инициализация в try/catch; подавление ошибки payload при блокировке запроса (блокировщики рекламы) -->
-    <script type="text/javascript">
-      window.addEventListener('unhandledrejection', function(e) {
-        if (e.reason && typeof e.reason === 'object' && /payload|rtrg|vk\.com/i.test(String(e.reason.message || e.reason.stack || ''))) {
-          e.preventDefault();
-          e.stopPropagation();
-        }
-      });
-      !function(){
-        var t=document.createElement("script");
-        t.type="text/javascript";
-        t.async=true;
-        t.src="https://vk.com/js/api/openapi.js?169";
-        t.onload=function(){
-          try {
-            if (window.VK && window.VK.Retargeting) {
-              window.VK.Retargeting.Init("VK-RTRG-532750-eJXDV");
-              window.VK.Retargeting.Hit();
-            }
-          } catch(err) {}
-        };
-        t.onerror=function(){};
-        document.head.appendChild(t);
-      }();
-    </script>
-    <!-- /VK Pixel -->
   </head>
 
   <body>
     <div id="root"><!--ssr-outlet--></div>
     <noscript><div><img src="https://mc.yandex.ru/watch/97793119" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <noscript><img src="https://vk.com/rtrg?p=VK-RTRG-532750-eJXDV" style="position:fixed; left:-999px;" alt=""/></noscript>
     <script type="module" src="/src/entry-client.tsx"></script>
   </body>
 </html>
