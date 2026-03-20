@@ -14,9 +14,11 @@ interface SuccessModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onSubscribeClick: () => void;
+  /** Текст о сроке обратного звонка (зависит от времени отправки заявки). */
+  followupMessage: string;
 }
 
-const SuccessModal: React.FC<SuccessModalProps> = ({ open, onOpenChange, onSubscribeClick }) => {
+const SuccessModal: React.FC<SuccessModalProps> = ({ open, onOpenChange, onSubscribeClick, followupMessage }) => {
   const socialLinks = [
     {
       name: 'Telegram',
@@ -63,14 +65,14 @@ const SuccessModal: React.FC<SuccessModalProps> = ({ open, onOpenChange, onSubsc
             Заявка отправлена!
           </DialogTitle>
           <DialogDescription className="text-center text-base">
-            Спасибо! Мы свяжемся с вами в ближайшее время.
+            Спасибо! Заявка принята.
           </DialogDescription>
         </DialogHeader>
         
         <div className="space-y-4">
           <div className="bg-green-50 rounded-lg p-4">
             <p className="text-sm text-green-800 text-center">
-              Наш специалист перезвонит вам в течение 15 минут в рабочее время
+              {followupMessage || 'Мы свяжемся с вами в ближайшее время.'}
             </p>
           </div>
           

@@ -22,13 +22,14 @@ import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 import ruLabels from 'react-phone-number-input/locale/ru.json';
 import { companyInfo } from '@/data/companyInfo';
+import { getContactFormFollowupMessage } from '@/lib/businessHours';
 
 interface ContactProps {
   setPrivacyModalOpen: (open: boolean) => void;
-  setSuccessModalOpen: (open: boolean) => void;
+  onContactFormSuccess: (followupMessage: string) => void;
 }
 
-const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, setSuccessModalOpen }) => {
+const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, onContactFormSuccess }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -64,13 +65,14 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, setSuccessModalO
       const success = await sendTelegramMessage({ ...data, gRecaptchaToken: token });
       
       if (success) {
+        const followup = getContactFormFollowupMessage();
         toast({
           title: "Заявка успешно отправлена",
-          description: "Мы свяжемся с вами в ближайшее время",
-          duration: 5000,
+          description: followup,
+          duration: 7000,
         });
         form.reset();
-        setSuccessModalOpen(true);
+        onContactFormSuccess(followup);
       } else {
         throw new Error('Failed to send message');
       }

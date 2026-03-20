@@ -38,6 +38,7 @@ const App = ({ preloadedBlogPost = null }: AppProps = {}) => {
   const [warrantyModalOpen, setWarrantyModalOpen] = useState(false);
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
   const [successModalOpen, setSuccessModalOpen] = useState(false);
+  const [successModalFollowup, setSuccessModalFollowup] = useState('');
 
   // Хук для отслеживания времени на сайте (показываем модальное окно через 2 минуты)
   const { shouldShowModal: shouldShowSubscriptionModal, hideModal: hideSubscriptionModal } = useSiteTimer({
@@ -46,8 +47,14 @@ const App = ({ preloadedBlogPost = null }: AppProps = {}) => {
     showOnce: true
   });
 
-  const handleSuccessModalClose = () => {
-    setSuccessModalOpen(false);
+  const handleContactFormSuccess = (followupMessage: string) => {
+    setSuccessModalFollowup(followupMessage);
+    setSuccessModalOpen(true);
+  };
+
+  const handleSuccessModalOpenChange = (open: boolean) => {
+    setSuccessModalOpen(open);
+    if (!open) setSuccessModalFollowup('');
   };
 
   const handleSubscribeClick = () => {
@@ -68,7 +75,7 @@ const App = ({ preloadedBlogPost = null }: AppProps = {}) => {
                 <Route path="/" element={<Index />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact setPrivacyModalOpen={setPrivacyModalOpen} setSuccessModalOpen={setSuccessModalOpen} />} />
+                <Route path="/contact" element={<Contact setPrivacyModalOpen={setPrivacyModalOpen} onContactFormSuccess={handleContactFormSuccess} />} />
                 <Route path="/faq" element={<Faq />} />
                 <Route path="/brands" element={<Brands />} />
                 <Route path="/blog" element={<Blog />} />
@@ -89,8 +96,9 @@ const App = ({ preloadedBlogPost = null }: AppProps = {}) => {
             <SubscriptionModal open={shouldShowSubscriptionModal} onOpenChange={hideSubscriptionModal} />
             <SuccessModal 
               open={successModalOpen} 
-              onOpenChange={setSuccessModalOpen} 
+              onOpenChange={handleSuccessModalOpenChange} 
               onSubscribeClick={handleSubscribeClick}
+              followupMessage={successModalFollowup}
             />
             <UrgencyBanner />
           </PreloadProvider>
