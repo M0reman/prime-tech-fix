@@ -1,7 +1,6 @@
-
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { CSSTransition, SwitchTransition } from 'react-transition-group';
 
 interface AnimatedTransitionProps {
   children: ReactNode;
@@ -9,19 +8,21 @@ interface AnimatedTransitionProps {
 
 const AnimatedTransition: React.FC<AnimatedTransitionProps> = ({ children }) => {
   const location = useLocation();
-  
+  const nodeRef = useRef<HTMLDivElement>(null);
+
   return (
-    <TransitionGroup className="w-full">
-      <CSSTransition 
-        key={location.pathname} 
-        timeout={300} 
+    <SwitchTransition mode="out-in">
+      <CSSTransition
+        key={location.pathname}
+        nodeRef={nodeRef}
+        timeout={300}
         classNames="page-transition"
       >
-        <div className="w-full">
+        <div ref={nodeRef} className="w-full">
           {children}
         </div>
       </CSSTransition>
-    </TransitionGroup>
+    </SwitchTransition>
   );
 };
 
