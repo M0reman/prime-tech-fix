@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom';
+import { RasterPicture } from '@/components/common/RasterPicture';
 
 const YANDEX_MAPS_ORG_URL = 'https://yandex.ru/maps/';
 const HOROSHEE_MESTO_LOGO_SVG = 'https://logo-teka.com/wp-content/uploads/2026/03/yandex-horoshee-mesto-icon-logo.svg';
@@ -89,10 +90,11 @@ const Certificates: React.FC = () => {
               key={cert.id}
               className="bg-background rounded-lg p-4 flex items-center justify-center h-32 border border-border"
             >
-              <img 
-                src={cert.imageSrc} 
-                alt={cert.altText} 
-                className="max-h-12" 
+              <RasterPicture
+                fallbackSrc={cert.imageSrc}
+                alt={cert.altText}
+                className="max-h-12"
+                loading="lazy"
               />
             </div>
           ))}
@@ -100,10 +102,11 @@ const Certificates: React.FC = () => {
             <div 
               className="bg-background rounded-lg p-4 flex flex-col items-center justify-center h-32 border border-border hover:bg-gray-100 transition-colors"
             >
-              <img 
-                src="/models/more.png" 
-                alt="Другие сертификаты" 
+              <RasterPicture
+                fallbackSrc="/models/more.png"
+                alt="Другие сертификаты"
                 className="max-h-8 mb-2"
+                loading="lazy"
               />
               <span className="text-sm font-medium">Другие</span>
             </div>

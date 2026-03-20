@@ -6,6 +6,11 @@ import { Input } from '@/components/ui/input';
 import { Link } from 'react-router-dom';
 import ContactCard from '@/components/common/ContactCard';
 import { Search } from 'lucide-react';
+import { buildSocialPreviewHelmetMeta } from '@/components/common/SocialPreviewOgMeta';
+import {
+  SOCIAL_DEFAULT_IMAGE_URL,
+  SOCIAL_SITE_NAME,
+} from '@/seo/socialPreview';
 
 interface FaqCategory {
   title: string;
@@ -211,15 +216,15 @@ const Faq: React.FC = () => {
         {/* Open Graph для соцсетей */}
         <meta property="og:title" content="FAQ: Ответы на вопросы | Сервисный центр Прайм" />
         <meta property="og:description" content="Ответы на часто задаваемые вопросы о ремонте техники. Узнайте о сроках диагностики, гарантии, выездном ремонте и многом другом в сервисном центре Прайм." />
-        <meta property="og:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
+        {buildSocialPreviewHelmetMeta(SOCIAL_DEFAULT_IMAGE_URL)}
         <meta property="og:url" content="https://serviceprime13.ru/faq" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="ru_RU" />
+        <meta property="og:site_name" content={SOCIAL_SITE_NAME} />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="FAQ: Ответы на вопросы | Сервисный центр Прайм" />
         <meta name="twitter:description" content="Ответы на часто задаваемые вопросы о ремонте техники. Узнайте о сроках диагностики, гарантии, выездном ремонте и многом другом в сервисном центре Прайм." />
-        <meta name="twitter:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         {/* Canonical */}
         <link rel="canonical" href="https://serviceprime13.ru/faq" />
         {/* Schema.org FAQPage (автоматически) */}

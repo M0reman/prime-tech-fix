@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Clock, Mail, MapPin, Phone } from 'lucide-react';
+import { RasterPicture } from '@/components/common/RasterPicture';
 
 // Иконка для Telegram
 const TelegramIcon = () => (
@@ -21,7 +22,13 @@ const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen, setPrivacyModalOp
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
           <div className="space-y-4">
             <Link to="/" className="font-bold text-2xl flex items-center gap-1">
-              <img src="/logos/company-logo-square.png" alt="Logo" className="w-8 h-8" />
+              <RasterPicture
+                fallbackSrc="/logos/company-logo-square.png"
+                alt="Логотип СЦ Прайм"
+                className="w-8 h-8"
+                width={32}
+                height={32}
+              />
               <span className="text-primary" itemProp="name">СЦ</span>
               <span className="text-foreground">ПРАЙМ</span>
             </Link>

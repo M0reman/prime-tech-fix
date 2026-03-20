@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { RasterPicture } from '@/components/common/RasterPicture';
 
 const Hero: React.FC = () => {
   return (
@@ -13,10 +14,11 @@ const Hero: React.FC = () => {
       
       {/* Hero Background Image */}
       <div className="absolute inset-0 z-0 opacity-20">
-        <img 
-          src="/logos/company-background.jpg" 
-          alt="Background Pattern" 
+        <RasterPicture
+          fallbackSrc="/logos/company-background.jpg"
+          alt=""
           className="w-[100%] h-[100%] object-cover"
+          aria-hidden
         />
       </div>
       

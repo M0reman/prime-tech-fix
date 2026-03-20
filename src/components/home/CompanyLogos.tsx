@@ -1,4 +1,5 @@
 import React from 'react';
+import { RasterPicture } from '@/components/common/RasterPicture';
 
 const CompanyLogos: React.FC = () => {
   const companies = [
@@ -43,9 +44,9 @@ const CompanyLogos: React.FC = () => {
               key={index}
               className="flex items-center justify-center p-6 bg-white rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300"
             >
-              <img
-                src={company.logo}
-                alt={`${company.name} logo`}
+              <RasterPicture
+                fallbackSrc={company.logo}
+                alt={`Логотип ${company.name}`}
                 className="h-12 w-auto object-contain filter transition-all duration-300"
               />
             </div>

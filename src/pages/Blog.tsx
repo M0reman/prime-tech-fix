@@ -7,6 +7,12 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { ChevronLeft, ChevronRight, Search, Calendar, Tag } from 'lucide-react';
+import { buildSocialPreviewHelmetMeta } from '@/components/common/SocialPreviewOgMeta';
+import { companyInfo } from '@/data/companyInfo';
+import {
+  SOCIAL_DEFAULT_IMAGE_URL,
+  SOCIAL_SITE_NAME,
+} from '@/seo/socialPreview';
 
 interface BlogPost {
   id: number;
@@ -155,15 +161,15 @@ const Blog: React.FC = () => {
         {/* Open Graph для соцсетей */}
         <meta property="og:title" content="Блог | Сервисный центр Прайм - Полезные статьи о ремонте техники" />
         <meta property="og:description" content="Читайте полезные статьи о ремонте техники, советы экспертов и новости сервисного центра Прайм в Саранске. Профессиональные рекомендации по ремонту смартфонов, ноутбуков, бытовой техники." />
-        <meta property="og:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
+        {buildSocialPreviewHelmetMeta(SOCIAL_DEFAULT_IMAGE_URL)}
         <meta property="og:url" content="https://serviceprime13.ru/blog" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="ru_RU" />
+        <meta property="og:site_name" content={SOCIAL_SITE_NAME} />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Блог | Сервисный центр Прайм - Полезные статьи о ремонте техники" />
         <meta name="twitter:description" content="Читайте полезные статьи о ремонте техники, советы экспертов и новости сервисного центра Прайм в Саранске. Профессиональные рекомендации по ремонту смартфонов, ноутбуков, бытовой техники." />
-        <meta name="twitter:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         {/* Canonical */}
         <link rel="canonical" href="https://serviceprime13.ru/blog" />
         <script type="application/ld+json">
@@ -179,7 +185,7 @@ const Blog: React.FC = () => {
               "url": "https://serviceprime13.ru",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://serviceprime13.ru/logos/company-logo.jpg"
+                "url": companyInfo.image
               },
               "address": {
                 "@type": "PostalAddress",

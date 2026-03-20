@@ -9,6 +9,9 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { usePreload } from '@/contexts/PreloadContext';
 import { stripMarkdownForMeta } from '@/seo/stripMarkdown';
+import { buildSocialPreviewHelmetMeta } from '@/components/common/SocialPreviewOgMeta';
+import { companyInfo } from '@/data/companyInfo';
+import { SOCIAL_DEFAULT_IMAGE_URL, SOCIAL_SITE_NAME } from '@/seo/socialPreview';
 
 export interface BlogPost {
   id: number;
@@ -128,6 +131,7 @@ const BlogPost: React.FC = () => {
 
   const metaDesc = stripMarkdownForMeta(post.content, 160);
   const metaDescFull = metaDesc ? `${metaDesc}... Сервисный центр Прайм в Саранске - профессиональный ремонт техники с гарантией. Диагностика бесплатно.` : 'Сервисный центр Прайм в Саранске - профессиональный ремонт техники с гарантией. Диагностика бесплатно.';
+  const shareImageUrl = post.image_url || SOCIAL_DEFAULT_IMAGE_URL;
 
   return (
     <>
@@ -138,11 +142,11 @@ const BlogPost: React.FC = () => {
         {/* Open Graph для соцсетей */}
         <meta property="og:title" content={`${post.title} | Сервисный центр Прайм`} />
         <meta property="og:description" content={metaDesc ? `${metaDesc}... Сервисный центр Прайм в Саранске - профессиональный ремонт техники с гарантией.` : 'Сервисный центр Прайм в Саранске - профессиональный ремонт техники с гарантией.'} />
-        <meta property="og:image" content={post.image_url || "https://serviceprime13.ru/logos/company-logo.jpg"} />
+        {buildSocialPreviewHelmetMeta(shareImageUrl, post.title)}
         <meta property="og:url" content={`https://serviceprime13.ru/blog/${post.slug}`} />
         <meta property="og:type" content="article" />
         <meta property="og:locale" content="ru_RU" />
-        <meta property="og:site_name" content="Сервисный центр Прайм" />
+        <meta property="og:site_name" content={SOCIAL_SITE_NAME} />
         <meta property="article:published_time" content={post.created_at} />
         <meta property="article:modified_time" content={post.updated_at} />
         {post.tags.map((tag, index) => (
@@ -152,7 +156,6 @@ const BlogPost: React.FC = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${post.title} | Сервисный центр Прайм`} />
         <meta name="twitter:description" content={metaDesc ? `${metaDesc}... Сервисный центр Прайм в Саранске - профессиональный ремонт техники с гарантией.` : 'Сервисный центр Прайм в Саранске - профессиональный ремонт техники с гарантией.'} />
-        <meta name="twitter:image" content={post.image_url || "https://serviceprime13.ru/logos/company-logo.jpg"} />
         {/* Canonical */}
         <link rel="canonical" href={`https://serviceprime13.ru/blog/${post.slug}`} />
         {/* JSON-LD Schema.org */}
@@ -162,7 +165,7 @@ const BlogPost: React.FC = () => {
             "@type": "BlogPosting",
             "headline": post.title,
             "description": metaDesc ? `${metaDesc}... Сервисный центр Прайм в Саранске.` : 'Сервисный центр Прайм в Саранске - профессиональный ремонт техники.',
-            "image": post.image_url || "https://serviceprime13.ru/logos/company-logo.jpg",
+            "image": shareImageUrl,
             "author": {
               "@type": "Organization",
               "name": "Сервисный центр Прайм",
@@ -180,7 +183,7 @@ const BlogPost: React.FC = () => {
               "url": "https://serviceprime13.ru",
               "logo": {
                 "@type": "ImageObject",
-                "url": "https://serviceprime13.ru/logos/company-logo.jpg"
+                "url": companyInfo.image
               },
               "address": {
                 "@type": "PostalAddress",

@@ -22,6 +22,11 @@ import PhoneInput from 'react-phone-number-input';
 import 'react-phone-number-input/style.css';
 import ruLabels from 'react-phone-number-input/locale/ru.json';
 import { companyInfo } from '@/data/companyInfo';
+import { buildSocialPreviewHelmetMeta } from '@/components/common/SocialPreviewOgMeta';
+import {
+  SOCIAL_DEFAULT_IMAGE_URL,
+  SOCIAL_SITE_NAME,
+} from '@/seo/socialPreview';
 import { getContactFormFollowupMessage } from '@/lib/businessHours';
 
 interface ContactProps {
@@ -95,16 +100,15 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, onContactFormSuc
         {/* Open Graph для соцсетей */}
         <meta property="og:title" content="Контакты | Сервисный центр Прайм в Саранске" />
         <meta property="og:description" content="Свяжитесь с сервисным центром Прайм. Адрес: г. Саранск, ул. Севастопольская, д. 56/2. Телефон: 8 (929) 747-45-11. Оставьте заявку на ремонт онлайн." />
-        <meta property="og:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
+        {buildSocialPreviewHelmetMeta(SOCIAL_DEFAULT_IMAGE_URL)}
         <meta property="og:url" content="https://serviceprime13.ru/contact" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="ru_RU" />
-        <meta property="og:site_name" content="Сервисный центр Прайм" />
+        <meta property="og:site_name" content={SOCIAL_SITE_NAME} />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Контакты | Сервисный центр Прайм в Саранске" />
         <meta name="twitter:description" content="Свяжитесь с сервисным центром Прайм. Адрес: г. Саранск, ул. Севастопольская, д. 56/2. Телефон: 8 (929) 747-45-11. Оставьте заявку на ремонт онлайн." />
-        <meta name="twitter:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         {/* Canonical */}
         <link rel="canonical" href="https://serviceprime13.ru/contact" />
         <script type="application/ld+json">

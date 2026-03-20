@@ -7,6 +7,12 @@ import YandexReviews from '@/components/home/YandexReviews';
 import ContactCard from '@/components/common/ContactCard';
 import { Shield, Clock, Settings, Award } from 'lucide-react';
 import { companyInfo } from '@/data/companyInfo';
+import { RasterPicture } from '@/components/common/RasterPicture';
+import { buildSocialPreviewHelmetMeta } from '@/components/common/SocialPreviewOgMeta';
+import {
+  SOCIAL_DEFAULT_IMAGE_URL,
+  SOCIAL_SITE_NAME,
+} from '@/seo/socialPreview';
 
 const Index: React.FC = () => {
   useEffect(() => {
@@ -22,15 +28,15 @@ const Index: React.FC = () => {
         {/* Open Graph для соцсетей */}
         <meta property="og:title" content="Ремонт техники и телевизоров в Саранске | Прайм - Сервисный центр" />
         <meta property="og:description" content="Ремонт телевизоров и бытовой техники в Саранске. Сервисный центр Прайм: забор техники в сервис, диагностика в центре, гарантия. Качественный ремонт по доступным ценам." />
-        <meta property="og:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
+        {buildSocialPreviewHelmetMeta(SOCIAL_DEFAULT_IMAGE_URL)}
         <meta property="og:url" content="https://serviceprime13.ru/" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="ru_RU" />
+        <meta property="og:site_name" content={SOCIAL_SITE_NAME} />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Ремонт техники и телевизоров в Саранске | Прайм - Сервисный центр" />
         <meta name="twitter:description" content="Ремонт телевизоров и бытовой техники в Саранске. Сервисный центр Прайм: забор техники в сервис, диагностика в центре, гарантия. Качественный ремонт по доступным ценам." />
-        <meta name="twitter:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         {/* Canonical */}
         <link rel="canonical" href="https://serviceprime13.ru/" />
         <script type="application/ld+json">
@@ -155,10 +161,11 @@ const Index: React.FC = () => {
             <div key={step.number} className="relative group">
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden h-full transition-all duration-300 hover:shadow-xl">
                 <div className="relative">
-                  <img 
-                    src={step.image} 
-                    alt={step.title} 
-                    className="w-full h-56 object-cover" 
+                  <RasterPicture
+                    fallbackSrc={step.image}
+                    alt={step.title}
+                    className="w-full h-56 object-cover"
+                    loading="lazy"
                   />
                   <div className="absolute top-4 left-4 bg-blue-600 text-white text-2xl font-bold px-4 py-2 rounded-lg">
                     {step.number}

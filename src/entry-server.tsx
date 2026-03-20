@@ -4,6 +4,10 @@ import { StaticRouter } from 'react-router-dom/server';
 import App from './App';
 import type { BlogPostPreload } from './contexts/PreloadContext';
 import { ROUTES_META, getCanonicalUrl, DEFAULT_IMAGE } from './seo/routesMeta';
+import {
+  SOCIAL_DEFAULT_IMAGE_ALT,
+  ogImageMetaLines,
+} from './seo/socialPreview';
 import { stripMarkdownForMeta } from './seo/stripMarkdown';
 
 const SSR_OUTLET = '<!--ssr-outlet-->';
@@ -119,7 +123,7 @@ export function render(options: RenderOptions): RenderResult {
       `<meta name="keywords" content="${escapeHtml(keywords)}" />`,
       `<meta property="og:title" content="${escapeHtml(post.title)} | Сервисный центр Прайм" />`,
       `<meta property="og:description" content="${escapeHtml(description)}" />`,
-      `<meta property="og:image" content="${escapeHtml(image)}" />`,
+      ...ogImageMetaLines(image, post.title, escapeHtml),
       `<meta property="og:url" content="${canonical}" />`,
       `<meta property="og:type" content="article" />`,
       `<meta property="og:locale" content="ru_RU" />`,
@@ -172,7 +176,7 @@ export function render(options: RenderOptions): RenderResult {
       ...(is404 ? ['<meta name="robots" content="noindex, nofollow" />'] : []),
       `<meta property="og:title" content="${escapeHtml(title)}" />`,
       `<meta property="og:description" content="${escapeHtml(description)}" />`,
-      `<meta property="og:image" content="${DEFAULT_IMAGE}" />`,
+      ...ogImageMetaLines(DEFAULT_IMAGE, SOCIAL_DEFAULT_IMAGE_ALT, escapeHtml),
       `<meta property="og:url" content="${canonical}" />`,
       `<meta property="og:type" content="website" />`,
       `<meta property="og:locale" content="ru_RU" />`,
@@ -180,7 +184,7 @@ export function render(options: RenderOptions): RenderResult {
       `<meta name="twitter:card" content="summary_large_image" />`,
       `<meta name="twitter:title" content="${escapeHtml(title)}" />`,
       `<meta name="twitter:description" content="${escapeHtml(description)}" />`,
-      `<meta name="twitter:image" content="${DEFAULT_IMAGE}" />`,
+      `<meta name="twitter:image" content="${escapeHtml(DEFAULT_IMAGE)}" />`,
     ].join('\n    ');
 
     linkTags = `<link rel="canonical" href="${canonical}" />`;

@@ -11,6 +11,12 @@ import {
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Helmet } from "react-helmet-async";
+import { RasterPicture } from "@/components/common/RasterPicture";
+import { buildSocialPreviewHelmetMeta } from "@/components/common/SocialPreviewOgMeta";
+import {
+  SOCIAL_DEFAULT_IMAGE_URL,
+  SOCIAL_SITE_NAME,
+} from "@/seo/socialPreview";
 
 // Данные о брендах и моделях
 const BRAND_DATA = [
@@ -447,11 +453,12 @@ const BrandCard = ({ brand }: { brand: (typeof BRAND_DATA)[0] }) => {
       <div className="p-6">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="h-16 w-16 flex items-center justify-center bg-gray-100 rounded-lg p-2">
-              <img
-                src={brand.logo}
+            <div className="h-16 w-36 shrink-0 flex items-center justify-center bg-gray-100 rounded-lg p-2">
+              <RasterPicture
+                pictureClassName="block h-full w-full"
+                fallbackSrc={brand.logo}
                 alt={brand.name}
-                className="max-h-full max-w-full"
+                className="h-full w-full object-contain object-center"
               />
             </div>
             <div>
@@ -576,16 +583,15 @@ const Brands = () => {
         {/* Open Graph для соцсетей */}
         <meta property="og:title" content="Ремонт техники по брендам | Сервисный центр Прайм" />
         <meta property="og:description" content="Ремонт техники Apple, Samsung, Xiaomi, Huawei, Lenovo, Asus, HP, Acer и других брендов. Профессиональный ремонт с гарантией качества." />
-        <meta property="og:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
+        {buildSocialPreviewHelmetMeta(SOCIAL_DEFAULT_IMAGE_URL)}
         <meta property="og:url" content="https://serviceprime13.ru/brands" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="ru_RU" />
-        <meta property="og:site_name" content="Сервисный центр Прайм" />
+        <meta property="og:site_name" content={SOCIAL_SITE_NAME} />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Ремонт техники по брендам | Сервисный центр Прайм" />
         <meta name="twitter:description" content="Ремонт техники Apple, Samsung, Xiaomi, Huawei, Lenovo, Asus, HP, Acer и других брендов." />
-        <meta name="twitter:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         {/* Canonical */}
         <link rel="canonical" href="https://serviceprime13.ru/brands" />
         <script type="application/ld+json">

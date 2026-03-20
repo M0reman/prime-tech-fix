@@ -1,7 +1,9 @@
-import { companyInfo } from '../data/companyInfo';
+import { companyFacts } from '../data/companyFacts';
+import { SOCIAL_DEFAULT_IMAGE_URL } from './socialPreview';
 
 const BASE_URL = 'https://serviceprime13.ru';
-const DEFAULT_IMAGE = 'https://serviceprime13.ru/logos/company-logo.jpg';
+/** OG/Twitter по умолчанию (PNG/JPEG — превью в мессенджерах, не WebP). */
+const DEFAULT_IMAGE = SOCIAL_DEFAULT_IMAGE_URL;
 
 export interface RouteMeta {
   title: string;
@@ -21,18 +23,18 @@ export const ROUTES_META: Record<string, RouteMeta> = {
     ldJson: JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
-      name: companyInfo.name,
-      image: companyInfo.image,
-      address: { '@type': 'PostalAddress', ...companyInfo.address },
-      telephone: companyInfo.telephone,
-      email: companyInfo.email,
-      url: companyInfo.url,
-      openingHours: companyInfo.openingHours,
-      priceRange: companyInfo.priceRange,
+      name: companyFacts.name,
+      image: SOCIAL_DEFAULT_IMAGE_URL,
+      address: { '@type': 'PostalAddress', ...companyFacts.address },
+      telephone: companyFacts.telephone,
+      email: companyFacts.email,
+      url: companyFacts.url,
+      openingHours: companyFacts.openingHours,
+      priceRange: companyFacts.priceRange,
       aggregateRating: {
         '@type': 'AggregateRating',
-        ratingValue: companyInfo.ratingValue,
-        reviewCount: companyInfo.reviewCount,
+        ratingValue: companyFacts.ratingValue,
+        reviewCount: companyFacts.reviewCount,
       },
     }),
   },

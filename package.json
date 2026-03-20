@@ -15,7 +15,8 @@
     "build:static": "vite build --mode prerender && npm run generate:rss && npm run build:server && node scripts/prerender.js",
     "lint": "eslint .",
     "preview": "vite preview",
-    "generate:rss": "node scripts/generate-static-rss.js"
+    "generate:rss": "node scripts/generate-static-rss.js",
+    "images:webp": "node scripts/convert-public-images-to-webp.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -91,6 +92,7 @@
     "globals": "^15.9.0",
     "lovable-tagger": "^1.1.7",
     "postcss": "^8.4.47",
+    "sharp": "^0.33.5",
     "tailwindcss": "^3.4.11",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.0.1",

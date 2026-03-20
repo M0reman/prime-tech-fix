@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { RasterPicture } from '@/components/common/RasterPicture';
 
 // Иконка для Telegram
 const TelegramIcon = () => (
@@ -49,7 +50,13 @@ const Navbar: React.FC = () => {
           to="/" 
           className="font-bold text-2xl transition-all flex items-center gap-2"
         >
-          <img src="/logos/company-logo-square.png" alt="Logo" className="w-8 h-8"></img>
+          <RasterPicture
+            fallbackSrc="/logos/company-logo-square.png"
+            alt="Логотип СЦ Прайм"
+            className="w-8 h-8"
+            width={32}
+            height={32}
+          />
           <span className="text-blue-600">СЦ</span>
           <span className="text-gray-900">ПРАЙМ</span>
         </Link>

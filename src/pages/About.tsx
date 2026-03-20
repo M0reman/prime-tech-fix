@@ -4,9 +4,14 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import ContactCard from '@/components/common/ContactCard';
 import { ShieldCheck, Users, Trophy, Clock } from 'lucide-react';
-import { Certificate } from 'crypto';
 import Certificates from '@/components/common/Certificates';
 import { companyInfo } from '@/data/companyInfo';
+import { RasterPicture } from '@/components/common/RasterPicture';
+import { buildSocialPreviewHelmetMeta } from '@/components/common/SocialPreviewOgMeta';
+import {
+  SOCIAL_DEFAULT_IMAGE_URL,
+  SOCIAL_SITE_NAME,
+} from '@/seo/socialPreview';
 
 const About: React.FC = () => {
   useEffect(() => {
@@ -22,15 +27,15 @@ const About: React.FC = () => {
         {/* Open Graph для соцсетей */}
         <meta property="og:title" content="О компании | Сервисный центр Прайм" />
         <meta property="og:description" content="Узнайте больше о сервисном центре Прайм. Наша миссия, команда профессионалов и гарантии качества. Работаем с 2011 года, чтобы ваша техника служила дольше." />
-        <meta property="og:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
+        {buildSocialPreviewHelmetMeta(SOCIAL_DEFAULT_IMAGE_URL)}
         <meta property="og:url" content="https://serviceprime13.ru/about" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="ru_RU" />
+        <meta property="og:site_name" content={SOCIAL_SITE_NAME} />
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="О компании | Сервисный центр Прайм" />
         <meta name="twitter:description" content="Узнайте больше о сервисном центре Прайм. Наша миссия, команда профессионалов и гарантии качества. Работаем с 2011 года, чтобы ваша техника служила дольше." />
-        <meta name="twitter:image" content="https://serviceprime13.ru/logos/company-logo.jpg" />
         {/* Canonical */}
         <link rel="canonical" href="https://serviceprime13.ru/about" />
         <script type="application/ld+json">
@@ -84,9 +89,9 @@ const About: React.FC = () => {
             </div>
             <div className="order-1 lg:order-2 relative">
               <div className="rounded-xl overflow-hidden shadow-lg">
-                <img 
-                  src="/logos/company-background.jpg" 
-                  alt="Наша команда за работой" 
+                <RasterPicture
+                  fallbackSrc="/logos/company-background.jpg"
+                  alt="Наша команда за работой"
                   className="w-full h-auto object-cover rounded-xl"
                 />
               </div>

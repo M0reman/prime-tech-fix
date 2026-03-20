@@ -1,11 +1,18 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { buildSocialPreviewHelmetMeta } from '@/components/common/SocialPreviewOgMeta';
+import {
+  SOCIAL_DEFAULT_IMAGE_URL,
+  SOCIAL_SITE_NAME,
+} from '@/seo/socialPreview';
 
 interface SEOHeadProps {
   title: string;
   description: string;
   keywords?: string;
   image?: string;
+  /** Alt для og:image (статьи — заголовок). */
+  imageAlt?: string;
   url?: string;
   type?: 'website' | 'article';
   publishedTime?: string;
@@ -18,7 +25,8 @@ const SEOHead: React.FC<SEOHeadProps> = ({
   title,
   description,
   keywords = "ремонт техники, сервисный центр, ремонт смартфонов, ремонт ноутбуков, ремонт планшетов, ремонт телевизоров, ремонт бытовой техники, диагностика, гарантия, Саранск, Прайм, ремонт Apple, ремонт Samsung, ремонт Xiaomi, ремонт Huawei, ремонт Lenovo, ремонт Asus, ремонт HP, ремонт Acer, профессиональный ремонт, срочный ремонт, бесплатная диагностика, оригинальные запчасти",
-  image = "https://serviceprime13.ru/logos/company-logo.jpg",
+  image = SOCIAL_DEFAULT_IMAGE_URL,
+  imageAlt,
   url,
   type = 'website',
   publishedTime,
@@ -41,17 +49,16 @@ const SEOHead: React.FC<SEOHeadProps> = ({
       {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
+      {buildSocialPreviewHelmetMeta(image, imageAlt)}
       <meta property="og:url" content={fullUrl} />
       <meta property="og:type" content={type} />
       <meta property="og:locale" content="ru_RU" />
-      <meta property="og:site_name" content="Сервисный центр Прайм" />
+      <meta property="og:site_name" content={SOCIAL_SITE_NAME} />
       
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
       
       {/* Canonical */}
       <link rel="canonical" href={fullUrl} />

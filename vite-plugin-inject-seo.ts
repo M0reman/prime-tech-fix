@@ -7,6 +7,10 @@ import {
   DEFAULT_IMAGE,
   type RouteMeta,
 } from './src/seo/routesMeta';
+import {
+  SOCIAL_DEFAULT_IMAGE_ALT,
+  ogImageMetaLines,
+} from './src/seo/socialPreview';
 
 function escapeHtml(s: string): string {
   return s
@@ -31,7 +35,7 @@ function buildSeoBlock(meta: RouteMeta, routePath: string): string {
     `<meta name="keywords" content="${keywords}" />`,
     `<meta property="og:title" content="${title}" />`,
     `<meta property="og:description" content="${desc}" />`,
-    `<meta property="og:image" content="${DEFAULT_IMAGE}" />`,
+    ...ogImageMetaLines(DEFAULT_IMAGE, SOCIAL_DEFAULT_IMAGE_ALT, escapeHtml),
     `<meta property="og:url" content="${url}" />`,
     `<meta property="og:type" content="website" />`,
     `<meta property="og:locale" content="ru_RU" />`,
@@ -39,7 +43,7 @@ function buildSeoBlock(meta: RouteMeta, routePath: string): string {
     `<meta name="twitter:card" content="summary_large_image" />`,
     `<meta name="twitter:title" content="${title}" />`,
     `<meta name="twitter:description" content="${desc}" />`,
-    `<meta name="twitter:image" content="${DEFAULT_IMAGE}" />`,
+    `<meta name="twitter:image" content="${escapeHtml(DEFAULT_IMAGE)}" />`,
     `<link rel="canonical" href="${url}" />`,
   ];
 
