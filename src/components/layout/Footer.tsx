@@ -71,7 +71,7 @@ const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen, setPrivacyModalOp
               </a>
               {/* MAX — канал */}
               <a
-                href="https://max.ru/join/ZmZNX_ISCbSsaHaMAfFBq-wwu_Scp3i5Kos-Y_AcvqA"
+                href="https://max.ru/u/f9LHodD0cOKGszI-QH3DmP4p7ZAlOxBf0ymz7txD0uMKpxe7jiublTgqAwo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group text-muted-foreground hover:text-primary transition-colors"

@@ -110,7 +110,7 @@ const Navbar: React.FC = () => {
             />
           </a>
           <a
-            href="https://max.ru/join/ZmZNX_ISCbSsaHaMAfFBq-wwu_Scp3i5Kos-Y_AcvqA"
+            href="https://max.ru/u/f9LHodD0cOKGszI-QH3DmP4p7ZAlOxBf0ymz7txD0uMKpxe7jiublTgqAwo"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center px-2 py-1 rounded-md hover:opacity-80 transition-opacity"
@@ -182,7 +182,7 @@ const Navbar: React.FC = () => {
               </a>
               {/* Mobile MAX */}
               <a
-                href="https://max.ru/join/ZmZNX_ISCbSsaHaMAfFBq-wwu_Scp3i5Kos-Y_AcvqA"
+                href="https://max.ru/u/f9LHodD0cOKGszI-QH3DmP4p7ZAlOxBf0ymz7txD0uMKpxe7jiublTgqAwo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-gray-300 text-gray-700 font-medium hover:bg-gray-50"
