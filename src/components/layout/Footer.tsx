@@ -115,6 +115,11 @@ const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen, setPrivacyModalOp
                   Ремонт бытовой техники
                 </Link>
               </li>
+              <li>
+                <Link to="/remont-televizorov" className="text-muted-foreground hover:text-primary transition-colors">
+                  Ремонт телевизоров
+                </Link>
+              </li>
             </ul>
           </div>
           
