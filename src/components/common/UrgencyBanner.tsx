@@ -30,47 +30,58 @@ const UrgencyBanner: React.FC = () => {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 w-full z-50 bg-gradient-to-r from-red-500 to-orange-500 text-white py-2 px-2 md:py-3 md:px-4 shadow-lg animate-fade-in">
-      <button
-        className="absolute right-2 top-2 sm:right-4 sm:top-4 p-1 rounded hover:bg-white/20 transition-colors focus:outline-none"
-        aria-label="Скрыть баннер"
-        onClick={() => setVisible(false)}
-        style={{ zIndex: 51 }}
-      >
-        <X size={20} />
-      </button>
-      <div className="container mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-center gap-2 sm:gap-4 text-xs sm:text-sm md:text-base text-center sm:text-left pr-10 sm:pr-12">
-        <div className="flex flex-col sm:flex-row items-center justify-center w-full sm:w-auto mb-1 sm:mb-0">
-          <div className="flex items-center justify-center gap-2 w-full">
-            <AlertTriangle size={18} className="animate-pulse flex-shrink-0" />
-            <span className="font-medium break-words">🔥 СРОЧНО! Скидка 10% на ремонт <span className="uppercase">телевизоров</span> до конца дня!</span>
-          </div>
-        </div>
-        <div className="flex flex-col sm:flex-row items-center justify-center w-full sm:w-auto">
-          <div className="flex items-center justify-center gap-2 w-full">
-            <Clock size={14} className="flex-shrink-0" />
-            <span>Осталось:</span>
-            <div className="flex gap-1">
-              <span className="bg-white/20 px-1.5 py-0.5 rounded font-mono">
-                {timeLeft.hours.toString().padStart(2, '0')}
-              </span>
-              <span>:</span>
-              <span className="bg-white/20 px-1.5 py-0.5 rounded font-mono">
-                {timeLeft.minutes.toString().padStart(2, '0')}
-              </span>
-              <span>:</span>
-              <span className="bg-white/20 px-1.5 py-0.5 rounded font-mono">
-                {timeLeft.seconds.toString().padStart(2, '0')}
-              </span>
+    <div className="fixed bottom-2 left-0 w-full z-50 px-2 md:px-4 animate-fade-in">
+      <div className="container mx-auto max-w-6xl">
+        <div className="relative rounded-2xl border border-white/20 bg-gradient-to-r from-red-600 via-red-500 to-orange-500 text-white shadow-2xl backdrop-blur-sm">
+          <button
+            className="absolute right-2 top-2 sm:right-3 sm:top-3 p-1.5 rounded-full hover:bg-white/20 transition-colors focus:outline-none"
+            aria-label="Скрыть баннер"
+            onClick={() => setVisible(false)}
+          >
+            <X size={18} />
+          </button>
+
+          <div className="px-3 py-2.5 sm:px-4 sm:py-3 pr-10 sm:pr-12">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-center gap-2.5 lg:gap-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center text-center gap-2">
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-white/20 px-2.5 py-1 text-[11px] sm:text-xs font-semibold tracking-wide uppercase shrink-0">
+                  <AlertTriangle size={18} className="animate-pulse" />
+                  Акция дня
+                </span>
+                <p className="text-xs sm:text-sm md:text-base leading-snug font-medium max-w-[44rem]">
+                  Скидка 10% на ремонт телевизоров в СЦ Прайм
+                </p>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3">
+                <div className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-white/10 px-2.5 py-1.5 text-[11px] sm:text-sm">
+                  <Clock size={16} className="shrink-0" />
+                  <span className="opacity-95 shrink-0">До конца акции:</span>
+                  <div className="flex items-center justify-center gap-1 font-mono">
+                    <span className="min-w-7 sm:min-w-8 text-center bg-white/20 px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md">
+                      {timeLeft.hours.toString().padStart(2, '0')}
+                    </span>
+                    <span>:</span>
+                    <span className="min-w-7 sm:min-w-8 text-center bg-white/20 px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md">
+                      {timeLeft.minutes.toString().padStart(2, '0')}
+                    </span>
+                    <span>:</span>
+                    <span className="min-w-7 sm:min-w-8 text-center bg-white/20 px-1.5 py-0.5 sm:px-2 sm:py-1 rounded-md">
+                      {timeLeft.seconds.toString().padStart(2, '0')}
+                    </span>
+                  </div>
+                </div>
+
+                <a
+                  href="tel:+79297474511"
+                  className="relative z-10 inline-flex w-full sm:w-auto items-center justify-center whitespace-nowrap rounded-lg bg-white px-4 py-2 text-xs sm:text-sm font-semibold text-red-600 hover:bg-red-50 transition-colors shadow-md shrink-0"
+                >
+                  Получить скидку
+                </a>
+              </div>
             </div>
           </div>
         </div>
-        <a
-          href="tel:+79297474511"
-          className="relative z-[52] bg-white text-red-500 px-4 py-1 rounded-lg font-semibold hover:bg-gray-100 transition-colors w-full sm:w-auto mt-2 sm:mt-0 text-center shrink-0"
-        >
-          ЗАКАЗАТЬ СЕЙЧАС
-        </a>
       </div>
     </div>
   );
