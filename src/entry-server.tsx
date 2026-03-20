@@ -21,6 +21,59 @@ function escapeJsonInScript(json: string): string {
   return json.replace(/<\/script>/gi, '<\\/script>');
 }
 
+function buildBreadcrumbLd(pathname: string, currentTitle: string): string | null {
+  if (pathname === '/404') return null;
+
+  const cleanTitle = currentTitle.split('|')[0]?.trim() || currentTitle.trim();
+  const parts = pathname.split('/').filter(Boolean);
+  const itemListElement: Array<{ '@type': 'ListItem'; position: number; name: string; item: string }> = [
+    {
+      '@type': 'ListItem',
+      position: 1,
+      name: 'Главная',
+      item: `${BASE_URL}/`,
+    },
+  ];
+
+  if (parts.length === 0) {
+    return JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement,
+    });
+  }
+
+  if (parts[0] === 'blog' && parts.length > 1) {
+    itemListElement.push(
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Блог',
+        item: `${BASE_URL}/blog`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: cleanTitle,
+        item: `${BASE_URL}${pathname}`,
+      },
+    );
+  } else {
+    itemListElement.push({
+      '@type': 'ListItem',
+      position: 2,
+      name: cleanTitle,
+      item: `${BASE_URL}${pathname}`,
+    });
+  }
+
+  return JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement,
+  });
+}
+
 export interface RenderResult {
   html: string;
   title: string;
@@ -97,6 +150,11 @@ export function render(options: RenderOptions): RenderResult {
       inLanguage: 'ru-RU',
     };
     metaTags += `\n    <script type="application/ld+json">${escapeJsonInScript(JSON.stringify(ldJson))}</script>`;
+
+    const breadcrumbLd = buildBreadcrumbLd(pathname, post.title);
+    if (breadcrumbLd) {
+      metaTags += `\n    <script type="application/ld+json">${escapeJsonInScript(breadcrumbLd)}</script>`;
+    }
   } else {
     const is404 = !(pathname in ROUTES_META);
     const routeMeta = ROUTES_META[pathname] ?? (is404 ? {
@@ -129,6 +187,13 @@ export function render(options: RenderOptions): RenderResult {
 
     if (routeMeta.ldJson) {
       metaTags += `\n    <script type="application/ld+json">${escapeJsonInScript(routeMeta.ldJson)}</script>`;
+    }
+
+    if (!is404) {
+      const breadcrumbLd = buildBreadcrumbLd(pathname, title);
+      if (breadcrumbLd) {
+        metaTags += `\n    <script type="application/ld+json">${escapeJsonInScript(breadcrumbLd)}</script>`;
+      }
     }
   }
 
