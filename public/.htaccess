@@ -4,6 +4,9 @@
 # Включаем модуль перезаписи
 RewriteEngine On
 
+# Тот же RSS, что и /rss.xml (статическая выкладка dist)
+RewriteRule ^rss/?$ rss.xml [L]
+
 # Базовый путь (если сайт в подпапке)
 # RewriteBase /
 

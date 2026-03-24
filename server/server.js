@@ -55,8 +55,23 @@ function escapeJsonInScript(json) {
 
 app.use(express.static(clientDir, { index: false }));
 
+const rssPath = path.join(clientDir, 'rss.xml');
+
+function sendRssFeed(res) {
+  if (!fs.existsSync(rssPath)) {
+    res.status(404).type('text/plain').send('RSS файл не найден. Выполните сборку и generate:rss.');
+    return;
+  }
+  res.type('application/rss+xml; charset=utf-8');
+  res.sendFile(path.resolve(rssPath));
+}
+
 app.get('/rss', (_req, res) => {
-  res.redirect(301, '/rss.xml');
+  sendRssFeed(res);
+});
+
+app.get('/rss/', (_req, res) => {
+  sendRssFeed(res);
 });
 
 app.use(async (req, res) => {

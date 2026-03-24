@@ -1,8 +1,37 @@
-import { defineConfig } from "vite";
+import fs from "fs";
+import { defineConfig, type Plugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import sitemap from 'vite-plugin-sitemap';
 import { vitePluginInjectSeo } from './vite-plugin-inject-seo';
+
+/** В dev отдаёт /rss из dist/rss.xml, если файл уже есть после сборки. */
+function vitePluginRssPathAlias(root: string): Plugin {
+  return {
+    name: "vite-plugin-rss-path-alias",
+    configureServer(server) {
+      server.middlewares.use((req, res, next) => {
+        const pathname = req.url?.split("?")[0]?.replace(/\/$/, "") ?? "";
+        if (pathname !== "/rss") {
+          next();
+          return;
+        }
+        const candidates = [
+          path.join(root, "dist", "rss.xml"),
+          path.join(root, "dist", "client", "rss.xml"),
+        ];
+        for (const filePath of candidates) {
+          if (fs.existsSync(filePath)) {
+            res.setHeader("Content-Type", "application/rss+xml; charset=utf-8");
+            res.end(fs.readFileSync(filePath, "utf-8"));
+            return;
+          }
+        }
+        next();
+      });
+    },
+  };
+}
 
 // Функция для получения всех slug'ов статей блога
 async function getBlogSlugs() {
@@ -21,6 +50,7 @@ async function getBlogSlugs() {
 
 // https://vitejs.dev/config/
 export default defineConfig(async ({ mode }) => {
+  const root = path.resolve(__dirname);
   const blogRoutes = await getBlogSlugs();
   const isSsrBuild = mode === 'ssr';
   // Сборка под scripts/prerender.js: мета только из entry-server, без дубля с vite-plugin-inject-seo
@@ -37,6 +67,7 @@ export default defineConfig(async ({ mode }) => {
     },
     plugins: [
       react(),
+      vitePluginRssPathAlias(root),
       ...(isSsrBuild || isPrerenderBuild ? [] : [vitePluginInjectSeo()]),
       sitemap({
         hostname: 'https://serviceprime13.ru',
