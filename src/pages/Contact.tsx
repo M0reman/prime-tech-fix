@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { CONTACT_PROMO_TV10 } from '@/constants/contactPromo';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -34,14 +36,16 @@ interface ContactProps {
   onContactFormSuccess: (followupMessage: string) => void;
 }
 
+const TV10_PROMO_DEFAULT_MESSAGE =
+  'Заявка по акции «Скидка 10% на ремонт телевизора». Укажите модель ТВ и неисправность.';
+
 const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, onContactFormSuccess }) => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-  
+  const [searchParams] = useSearchParams();
+  const isTv10Promo = searchParams.get('promo') === CONTACT_PROMO_TV10;
+
   const { toast } = useToast();
   const { executeRecaptcha } = useGoogleReCaptcha();
-  
+
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -49,9 +53,33 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, onContactFormSuc
       phone: '',
       email: '',
       device: '',
-      message: ''
-    }
+      message: '',
+    },
   });
+
+  useEffect(() => {
+    if (isTv10Promo) {
+      return;
+    }
+    window.scrollTo(0, 0);
+  }, [isTv10Promo]);
+
+  const { setValue, getValues } = form;
+
+  useEffect(() => {
+    if (!isTv10Promo) {
+      return;
+    }
+    setValue('device', 'Телевизор');
+    const currentMessage = getValues('message');
+    if (!currentMessage?.trim()) {
+      setValue('message', TV10_PROMO_DEFAULT_MESSAGE);
+    }
+    const timer = window.setTimeout(() => {
+      document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 150);
+    return () => clearTimeout(timer);
+  }, [isTv10Promo, setValue, getValues]);
   
   const onSubmit = async (data: ContactFormData) => {
     if (!executeRecaptcha) {
@@ -148,7 +176,20 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, onContactFormSuc
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <div className="lg:col-span-2">
-              <div className="bg-background rounded-xl p-8 shadow-sm border border-border mb-8">
+              <div
+                id="contact-form"
+                className="bg-background rounded-xl p-8 shadow-sm border border-border mb-8 scroll-mt-24"
+              >
+                {isTv10Promo && (
+                  <div
+                    className="mb-6 rounded-lg border border-primary/30 bg-primary/5 px-4 py-3 text-center text-sm text-foreground"
+                    role="status"
+                  >
+                    Вы оформляете заявку по акции:{' '}
+                    <strong>скидка 10% на ремонт телевизора</strong>. Заполните форму — менеджер подтвердит
+                    условия по телефону.
+                  </div>
+                )}
                 <h2 className="text-2xl font-semibold mb-6">Оставить заявку</h2>
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">

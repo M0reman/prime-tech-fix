@@ -102,20 +102,6 @@ const Navbar: React.FC = () => {
           >
             <TelegramIcon />
           </a>
-          
-          <a
-            href="https://yandex.ru/maps/-/CPFxnO9M"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-2 py-1 rounded-md hover:bg-[#FC3F1D]/10 transition-colors"
-            title="Награда «Хорошее место» на Яндекс.Картах"
-          >
-            <img
-              src="https://logo-teka.com/wp-content/uploads/2026/03/yandex-horoshee-mesto-icon-logo.svg"
-              alt="Хорошее место"
-              className="h-7 w-auto object-contain"
-            />
-          </a>
           <a
             href="https://max.ru/u/f9LHodD0cOKGszI-QH3DmP4p7ZAlOxBf0ymz7txD0uMKpxe7jiublTgqAwo"
             target="_blank"

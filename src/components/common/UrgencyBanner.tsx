@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Clock, AlertTriangle, X } from 'lucide-react';
+import { CONTACT_PROMO_TV10 } from '@/constants/contactPromo';
 
 /** Конец рабочего дня в локальной таймзоне: Пн–Пт 19:00, Сб 14:00, Вс — выходной */
 function getEndOfWorkToday(now: Date): Date | null {
@@ -107,12 +109,13 @@ const UrgencyBanner: React.FC = () => {
                   )}
                 </div>
 
-                <a
-                  href="tel:+79297474511"
+                <Link
+                  to={`/contact?promo=${CONTACT_PROMO_TV10}`}
                   className="relative z-10 inline-flex w-full sm:w-auto items-center justify-center whitespace-nowrap rounded-lg bg-white px-4 py-2 text-xs sm:text-sm font-semibold text-red-600 hover:bg-red-50 transition-colors shadow-md shrink-0"
+                  title="Перейти к форме заявки: акция на ремонт телевизоров"
                 >
                   Получить скидку
-                </a>
+                </Link>
               </div>
             </div>
           </div>
