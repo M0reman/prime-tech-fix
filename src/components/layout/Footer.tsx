@@ -12,10 +12,9 @@ const TelegramIcon = () => (
 
 interface FooterProps {
   setWarrantyModalOpen: (open: boolean) => void;
-  setPrivacyModalOpen: (open: boolean) => void;
 }
 
-const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen, setPrivacyModalOpen }) => {
+const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen }) => {
   return (
     <footer className="bg-secondary py-12 mt-12">
       <div className="container px-4 mx-auto" itemScope itemType="https://schema.org/LocalBusiness">
@@ -152,12 +151,12 @@ const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen, setPrivacyModalOp
                 </button>
               </li>
               <li>
-                <button 
-                  onClick={() => setPrivacyModalOpen(true)}
-                  className="text-muted-foreground hover:text-primary transition-colors text-left"
+                <Link
+                  to="/privacy"
+                  className="text-muted-foreground hover:text-primary transition-colors"
                 >
                   Политика конфиденциальности
-                </button>
+                </Link>
               </li>
             </ul>
           </div>

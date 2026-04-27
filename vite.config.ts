@@ -77,6 +77,7 @@ export default defineConfig(async ({ mode }) => {
           '/remont-televizorov',
           '/about',
           '/contact',
+          '/privacy',
           '/faq',
           '/brands',
           '/blog',

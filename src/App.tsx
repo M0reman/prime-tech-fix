@@ -17,6 +17,7 @@ import Brands from "./pages/Brands";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import RemontTelevizorov from "./pages/RemontTelevizorov";
+import Privacy from "./pages/Privacy";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminBlog from "./pages/admin/AdminBlog";
 import NotFound from "./pages/NotFound";
@@ -25,8 +26,11 @@ import PrivacyPolicyModal from './components/modals/PrivacyPolicyModal';
 import SubscriptionModal from './components/modals/SubscriptionModal';
 import SuccessModal from './components/modals/SuccessModal';
 import UrgencyBanner from "./components/common/UrgencyBanner";
+import CookieConsentBanner from "./components/common/CookieConsentBanner";
+import MetrikaConsentSync from "./components/common/MetrikaConsentSync";
 import useSiteTimer from './hooks/use-site-timer';
 import { PreloadProvider, type BlogPostPreload } from './contexts/PreloadContext';
+import { SUBSCRIPTION_MODAL_STORAGE_KEY } from '@/constants/privacyLegal';
 
 const queryClient = new QueryClient();
 
@@ -43,7 +47,7 @@ const App = ({ preloadedBlogPost = null }: AppProps = {}) => {
   // Хук для отслеживания времени на сайте (показываем модальное окно через 2 минуты)
   const { shouldShowModal: shouldShowSubscriptionModal, hideModal: hideSubscriptionModal } = useSiteTimer({
     showModalAfter: 2 * 60 * 1000, // 2 минуты
-    storageKey: 'subscription-modal-shown',
+    storageKey: SUBSCRIPTION_MODAL_STORAGE_KEY,
     showOnce: true
   });
 
@@ -76,6 +80,7 @@ const App = ({ preloadedBlogPost = null }: AppProps = {}) => {
                 <Route path="/services" element={<Services />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact setPrivacyModalOpen={setPrivacyModalOpen} onContactFormSuccess={handleContactFormSuccess} />} />
+                <Route path="/privacy" element={<Privacy />} />
                 <Route path="/faq" element={<Faq />} />
                 <Route path="/brands" element={<Brands />} />
                 <Route path="/blog" element={<Blog />} />
@@ -86,7 +91,7 @@ const App = ({ preloadedBlogPost = null }: AppProps = {}) => {
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </AnimatedTransition>
-            <Footer setWarrantyModalOpen={setWarrantyModalOpen} setPrivacyModalOpen={setPrivacyModalOpen} />
+            <Footer setWarrantyModalOpen={setWarrantyModalOpen} />
             
             {/* JivoSite Chat Widget */}
             {/* <JivoSite /> */}
@@ -101,6 +106,8 @@ const App = ({ preloadedBlogPost = null }: AppProps = {}) => {
               followupMessage={successModalFollowup}
             />
             <UrgencyBanner />
+            <MetrikaConsentSync />
+            <CookieConsentBanner />
           </PreloadProvider>
         </HelmetProvider>
       </TooltipProvider>

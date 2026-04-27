@@ -24,7 +24,14 @@ export const contactFormSchema = z.object({
     .optional()
     .or(z.literal('')),
 
+  consentPersonalData: z.boolean().refine((v) => v === true, {
+    message: 'Необходимо согласие на обработку персональных данных',
+  }),
+
   gRecaptchaToken: z.string().optional(),
 });
 
-export type ContactFormData = z.infer<typeof contactFormSchema>; 
+export type ContactFormData = z.infer<typeof contactFormSchema>;
+
+/** Полезная нагрузка для API (без полей только для UI). */
+export type ContactMessagePayload = Omit<ContactFormData, 'consentPersonalData'>; 

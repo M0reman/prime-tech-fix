@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { CONTACT_PROMO_TV10 } from '@/constants/contactPromo';
 import { Button } from '@/components/ui/button';
@@ -10,6 +10,7 @@ import { Phone, Mail, Clock, MapPin } from 'lucide-react';
 import { sendTelegramMessage } from '@/lib/telegram';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Checkbox } from '@/components/ui/checkbox';
 import { contactFormSchema, type ContactFormData } from '@/lib/validations';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import {
@@ -54,6 +55,7 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, onContactFormSuc
       email: '',
       device: '',
       message: '',
+      consentPersonalData: false,
     },
   });
 
@@ -95,8 +97,10 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, onContactFormSuc
 
     try {
       const token = await executeRecaptcha('contact_form');
-      const success = await sendTelegramMessage({ ...data, gRecaptchaToken: token });
-      
+      const { consentPersonalData, ...payload } = data;
+      void consentPersonalData;
+      const success = await sendTelegramMessage({ ...payload, gRecaptchaToken: token });
+
       if (success) {
         const followup = getContactFormFollowupMessage();
         toast({
@@ -104,7 +108,14 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, onContactFormSuc
           description: followup,
           duration: 7000,
         });
-        form.reset();
+        form.reset({
+          name: '',
+          phone: '',
+          email: '',
+          device: '',
+          message: '',
+          consentPersonalData: false,
+        });
         onContactFormSuccess(followup);
       } else {
         throw new Error('Failed to send message');
@@ -275,21 +286,45 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, onContactFormSuc
                         </FormItem>
                       )}
                     />
-                    
+
+                    <FormField
+                      control={form.control}
+                      name="consentPersonalData"
+                      render={({ field }) => (
+                        <FormItem className="flex flex-row items-start gap-3 space-y-0 rounded-md border border-border p-4">
+                          <FormControl>
+                            <Checkbox
+                              checked={field.value}
+                              onCheckedChange={(v) => field.onChange(v === true)}
+                              className="mt-0.5"
+                            />
+                          </FormControl>
+                          <div className="space-y-1 leading-snug">
+                            <FormLabel className="text-sm font-normal cursor-pointer">
+                              Я согласен(на) на обработку персональных данных в целях рассмотрения заявки и связи со мной
+                              по указанным контактам. Ознакомлен(а) с{' '}
+                              <Link to="/privacy" className="text-primary underline">
+                                политикой в отношении персональных данных и cookie
+                              </Link>
+                              ; при необходимости могу открыть{' '}
+                              <button
+                                type="button"
+                                className="text-primary underline"
+                                onClick={() => setPrivacyModalOpen(true)}
+                              >
+                                краткую версию в окне
+                              </button>
+                              .
+                            </FormLabel>
+                            <FormMessage />
+                          </div>
+                        </FormItem>
+                      )}
+                    />
+
                     <Button type="submit" className="w-full" disabled={form.formState.isSubmitting}>
                       {form.formState.isSubmitting ? "Отправка..." : "Отправить заявку"}
                     </Button>
-                    
-                    <p className="text-sm text-muted-foreground">
-                      Нажимая кнопку «Отправить заявку», вы соглашаетесь с нашей {" "}
-                      <button
-                        type="button"
-                        onClick={() => setPrivacyModalOpen(true)}
-                        className="text-primary hover:underline"
-                      >
-                        Политикой конфиденциальности
-                      </button>
-                    </p>
                   </form>
                 </Form>
               </div>

@@ -1,7 +1,7 @@
-import { type ContactFormData } from './validations';
+import { type ContactMessagePayload } from './validations';
 import { VITE_BACKEND_URL } from './server';
 
-export const sendTelegramMessage = async (formData: ContactFormData): Promise<boolean> => {
+export const sendTelegramMessage = async (formData: ContactMessagePayload): Promise<boolean> => {
   try {
     const response = await fetch(`${VITE_BACKEND_URL}/api/send-message`, {
       method: 'POST',

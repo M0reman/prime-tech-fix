@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Clock, AlertTriangle, X } from 'lucide-react';
 import { CONTACT_PROMO_TV10 } from '@/constants/contactPromo';
+import { COOKIE_CONSENT_CHANGED_EVENT, readCookieConsent } from '@/constants/cookieConsent';
+import { cn } from '@/lib/utils';
 
 /** Конец рабочего дня в локальной таймзоне: Пн–Пт 19:00, Сб 14:00, Вс — выходной */
 function getEndOfWorkToday(now: Date): Date | null {
@@ -28,6 +30,15 @@ const UrgencyBanner: React.FC = () => {
   });
   const [timerMode, setTimerMode] = useState<'counting' | 'sunday' | 'afterHours'>('counting');
   const [visible, setVisible] = useState(true);
+  /** Плашка cookie (fixed снизу) — сдвигаем акцию выше, чтобы не перекрывалась */
+  const [reserveSpaceForCookieBanner, setReserveSpaceForCookieBanner] = useState(false);
+
+  useEffect(() => {
+    const syncCookieStrip = () => setReserveSpaceForCookieBanner(readCookieConsent() === null);
+    syncCookieStrip();
+    window.addEventListener(COOKIE_CONSENT_CHANGED_EVENT, syncCookieStrip);
+    return () => window.removeEventListener(COOKIE_CONSENT_CHANGED_EVENT, syncCookieStrip);
+  }, []);
 
   useEffect(() => {
     const tick = () => {
@@ -59,7 +70,12 @@ const UrgencyBanner: React.FC = () => {
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-2 left-0 w-full z-50 px-2 md:px-4 animate-fade-in">
+    <div
+      className={cn(
+        'fixed left-0 w-full z-50 px-2 md:px-4 animate-fade-in transition-[bottom] duration-200',
+        reserveSpaceForCookieBanner ? 'bottom-32 sm:bottom-36' : 'bottom-2'
+      )}
+    >
       <div className="container mx-auto max-w-6xl">
         <div className="relative rounded-2xl border border-white/20 bg-gradient-to-r from-red-600 via-red-500 to-orange-500 text-white shadow-2xl backdrop-blur-sm">
           <button

@@ -5,10 +5,12 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
-  DialogClose
+  DialogClose,
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import { X } from 'lucide-react';
+import { PrivacyPolicyBody } from '@/components/legal/PrivacyPolicyBody';
 
 interface PrivacyPolicyModalProps {
   open: boolean;
@@ -22,95 +24,23 @@ const PrivacyPolicyModal: React.FC<PrivacyPolicyModalProps> = ({ open, onOpenCha
         <DialogHeader>
           <DialogTitle>Политика конфиденциальности</DialogTitle>
           <DialogDescription>
-            Политика в отношении обработки персональных данных
+            Политика в отношении обработки персональных данных и cookie. Полная версия на странице{' '}
+            <Link to="/privacy" className="text-primary underline" onClick={() => onOpenChange(false)}>
+              /privacy
+            </Link>
+            .
           </DialogDescription>
         </DialogHeader>
-        
+
         <div className="space-y-4 text-foreground">
-          <p className="italic">Последнее обновление: {new Date().toLocaleDateString()}</p>
-          
-          <h3 className="text-lg font-semibold">1. Общие положения</h3>
-          <p>
-            Настоящая Политика конфиденциальности определяет порядок обработки и защиты персональных данных пользователей сайта и клиентов сервисного центра СЦ ПРАЙМ. Мы уважаем ваше право на конфиденциальность и стремимся обеспечить максимальную защиту ваших персональных данных. На основании Федерального закона "Об информации, информационных технологиях и защите информации" (№149-ФЗ) и Федерального закона "О персональных данных" (№152-ФЗ).
-          </p>
-          
-          <h3 className="text-lg font-semibold">2. Собираемая информация</h3>
-          <p>
-            Мы можем собирать следующие типы персональных данных:
-          </p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Предоставление документов удостоверяющих личность (паспорт, права)</li>
-            <li>Контактная информация (имя, номер телефона, email)</li>
-            <li>Информация об устройстве (модель, серийный номер, IMEI)</li>
-            <li>История обращений и ремонтов</li>
-            <li>Данные о посещении сайта (IP-адрес, cookies, информация о браузере)</li>
-          </ul>
-          
-          <h3 className="text-lg font-semibold">3. Цели сбора персональных данных</h3>
-          <p>
-            Персональные данные собираются и обрабатываются в следующих целях:
-          </p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Оказание услуг по ремонту и обслуживанию техники</li>
-            <li>Информирование о статусе ремонта</li>
-            <li>Улучшение качества обслуживания</li>
-            <li>Проведение маркетинговых исследований</li>
-            <li>Отправка информационных и рекламных материалов (при наличии согласия)</li>
-          </ul>
-          
-          <h3 className="text-lg font-semibold">4. Принципы обработки персональных данных</h3>
-          <p>
-            Обработка персональных данных основана на следующих принципах:
-          </p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Законность и справедливость обработки</li>
-            <li>Обработка только тех данных, которые необходимы для заявленных целей</li>
-            <li>Точность и актуальность данных</li>
-            <li>Конфиденциальность и безопасность обработки</li>
-          </ul>
-          
-          <h3 className="text-lg font-semibold">5. Права пользователей</h3>
-          <p>
-            В соответствии с законодательством РФ, вы имеете право:
-          </p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>Получать информацию о хранящихся персональных данных</li>
-            <li>Требовать уточнения, блокирования или удаления данных</li>
-            <li>Отозвать согласие на обработку персональных данных</li>
-            <li>Обжаловать действия или бездействие оператора персональных данных</li>
-          </ul>
-          
-          <h3 className="text-lg font-semibold">6. Безопасность данных</h3>
-          <p>
-            СЦ ПРАЙМ принимает необходимые организационные и технические меры для защиты персональных данных от несанкционированного доступа, уничтожения, изменения, блокирования и других неправомерных действий.
-          </p>
-          
-          <h3 className="text-lg font-semibold">7. Передача данных третьим лицам</h3>
-          <p>
-            Мы не передаем ваши персональные данные третьим лицам без вашего согласия, за исключением случаев, когда это необходимо для выполнения договорных обязательств или требуется по закону.
-          </p>
-          
-          <h3 className="text-lg font-semibold">8. Изменение Политики конфиденциальности</h3>
-          <p>
-            СЦ ПРАЙМ оставляет за собой право вносить изменения в настоящую Политику конфиденциальности. Актуальная версия всегда доступна на нашем сайте.
-          </p>
-          
-          <h3 className="text-lg font-semibold">9. Контактная информация</h3>
-          <p>
-            По всем вопросам, связанным с обработкой персональных данных, вы можете обратиться:
-          </p>
-          <ul className="list-disc pl-6 space-y-2">
-            <li>По телефону: 8 (929) 747-45-11</li>
-            <li>По электронной почте: serviceprime@mail.ru</li>
-            <li>По адресу: г.Саранск, ул.Севастопольская, д. 56/2</li>
-          </ul>
+          <PrivacyPolicyBody />
         </div>
-        
+
         <DialogClose className="absolute right-4 top-4">
           <X className="h-4 w-4" />
-          <span className="sr-only">Close</span>
+          <span className="sr-only">Закрыть</span>
         </DialogClose>
-        
+
         <div className="flex justify-end mt-6">
           <Button onClick={() => onOpenChange(false)}>Закрыть</Button>
         </div>
