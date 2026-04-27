@@ -199,10 +199,12 @@
         (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
         
         ym(102922166, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true
+            webvisor: true,
+            clickmap: true,
+            referrer: document.referrer,
+            url: location.href,
+            accurateTrackBounce: true,
+            trackLinks: true
         });
         
         // Отправляем событие 404 ошибки

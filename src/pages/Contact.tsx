@@ -203,7 +203,7 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, onContactFormSuc
                               Ваше имя <span className="text-primary">*</span>
                             </FormLabel>
                             <FormControl>
-                              <Input placeholder="Введите ваше имя" {...field} />
+                              <Input className="ym-record-keys" placeholder="Введите ваше имя" {...field} />
                             </FormControl>
                             <FormMessage />
                           </FormItem>
@@ -228,7 +228,7 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, onContactFormSuc
                                 className="w-full"
                                 numberInputProps={{
                                   className:
-                                    'flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm',
+                                    'ym-record-keys flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm',
                                 }}
                                 labels={ruLabels}
                               />
@@ -265,7 +265,7 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, onContactFormSuc
                           <FormLabel>Описание проблемы</FormLabel>
                           <FormControl>
                             <Textarea
-                              className="rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                              className="ym-record-keys rounded-md border border-input bg-background px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
                               placeholder="Опишите проблему с вашим устройством"
                               rows={4}
                               {...field}
