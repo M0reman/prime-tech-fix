@@ -24,7 +24,7 @@ const PrivacyPolicyModal: React.FC<PrivacyPolicyModalProps> = ({ open, onOpenCha
         <DialogHeader>
           <DialogTitle>Политика конфиденциальности</DialogTitle>
           <DialogDescription>
-            Политика в отношении обработки персональных данных и cookie. Полная версия на странице{' '}
+            Политика в отношении обработки персональных данных и текстовых файлов браузера. Полная версия на странице{' '}
             <Link to="/privacy" className="text-primary underline" onClick={() => onOpenChange(false)}>
               /privacy
             </Link>

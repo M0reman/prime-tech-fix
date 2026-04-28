@@ -119,7 +119,7 @@ const SuccessModal: React.FC<SuccessModalProps> = ({
                 className="mt-0.5"
               />
               <Label htmlFor="success-marketing-optin" className="text-xs font-normal leading-snug cursor-pointer">
-                По желанию: согласен получать информационные и рекламные материалы в каналах (согласовать с юристом).
+                По желанию: согласен получать информационные и рекламные материалы в выбранных каналах.
               </Label>
             </div>
 

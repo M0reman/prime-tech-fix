@@ -10,7 +10,7 @@ declare global {
 
 /**
  * Инициализирует Яндекс.Метрику один раз, только при сохранённом согласии «с аналитикой».
- * Webvisor: VITE_METRIKA_WEBVISOR=true — по согласованию с юристом.
+ * Webvisor включается через VITE_METRIKA_WEBVISOR=true.
  */
 export function initYandexMetrikaIfConsented(): void {
   if (typeof window === 'undefined' || typeof document === 'undefined') return;

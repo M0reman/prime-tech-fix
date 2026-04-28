@@ -304,7 +304,7 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, onContactFormSuc
                               Я согласен(на) на обработку персональных данных в целях рассмотрения заявки и связи со мной
                               по указанным контактам. Ознакомлен(а) с{' '}
                               <Link to="/privacy" className="text-primary underline">
-                                политикой в отношении персональных данных и cookie
+                                политикой в отношении персональных данных и текстовых файлов браузера
                               </Link>
                               ; при необходимости могу открыть{' '}
                               <button

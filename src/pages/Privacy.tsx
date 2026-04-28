@@ -17,19 +17,19 @@ const Privacy: React.FC = () => {
   return (
     <div className="min-h-screen pt-24 pb-16">
       <Helmet>
-        <title>Политика в отношении персональных данных и cookie | СЦ Прайм</title>
+        <title>Политика обработки персональных данных и текстовых файлов браузера | СЦ Прайм</title>
         <meta
           name="description"
-          content="Политика обработки персональных данных и использования cookie сервисного центра Прайм в Саранске."
+          content="Политика обработки персональных данных и использования текстовых файлов браузера сервисного центра Прайм в Саранске."
         />
         <meta
           name="keywords"
-          content="политика конфиденциальности, персональные данные, 152-ФЗ, cookie, СЦ Прайм, Саранск"
+          content="политика конфиденциальности, персональные данные, 152-ФЗ, текстовые файлы браузера, СЦ Прайм, Саранск"
         />
         <meta property="og:title" content="Политика персональных данных | СЦ Прайм" />
         <meta
           property="og:description"
-          content="Политика обработки персональных данных и использования cookie сервисного центра Прайм."
+          content="Политика обработки персональных данных и использования текстовых файлов браузера сервисного центра Прайм."
         />
         {buildSocialPreviewHelmetMeta(SOCIAL_DEFAULT_IMAGE_URL)}
         <meta property="og:url" content={canonical} />
@@ -40,7 +40,7 @@ const Privacy: React.FC = () => {
         <meta name="twitter:title" content="Политика персональных данных | СЦ Прайм" />
         <meta
           name="twitter:description"
-          content="Политика обработки персональных данных и использования cookie сервисного центра Прайм."
+          content="Политика обработки персональных данных и использования текстовых файлов браузера сервисного центра Прайм."
         />
         <link rel="canonical" href={canonical} />
       </Helmet>
@@ -53,7 +53,7 @@ const Privacy: React.FC = () => {
           <span className="mx-2">/</span>
           <span className="text-foreground">Политика персональных данных</span>
         </nav>
-        <h1 className="heading-lg mb-2">Политика в отношении персональных данных и cookie</h1>
+        <h1 className="heading-lg mb-2">Политика обработки персональных данных и текстовых файлов браузера</h1>
         <p className="text-muted-foreground mb-8">
           {OPERATOR_TRADE_NAME} · {OPERATOR_FULL_NAME}
         </p>

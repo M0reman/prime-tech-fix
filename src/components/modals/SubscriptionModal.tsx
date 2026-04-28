@@ -113,8 +113,7 @@ const SubscriptionModal: React.FC<SubscriptionModalProps> = ({ open, onOpenChang
               className="mt-0.5"
             />
             <Label htmlFor="subscription-marketing-optin" className="text-xs font-normal leading-snug cursor-pointer">
-              Отдельно: согласен получать информационные и рекламные материалы в выбранных каналах (по желанию,
-              уточните формулировку с юристом).
+              По желанию: согласен получать информационные и рекламные материалы в выбранных каналах.
             </Label>
           </div>
 
