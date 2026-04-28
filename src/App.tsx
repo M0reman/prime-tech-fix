@@ -14,12 +14,8 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Faq from "./pages/Faq";
 import Brands from "./pages/Brands";
-import Blog from "./pages/Blog";
-import BlogPost from "./pages/BlogPost";
 import RemontTelevizorov from "./pages/RemontTelevizorov";
 import Privacy from "./pages/Privacy";
-import AdminLogin from "./pages/admin/AdminLogin";
-import AdminBlog from "./pages/admin/AdminBlog";
 import NotFound from "./pages/NotFound";
 import WarrantyTermsModal from './components/modals/WarrantyTermsModal';
 import PrivacyPolicyModal from './components/modals/PrivacyPolicyModal';
@@ -29,16 +25,11 @@ import UrgencyBanner from "./components/common/UrgencyBanner";
 import CookieConsentBanner from "./components/common/CookieConsentBanner";
 import MetrikaConsentSync from "./components/common/MetrikaConsentSync";
 import useSiteTimer from './hooks/use-site-timer';
-import { PreloadProvider, type BlogPostPreload } from './contexts/PreloadContext';
 import { SUBSCRIPTION_MODAL_STORAGE_KEY } from '@/constants/privacyLegal';
 
 const queryClient = new QueryClient();
 
-export interface AppProps {
-  preloadedBlogPost?: BlogPostPreload | null;
-}
-
-const App = ({ preloadedBlogPost = null }: AppProps = {}) => {
+const App = () => {
   const [warrantyModalOpen, setWarrantyModalOpen] = useState(false);
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
   const [successModalOpen, setSuccessModalOpen] = useState(false);
@@ -61,10 +52,7 @@ const App = ({ preloadedBlogPost = null }: AppProps = {}) => {
     if (!open) setSuccessModalFollowup('');
   };
 
-  const handleSubscribeClick = () => {
-    // Логика для обработки клика по подписке
-    console.log('Пользователь кликнул на подписку');
-  };
+  const handleSubscribeClick = () => {};
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -72,43 +60,37 @@ const App = ({ preloadedBlogPost = null }: AppProps = {}) => {
         <Toaster />
         <Sonner />
         <HelmetProvider>
-          <PreloadProvider blogPost={preloadedBlogPost}>
-            <Navbar />
-            <AnimatedTransition>
-              <Routes>
-                <Route path="/" element={<Index />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact setPrivacyModalOpen={setPrivacyModalOpen} onContactFormSuccess={handleContactFormSuccess} />} />
-                <Route path="/privacy" element={<Privacy />} />
-                <Route path="/faq" element={<Faq />} />
-                <Route path="/brands" element={<Brands />} />
-                <Route path="/blog" element={<Blog />} />
-                <Route path="/blog/:slug" element={<BlogPost />} />
-                <Route path="/remont-televizorov" element={<RemontTelevizorov />} />
-                <Route path="/admin/login" element={<AdminLogin />} />
-                <Route path="/admin/blog" element={<AdminBlog />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </AnimatedTransition>
-            <Footer setWarrantyModalOpen={setWarrantyModalOpen} />
-            
-            {/* JivoSite Chat Widget */}
-            {/* <JivoSite /> */}
-            
-            <WarrantyTermsModal open={warrantyModalOpen} onOpenChange={setWarrantyModalOpen} />
-            <PrivacyPolicyModal open={privacyModalOpen} onOpenChange={setPrivacyModalOpen} />
-            <SubscriptionModal open={shouldShowSubscriptionModal} onOpenChange={hideSubscriptionModal} />
-            <SuccessModal 
-              open={successModalOpen} 
-              onOpenChange={handleSuccessModalOpenChange} 
-              onSubscribeClick={handleSubscribeClick}
-              followupMessage={successModalFollowup}
-            />
-            <UrgencyBanner />
-            <MetrikaConsentSync />
-            <CookieConsentBanner />
-          </PreloadProvider>
+          <Navbar />
+          <AnimatedTransition>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact setPrivacyModalOpen={setPrivacyModalOpen} onContactFormSuccess={handleContactFormSuccess} />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/faq" element={<Faq />} />
+              <Route path="/brands" element={<Brands />} />
+              <Route path="/remont-televizorov" element={<RemontTelevizorov />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </AnimatedTransition>
+          <Footer setWarrantyModalOpen={setWarrantyModalOpen} />
+          
+          {/* JivoSite Chat Widget */}
+          {/* <JivoSite /> */}
+          
+          <WarrantyTermsModal open={warrantyModalOpen} onOpenChange={setWarrantyModalOpen} />
+          <PrivacyPolicyModal open={privacyModalOpen} onOpenChange={setPrivacyModalOpen} />
+          <SubscriptionModal open={shouldShowSubscriptionModal} onOpenChange={hideSubscriptionModal} />
+          <SuccessModal 
+            open={successModalOpen} 
+            onOpenChange={handleSuccessModalOpenChange} 
+            onSubscribeClick={handleSubscribeClick}
+            followupMessage={successModalFollowup}
+          />
+          <UrgencyBanner />
+          <MetrikaConsentSync />
+          <CookieConsentBanner />
         </HelmetProvider>
       </TooltipProvider>
     </QueryClientProvider>

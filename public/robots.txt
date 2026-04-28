@@ -5,7 +5,6 @@
 User-agent: *
 Allow: /
 Disallow: /admin/
-Disallow: /admin/blog
 Disallow: /api/
 Disallow: /_next/
 Disallow: /static/
@@ -14,7 +13,6 @@ Disallow: /static/
 User-agent: Yandex
 Allow: /
 Disallow: /admin/
-Disallow: /admin/blog
 Disallow: /api/
 Crawl-delay: 1
 
@@ -22,14 +20,12 @@ Crawl-delay: 1
 User-agent: Googlebot
 Allow: /
 Disallow: /admin/
-Disallow: /admin/blog
 Disallow: /api/
 
 # Специальные правила для Bing
 User-agent: Bingbot
 Allow: /
 Disallow: /admin/
-Disallow: /admin/blog
 Disallow: /api/
 
 # Специальные правила для социальных сетей

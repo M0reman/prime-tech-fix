@@ -9,7 +9,6 @@ const clientDir = path.join(projectRoot, 'dist', 'client');
 const templatePath = path.join(clientDir, 'index.html');
 
 const SSR_OUTLET = '<!--ssr-outlet-->';
-const API_BASE_URL = process.env.VITE_BACKEND_URL || 'http://localhost:5000';
 
 const app = express();
 
@@ -28,18 +27,6 @@ function loadTemplate() {
   }
 }
 
-async function fetchBlogPost(slug) {
-  try {
-    const res = await fetch(`${API_BASE_URL}/api/blog/${slug}`);
-    if (res.ok) {
-      return await res.json();
-    }
-  } catch (err) {
-    console.warn('SSR: не удалось загрузить пост блога:', slug, err?.message);
-  }
-  return null;
-}
-
 function escapeHtml(s) {
   if (s == null) return '';
   return String(s)
@@ -49,30 +36,7 @@ function escapeHtml(s) {
     .replace(/"/g, '&quot;');
 }
 
-function escapeJsonInScript(json) {
-  return json.replace(/<\/script>/gi, '<\\/script>');
-}
-
 app.use(express.static(clientDir, { index: false }));
-
-const rssPath = path.join(clientDir, 'rss.xml');
-
-function sendRssFeed(res) {
-  if (!fs.existsSync(rssPath)) {
-    res.status(404).type('text/plain').send('RSS файл не найден. Выполните сборку и generate:rss.');
-    return;
-  }
-  res.type('application/rss+xml; charset=utf-8');
-  res.sendFile(path.resolve(rssPath));
-}
-
-app.get('/rss', (_req, res) => {
-  sendRssFeed(res);
-});
-
-app.get('/rss/', (_req, res) => {
-  sendRssFeed(res);
-});
 
 app.use(async (req, res) => {
   const url = req.originalUrl;
@@ -82,23 +46,10 @@ app.use(async (req, res) => {
   }
 
   try {
-    let preloadedBlogPost = null;
-    const blogMatch = url.match(/^\/blog\/([^/?#]+)/);
-    if (blogMatch) {
-      preloadedBlogPost = await fetchBlogPost(blogMatch[1]);
-    }
-
-    const { html, title, description, metaTags, linkTags, preloadedState } = render({
-      url,
-      preloadedBlogPost,
-    });
-
-    const stateScript = preloadedState
-      ? `<script>window.__PRELOADED_STATE__=${escapeJsonInScript(JSON.stringify(preloadedState))}</script>`
-      : '';
+    const { html, title, description, metaTags, linkTags } = render({ url });
 
     let output = template
-      .replace(SSR_OUTLET, html + stateScript)
+      .replace(SSR_OUTLET, html)
       .replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
       .replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/?>/i, `<meta name="description" content="${escapeHtml(description)}" />`);
 

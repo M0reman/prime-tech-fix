@@ -3,7 +3,7 @@
  * Вариант B: пре-рендер при сборке.
  * Список URL из prerender-urls.js; для каждого создаётся index.html.
  * При наличии dist/server/entry-server.js используется render() для подстановки контента и мета.
- * Интеграция: npm run build:static (или build + generate:rss + node scripts/prerender.js)
+ * Интеграция: npm run build:static (или build + node scripts/prerender.js)
  */
 import fs from 'fs';
 import path from 'path';
@@ -15,16 +15,11 @@ const projectRoot = path.resolve(__dirname, '..');
 const distDir = path.join(projectRoot, 'dist');
 const templatePath = path.join(distDir, 'index.html');
 const serverEntryPath = path.join(projectRoot, 'dist', 'server', 'entry-server.js');
-const API_BASE_URL = process.env.VITE_BACKEND_URL || 'http://localhost:5000';
 const SSR_OUTLET = '<!--ssr-outlet-->';
 
 function escapeHtml(s) {
   if (s == null) return '';
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-}
-
-function escapeJsonInScript(json) {
-  return json.replace(/<\/script>/gi, '<\\/script>');
 }
 
 async function getUrls() {
@@ -46,15 +41,6 @@ async function getUrls() {
       }
     });
   });
-}
-
-async function fetchBlogPost(slug) {
-  try {
-    const res = await fetch(`${API_BASE_URL}/api/blog/${slug}`);
-    return res.ok ? await res.json() : null;
-  } catch {
-    return null;
-  }
 }
 
 async function main() {
@@ -81,23 +67,12 @@ async function main() {
 
   for (const urlPath of urls) {
     let html = template;
-    let preloadedBlogPost = null;
-    const blogMatch = urlPath.match(/^\/blog\/([^/]+)$/);
-    if (blogMatch && render) {
-      preloadedBlogPost = await fetchBlogPost(blogMatch[1]);
-    }
 
     if (render) {
       const baseUrl = `https://serviceprime13.ru${urlPath}`;
-      const { html: appHtml, title, description, metaTags, linkTags, preloadedState } = render({
-        url: baseUrl,
-        preloadedBlogPost,
-      });
-      const stateScript = preloadedState
-        ? `<script>window.__PRELOADED_STATE__=${escapeJsonInScript(JSON.stringify(preloadedState))}</script>`
-        : '';
+      const { html: appHtml, title, description, metaTags, linkTags } = render({ url: baseUrl });
       html = template
-        .replace(SSR_OUTLET, appHtml + stateScript)
+        .replace(SSR_OUTLET, appHtml)
         .replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(title)}</title>`)
         .replace(/<meta\s+name="description"\s+content="[^"]*"\s*\/?>/i, `<meta name="description" content="${escapeHtml(description)}" />`);
       if (html.includes('<!-- SEO_INJECT -->')) {
