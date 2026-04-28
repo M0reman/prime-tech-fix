@@ -13,6 +13,7 @@
     "serve": "node server/server.js",
     "prerender:urls": "node scripts/prerender-urls.js",
     "build:static": "vite build --mode prerender && npm run generate:rss && npm run build:server && node scripts/prerender.js",
+    "build:timeweb": "vite build && npm run generate:rss",
     "lint": "eslint .",
     "preview": "vite preview",
     "generate:rss": "node scripts/generate-static-rss.js",
