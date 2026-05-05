@@ -4,22 +4,13 @@ import { BrowserRouter } from 'react-router-dom';
 import '@fontsource/roboto/latin-400.css';
 import App from './App';
 import './index.css';
-import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
-
-const recaptchaSiteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
-if (import.meta.env.PROD && !recaptchaSiteKey) {
-  throw new Error('VITE_RECAPTCHA_SITE_KEY должен быть задан в переменных окружения для продакшен-сборки.');
-}
-const recaptchaKey = recaptchaSiteKey || '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI';
 
 const rootEl = document.getElementById('root')!;
 const app = (
   <React.StrictMode>
-    <GoogleReCaptchaProvider reCaptchaKey={recaptchaKey}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </GoogleReCaptchaProvider>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 

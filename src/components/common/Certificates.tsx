@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { RasterPicture } from '@/components/common/RasterPicture';
 
 const YANDEX_MAPS_ORG_URL = 'https://yandex.ru/maps/';
-const HOROSHEE_MESTO_LOGO_SVG = 'https://logo-teka.com/wp-content/uploads/2026/03/yandex-horoshee-mesto-icon-logo.svg';
+const HOROSHEE_MESTO_LOGO_SVG = '/images/badges/yandex-horoshee-mesto.svg';
 
 const Certificates: React.FC = () => {
   const certificates = [

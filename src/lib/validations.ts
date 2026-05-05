@@ -27,8 +27,6 @@ export const contactFormSchema = z.object({
   consentPersonalData: z.boolean().refine((v) => v === true, {
     message: 'Необходимо согласие на обработку персональных данных',
   }),
-
-  gRecaptchaToken: z.string().optional(),
 });
 
 export type ContactFormData = z.infer<typeof contactFormSchema>;

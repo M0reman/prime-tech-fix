@@ -23,7 +23,7 @@ const Testimonials: React.FC = () => {
       rating: 5,
       date: "15.05.2023",
       text: "Разбил экран на iPhone, обратился в ПРАЙМ. Приятно удивила скорость и качество работы. Мастер заменил дисплей за 1 час, телефон выглядит как новый. Цена абсолютно адекватная. Рекомендую!",
-      avatar: "https://randomuser.me/api/portraits/men/32.jpg"
+      avatar: "/images/testimonials/alexander.jpg"
     },
     {
       id: 2,
@@ -32,7 +32,7 @@ const Testimonials: React.FC = () => {
       rating: 5,
       date: "03.06.2023",
       text: "Ноутбук перестал включаться после 5 лет использования. В ПРАЙМ быстро диагностировали проблему, заменили жесткий диск и почистили от пыли. Теперь работает даже лучше, чем раньше. Спасибо за профессиональный подход!",
-      avatar: "https://randomuser.me/api/portraits/women/44.jpg"
+      avatar: "/images/testimonials/ekaterina.jpg"
     },
     {
       id: 3,
@@ -41,7 +41,7 @@ const Testimonials: React.FC = () => {
       rating: 4,
       date: "22.07.2023",
       text: "Вызвал мастера на дом для ремонта стиральной машины. Приехал в тот же день, быстро нашел причину поломки и устранил ее. Дал рекомендации по дальнейшей эксплуатации. Сервис на высоте.",
-      avatar: "https://randomuser.me/api/portraits/men/62.jpg"
+      avatar: "/images/testimonials/mikhail.jpg"
     },
     {
       id: 4,
@@ -50,7 +50,7 @@ const Testimonials: React.FC = () => {
       rating: 5,
       date: "18.08.2023",
       text: "Обратилась с проблемой зарядки iPad. Диагностику провели бесплатно, выявили проблему в разъеме Lightning. Замена заняла меньше часа, все работает отлично. Очень довольна обслуживанием и профессионализмом сотрудников.",
-      avatar: "https://randomuser.me/api/portraits/women/68.jpg"
+      avatar: "/images/testimonials/olga.jpg"
     },
     {
       id: 5,
@@ -59,7 +59,7 @@ const Testimonials: React.FC = () => {
       rating: 5,
       date: "05.09.2023",
       text: "Телевизор перестал показывать изображение. Мастер из ПРАЙМ диагностировал неисправность в блоке питания. Отремонтировали за 2 дня, стоимость оказалась вдвое меньше, чем предлагали в других сервисах. Спасибо за честность и высокое качество!",
-      avatar: "https://randomuser.me/api/portraits/men/75.jpg"
+      avatar: "/images/testimonials/dmitry.jpg"
     }
   ];
   

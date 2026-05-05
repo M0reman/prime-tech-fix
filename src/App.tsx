@@ -76,9 +76,6 @@ const App = () => {
           </AnimatedTransition>
           <Footer setWarrantyModalOpen={setWarrantyModalOpen} />
           
-          {/* JivoSite Chat Widget */}
-          {/* <JivoSite /> */}
-          
           <WarrantyTermsModal open={warrantyModalOpen} onOpenChange={setWarrantyModalOpen} />
           <PrivacyPolicyModal open={privacyModalOpen} onOpenChange={setPrivacyModalOpen} />
           <SubscriptionModal open={shouldShowSubscriptionModal} onOpenChange={hideSubscriptionModal} />

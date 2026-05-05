@@ -12,7 +12,6 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Checkbox } from '@/components/ui/checkbox';
 import { contactFormSchema, type ContactFormData } from '@/lib/validations';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import {
   Form,
   FormControl,
@@ -45,7 +44,6 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, onContactFormSuc
   const isTv10Promo = searchParams.get('promo') === CONTACT_PROMO_TV10;
 
   const { toast } = useToast();
-  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
@@ -84,22 +82,10 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, onContactFormSuc
   }, [isTv10Promo, setValue, getValues]);
   
   const onSubmit = async (data: ContactFormData) => {
-    if (!executeRecaptcha) {
-      console.error('Recaptcha not loaded');
-      toast({
-        title: "Ошибка",
-        description: "Не удалось загрузить капчу. Пожалуйста, обновите страницу.",
-        variant: "destructive",
-        duration: 5000,
-      });
-      return;
-    }
-
     try {
-      const token = await executeRecaptcha('contact_form');
       const { consentPersonalData, ...payload } = data;
       void consentPersonalData;
-      const success = await sendTelegramMessage({ ...payload, gRecaptchaToken: token });
+      const success = await sendTelegramMessage(payload);
 
       if (success) {
         const followup = getContactFormFollowupMessage();

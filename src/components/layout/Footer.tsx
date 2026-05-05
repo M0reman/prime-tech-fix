@@ -42,7 +42,7 @@ const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen }) => {
               title="Награда «Хорошее место» на Яндекс.Картах"
             >
               <img
-                src="https://logo-teka.com/wp-content/uploads/2026/03/yandex-horoshee-mesto-icon-logo.svg"
+                src="/images/badges/yandex-horoshee-mesto.svg"
                 alt="Яндекс Карты — Хорошее место"
                 className="h-8 w-auto object-contain"
               />

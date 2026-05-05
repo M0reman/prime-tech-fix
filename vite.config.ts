@@ -54,7 +54,6 @@ export default defineConfig(async ({ mode }) => {
             if (id.includes('date-fns')) return 'date-fns';
             if (id.includes('embla-carousel')) return 'embla';
             if (id.includes('cmdk')) return 'cmdk';
-            if (id.includes('react-google-recaptcha')) return 'recaptcha';
             if (id.includes('react-phone-number-input') || id.includes('libphonenumber')) {
               return 'phone-input';
             }

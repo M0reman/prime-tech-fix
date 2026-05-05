@@ -28,7 +28,6 @@ npm run dev
 | Переменная | Назначение |
 |------------|------------|
 | `VITE_BACKEND_URL` | URL бэкенда (API форм и интеграций) |
-| `VITE_RECAPTCHA_SITE_KEY` | Ключ reCAPTCHA v3 для клиента |
 
 ## Скрипты npm
 
