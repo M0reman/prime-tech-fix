@@ -7,6 +7,41 @@ declare global {
   }
 }
 
+const DEFAULT_METRIKA_TAG_URLS = [
+  'https://mc.yandex.ru/metrika/tag.js',
+  'https://mc.yandex.com/metrika/tag.js',
+];
+
+function parseMetrikaTagUrls(): string[] {
+  const raw = import.meta.env.VITE_METRIKA_TAG_URLS;
+  if (!raw) return DEFAULT_METRIKA_TAG_URLS;
+  return raw
+    .split(',')
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
+function loadScriptByUrls(urls: string[], onLoaded: () => void, onFailed: () => void): void {
+  const tryLoad = (index: number) => {
+    if (index >= urls.length) {
+      onFailed();
+      return;
+    }
+
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = urls[index];
+    script.onload = () => onLoaded();
+    script.onerror = () => {
+      script.remove();
+      tryLoad(index + 1);
+    };
+    document.head.appendChild(script);
+  };
+
+  tryLoad(0);
+}
+
 /**
  * Инициализирует Яндекс.Метрику один раз при открытии сайта.
  * Webvisor включается через VITE_METRIKA_WEBVISOR=true.
@@ -16,17 +51,11 @@ export function initYandexMetrikaIfConsented(): void {
   if (window.__primeMetrikaInitialized) return;
   window.__primeMetrikaInitialized = true;
 
-  const bootstrap = document.createElement('script');
-  bootstrap.textContent =
-    '(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return}}k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");';
-  document.head.appendChild(bootstrap);
-  bootstrap.remove();
-
-  const webvisor = import.meta.env.VITE_METRIKA_WEBVISOR === 'true';
+  const webvisor = import.meta.env.VITE_METRIKA_WEBVISOR !== 'false';
 
   const runInit = () => {
     if (typeof window.ym !== 'function') {
-      window.setTimeout(runInit, 40);
+      window.__primeMetrikaInitialized = false;
       return;
     }
     window.ym(YANDEX_METRIKA_COUNTER_ID, 'init', {
@@ -38,5 +67,8 @@ export function initYandexMetrikaIfConsented(): void {
       trackLinks: true,
     });
   };
-  runInit();
+
+  loadScriptByUrls(parseMetrikaTagUrls(), runInit, () => {
+    window.__primeMetrikaInitialized = false;
+  });
 }
