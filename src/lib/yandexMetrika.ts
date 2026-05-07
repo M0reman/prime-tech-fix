@@ -1,4 +1,3 @@
-import { readCookieConsent } from '@/constants/cookieConsent';
 import { YANDEX_METRIKA_COUNTER_ID } from '@/constants/privacyLegal';
 
 declare global {
@@ -9,12 +8,11 @@ declare global {
 }
 
 /**
- * Инициализирует Яндекс.Метрику один раз, только при сохранённом согласии «с аналитикой».
+ * Инициализирует Яндекс.Метрику один раз при открытии сайта.
  * Webvisor включается через VITE_METRIKA_WEBVISOR=true.
  */
 export function initYandexMetrikaIfConsented(): void {
   if (typeof window === 'undefined' || typeof document === 'undefined') return;
-  if (readCookieConsent() !== 'analytics') return;
   if (window.__primeMetrikaInitialized) return;
   window.__primeMetrikaInitialized = true;
 
