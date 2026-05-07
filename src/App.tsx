@@ -23,7 +23,6 @@ import SubscriptionModal from './components/modals/SubscriptionModal';
 import SuccessModal from './components/modals/SuccessModal';
 import UrgencyBanner from "./components/common/UrgencyBanner";
 import CookieConsentBanner from "./components/common/CookieConsentBanner";
-import MetrikaConsentSync from "./components/common/MetrikaConsentSync";
 import useSiteTimer from './hooks/use-site-timer';
 import { SUBSCRIPTION_MODAL_STORAGE_KEY } from '@/constants/privacyLegal';
 
@@ -86,7 +85,6 @@ const App = () => {
             followupMessage={successModalFollowup}
           />
           <UrgencyBanner />
-          <MetrikaConsentSync />
           <CookieConsentBanner />
         </HelmetProvider>
       </TooltipProvider>

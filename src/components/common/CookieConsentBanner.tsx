@@ -7,7 +7,6 @@ import {
   writeCookieConsent,
   type CookieConsentChoice,
 } from '@/constants/cookieConsent';
-import { initYandexMetrikaIfConsented } from '@/lib/yandexMetrika';
 
 /**
  * Плашка согласия на текстовые файлы браузера: после выбора — запись в localStorage и условная загрузка Метрики.
@@ -23,9 +22,6 @@ const CookieConsentBanner: React.FC = () => {
     writeCookieConsent(choice);
     setOpen(false);
     notifyCookieConsentChanged();
-    if (choice === 'analytics') {
-      initYandexMetrikaIfConsented();
-    }
   };
 
   if (!open) return null;
