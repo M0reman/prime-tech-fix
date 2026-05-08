@@ -9,16 +9,17 @@ export default defineConfig(async ({ mode }) => {
   const isSsrBuild = mode === 'ssr';
   // Сборка под scripts/prerender.js: мета только из entry-server, без дубля с vite-plugin-inject-seo
   const isPrerenderBuild = mode === 'prerender';
+  const isDeployBuild = mode === 'production' || isPrerenderBuild;
 
   return {
-    base: mode === 'production' ? 'https://serviceprime13.ru/' : '/',
+    base: isDeployBuild ? 'https://serviceprime13.ru/' : '/',
     server: {
       host: "::",
       port: 8080,
     },
     build: {
       outDir: isSsrBuild ? 'dist/client' : 'dist',
-      emptyOutDir: !isSsrBuild,
+      emptyOutDir: isSsrBuild ? false : !isPrerenderBuild,
       rollupOptions: {
         output: {
           manualChunks(id: string) {
