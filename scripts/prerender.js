@@ -16,10 +16,34 @@ const distDir = path.join(projectRoot, 'dist');
 const templatePath = path.join(distDir, 'index.html');
 const serverEntryPath = path.join(projectRoot, 'dist', 'server', 'entry-server.js');
 const SSR_OUTLET = '<!--ssr-outlet-->';
+const ASSETS_PREFIX = 'https://serviceprime13.ru/';
 
 function escapeHtml(s) {
   if (s == null) return '';
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function toLocalAssetPath(href) {
+  if (!href) return null;
+  const normalized = href.trim();
+  if (normalized.startsWith('/')) {
+    return path.join(distDir, normalized.replace(/^\//, ''));
+  }
+  if (normalized.startsWith(ASSETS_PREFIX)) {
+    return path.join(distDir, normalized.replace(ASSETS_PREFIX, ''));
+  }
+  return null;
+}
+
+function inlineStyles(html) {
+  return html.replace(/<link[^>]*rel=["']stylesheet["'][^>]*href=["']([^"']+)["'][^>]*>/gi, (full, href) => {
+    const filePath = toLocalAssetPath(href);
+    if (!filePath || !fs.existsSync(filePath)) {
+      return full;
+    }
+    const css = fs.readFileSync(filePath, 'utf-8');
+    return `<style data-inlined-from="${href}">\n${css}\n</style>`;
+  });
 }
 
 async function getUrls() {
@@ -85,6 +109,7 @@ async function main() {
         }
       }
     }
+    html = inlineStyles(html);
 
     const dir = urlPath === '/' ? distDir : path.join(distDir, urlPath.replace(/^\//, ''));
     fs.mkdirSync(dir, { recursive: true });
