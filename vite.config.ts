@@ -11,6 +11,7 @@ export default defineConfig(async ({ mode }) => {
   const isPrerenderBuild = mode === 'prerender';
 
   return {
+    base: mode === 'production' ? 'https://serviceprime13.ru/' : '/',
     server: {
       host: "::",
       port: 8080,
