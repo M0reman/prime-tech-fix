@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Clock, AlertTriangle, X } from 'lucide-react';
-import { CONTACT_PROMO_TV10 } from '@/constants/contactPromo';
+import { CONTACT_PROMO_NOTEBOOK10, CONTACT_PROMO_TV10 } from '@/constants/contactPromo';
 import { COOKIE_CONSENT_CHANGED_EVENT, readCookieConsent } from '@/constants/cookieConsent';
 import { cn } from '@/lib/utils';
 
@@ -23,6 +23,13 @@ function getEndOfWorkToday(now: Date): Date | null {
 }
 
 const UrgencyBanner: React.FC = () => {
+  const { pathname } = useLocation();
+  const isNotebookLanding = pathname === '/remont-noutbukov';
+  const promoQuery = isNotebookLanding ? CONTACT_PROMO_NOTEBOOK10 : CONTACT_PROMO_TV10;
+  const promoTitle = isNotebookLanding
+    ? 'Перейти к форме заявки: акция на ремонт ноутбуков'
+    : 'Перейти к форме заявки: акция на ремонт телевизоров';
+
   const [timeLeft, setTimeLeft] = useState({
     hours: 0,
     minutes: 0,
@@ -94,7 +101,9 @@ const UrgencyBanner: React.FC = () => {
                   Акция дня
                 </span>
                 <p className="text-xs sm:text-sm md:text-base leading-snug font-medium max-w-[44rem]">
-                  Скидка 10% на ремонт телевизоров в СЦ Прайм
+                  {isNotebookLanding
+                    ? 'Скидка 10% на ремонт ноутбуков в СЦ Прайм'
+                    : 'Скидка 10% на ремонт телевизоров в СЦ Прайм'}
                 </p>
               </div>
 
@@ -126,9 +135,9 @@ const UrgencyBanner: React.FC = () => {
                 </div>
 
                 <Link
-                  to={`/contact?promo=${CONTACT_PROMO_TV10}`}
+                  to={`/contact?promo=${promoQuery}`}
                   className="relative z-10 inline-flex w-full sm:w-auto items-center justify-center whitespace-nowrap rounded-lg bg-white px-4 py-2 text-xs sm:text-sm font-semibold text-red-600 hover:bg-red-50 transition-colors shadow-md shrink-0"
-                  title="Перейти к форме заявки: акция на ремонт телевизоров"
+                  title={promoTitle}
                 >
                   Получить скидку
                 </Link>

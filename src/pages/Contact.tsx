@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { CONTACT_PROMO_TV10 } from '@/constants/contactPromo';
+import { CONTACT_PROMO_NOTEBOOK10, CONTACT_PROMO_TV10 } from '@/constants/contactPromo';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -39,9 +39,14 @@ interface ContactProps {
 const TV10_PROMO_DEFAULT_MESSAGE =
   'Заявка по акции «Скидка 10% на ремонт телевизора». Укажите модель ТВ и неисправность.';
 
+const NOTEBOOK10_PROMO_DEFAULT_MESSAGE =
+  'Заявка по акции «Скидка 10% на ремонт ноутбука». Укажите модель и неисправность.';
+
 const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, onContactFormSuccess }) => {
   const [searchParams] = useSearchParams();
   const isTv10Promo = searchParams.get('promo') === CONTACT_PROMO_TV10;
+  const isNotebook10Promo = searchParams.get('promo') === CONTACT_PROMO_NOTEBOOK10;
+  const isPromoFromBanner = isTv10Promo || isNotebook10Promo;
 
   const { toast } = useToast();
 
@@ -58,28 +63,36 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, onContactFormSuc
   });
 
   useEffect(() => {
-    if (isTv10Promo) {
+    if (isPromoFromBanner) {
       return;
     }
     window.scrollTo(0, 0);
-  }, [isTv10Promo]);
+  }, [isPromoFromBanner]);
 
   const { setValue, getValues } = form;
 
   useEffect(() => {
-    if (!isTv10Promo) {
+    if (!isPromoFromBanner) {
       return;
     }
-    setValue('device', 'Телевизор');
-    const currentMessage = getValues('message');
-    if (!currentMessage?.trim()) {
-      setValue('message', TV10_PROMO_DEFAULT_MESSAGE);
+    if (isTv10Promo) {
+      setValue('device', 'Телевизор');
+      const currentMessage = getValues('message');
+      if (!currentMessage?.trim()) {
+        setValue('message', TV10_PROMO_DEFAULT_MESSAGE);
+      }
+    } else if (isNotebook10Promo) {
+      setValue('device', 'Ноутбук');
+      const currentMessage = getValues('message');
+      if (!currentMessage?.trim()) {
+        setValue('message', NOTEBOOK10_PROMO_DEFAULT_MESSAGE);
+      }
     }
     const timer = window.setTimeout(() => {
       document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 150);
     return () => clearTimeout(timer);
-  }, [isTv10Promo, setValue, getValues]);
+  }, [isPromoFromBanner, isTv10Promo, isNotebook10Promo, setValue, getValues]);
   
   const onSubmit = async (data: ContactFormData) => {
     try {
@@ -185,6 +198,16 @@ const Contact: React.FC<ContactProps> = ({ setPrivacyModalOpen, onContactFormSuc
                     Вы оформляете заявку по акции:{' '}
                     <strong>скидка 10% на ремонт телевизора</strong>. Заполните форму — менеджер подтвердит
                     условия по телефону.
+                  </div>
+                )}
+                {isNotebook10Promo && (
+                  <div
+                    className="mb-6 rounded-lg border border-primary/30 bg-primary/5 px-4 py-3 text-center text-sm text-foreground"
+                    role="status"
+                  >
+                    Вы оформляете заявку по акции:{' '}
+                    <strong>скидка 10% на ремонт ноутбука</strong>. Заполните форму — менеджер подтвердит условия по
+                    телефону.
                   </div>
                 )}
                 <h2 className="text-2xl font-semibold mb-6">Оставить заявку</h2>
