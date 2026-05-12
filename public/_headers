@@ -1,0 +1,17 @@
+# Netlify / часть CDN: снимает блокировку встраивания картинок с чужого origin (Вебвизор).
+/images/*
+  Cross-Origin-Resource-Policy: cross-origin
+/logos/*
+  Cross-Origin-Resource-Policy: cross-origin
+/serviceCards/*
+  Cross-Origin-Resource-Policy: cross-origin
+/brands-img/*
+  Cross-Origin-Resource-Policy: cross-origin
+/models/*
+  Cross-Origin-Resource-Policy: cross-origin
+/remont-tv/*
+  Cross-Origin-Resource-Policy: cross-origin
+/repairStepsCards/*
+  Cross-Origin-Resource-Policy: cross-origin
+/brands/*
+  Cross-Origin-Resource-Policy: cross-origin
