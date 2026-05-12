@@ -55,19 +55,16 @@ const RemontNoutbukov: React.FC = () => {
               Работаем с популярными и редкими производителями. Показаны не все бренды — принимаем и другую технику.
             </p>
             <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 md:gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-3 gap-y-4 md:gap-x-4 md:gap-y-5">
                 {LAPTOP_BRANDS.map((brand) => (
-                  <div
-                    key={brand.name}
-                    className="rounded-lg border border-border bg-background p-3 md:p-4 flex flex-col items-center justify-center text-center min-h-[112px] md:min-h-[120px]"
-                  >
-                    <div className="flex flex-col items-center justify-center flex-1 w-full min-h-[40px] md:min-h-[44px]">
+                  <div key={brand.name} className="flex flex-col items-center text-center">
+                    <div className="w-full rounded-lg border border-border bg-background p-3 md:p-4 flex items-center justify-center min-h-[88px] md:min-h-[96px]">
                       {brand.logoSrc ? (
                         <>
                           <img
                             src={publicUrl(brand.logoSrc)}
                             alt={`Логотип ${brand.name}`}
-                            className="h-8 md:h-9 w-full max-w-[120px] object-contain mb-2"
+                            className="h-9 md:h-10 w-full max-w-[132px] object-contain"
                             loading="lazy"
                             onError={(e) => {
                               e.currentTarget.style.display = 'none';
@@ -75,13 +72,13 @@ const RemontNoutbukov: React.FC = () => {
                               if (fb) fb.classList.remove('hidden');
                             }}
                           />
-                          <span className="hidden text-sm font-semibold text-foreground mb-2">{brand.name}</span>
+                          <span className="hidden text-sm font-semibold text-foreground">{brand.name}</span>
                         </>
                       ) : (
-                        <span className="text-sm font-semibold text-foreground mb-2">{brand.name}</span>
+                        <span className="text-sm font-semibold text-foreground">{brand.name}</span>
                       )}
                     </div>
-                    <span className="text-[11px] md:text-xs text-muted-foreground mt-auto leading-snug">
+                    <span className="mt-2 text-[11px] md:text-xs text-muted-foreground leading-snug px-0.5">
                       Ремонт ноутбука {brand.name}
                     </span>
                   </div>

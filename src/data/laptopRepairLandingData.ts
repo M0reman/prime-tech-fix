@@ -22,28 +22,28 @@ export interface LaptopBrandEntry {
 }
 
 /**
- * Порядок и набор близки к референсу notebook1.ru/remont-noutbuka/ («Осуществляем ремонт…»).
- * Логотипы — только локальные файлы в репозитории.
+ * Порядок и набор как на [notebook1.ru/remont-noutbuka/](https://notebook1.ru/remont-noutbuka/) («Осуществляем ремонт…»).
+ * Логотипы — локальные копии файлов с той страницы (`public/brands/laptop/notebook1/*.jpg`).
  */
 export const LAPTOP_BRANDS: LaptopBrandEntry[] = [
-  { name: 'Acer', logoSrc: '/brands-img/acer.webp' },
-  { name: 'Apple', logoSrc: '/brands-img/apple.webp' },
-  { name: 'Asus', logoSrc: '/brands-img/asus.webp' },
-  { name: 'Dell', logoSrc: '/brands/laptop/dell.svg' },
-  { name: 'eMachines', logoSrc: '/brands/laptop/emachines.svg' },
-  { name: 'Fujitsu-Siemens', logoSrc: '/brands/laptop/fujitsu-siemens.svg' },
-  { name: 'HP', logoSrc: '/brands-img/hp.webp' },
-  { name: 'HUAWEI', logoSrc: '/brands-img/huawei.webp' },
-  { name: 'Lenovo', logoSrc: '/brands-img/lenovo.webp' },
-  { name: 'LG', logoSrc: '/brands/tv/lg.svg' },
-  { name: 'MSI', logoSrc: '/brands/laptop/msi.svg' },
-  { name: 'Packard Bell', logoSrc: '/brands/laptop/packard-bell.svg' },
-  { name: 'Roverbook', logoSrc: '/brands/laptop/roverbook.svg' },
-  { name: 'Samsung', logoSrc: '/brands-img/samsung.webp' },
-  { name: 'Sony', logoSrc: '/brands/tv/sony.svg' },
-  { name: 'Thunderobot', logoSrc: '/brands/laptop/thunderobot.svg' },
-  { name: 'Toshiba', logoSrc: '/brands/laptop/toshiba.svg' },
-  { name: 'Xiaomi', logoSrc: '/brands-img/xiaomi.webp' },
+  { name: 'Acer', logoSrc: '/brands/laptop/notebook1/acer.jpg' },
+  { name: 'Apple', logoSrc: '/brands/laptop/notebook1/apple.jpg' },
+  { name: 'Asus', logoSrc: '/brands/laptop/notebook1/asus.jpg' },
+  { name: 'Dell', logoSrc: '/brands/laptop/notebook1/dell.jpg' },
+  { name: 'eMachines', logoSrc: '/brands/laptop/notebook1/emachines.jpg' },
+  { name: 'Fujitsu-Siemens', logoSrc: '/brands/laptop/notebook1/fujitsu-siemens.jpg' },
+  { name: 'HP', logoSrc: '/brands/laptop/notebook1/hp.jpg' },
+  { name: 'HUAWEI', logoSrc: '/brands/laptop/notebook1/huawei.jpg' },
+  { name: 'Lenovo', logoSrc: '/brands/laptop/notebook1/lenovo.jpg' },
+  { name: 'LG', logoSrc: '/brands/laptop/notebook1/lg.jpg' },
+  { name: 'MSI', logoSrc: '/brands/laptop/notebook1/msi.jpg' },
+  { name: 'Packard Bell', logoSrc: '/brands/laptop/notebook1/packard-bell.jpg' },
+  { name: 'Roverbook', logoSrc: '/brands/laptop/notebook1/roverbook.jpg' },
+  { name: 'Samsung', logoSrc: '/brands/laptop/notebook1/samsung.jpg' },
+  { name: 'Sony', logoSrc: '/brands/laptop/notebook1/sony.jpg' },
+  { name: 'Thunderobot', logoSrc: '/brands/laptop/notebook1/thunderobot.jpg' },
+  { name: 'Toshiba', logoSrc: '/brands/laptop/notebook1/toshiba.jpg' },
+  { name: 'Xiaomi', logoSrc: '/brands/laptop/notebook1/xiaomi.jpg' },
 ];
 
 export interface LaptopMalfunctionItem {
