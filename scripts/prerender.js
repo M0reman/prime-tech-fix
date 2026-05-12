@@ -16,7 +16,8 @@ const distDir = path.join(projectRoot, 'dist');
 const templatePath = path.join(distDir, 'index.html');
 const serverEntryPath = path.join(projectRoot, 'dist', 'server', 'entry-server.js');
 const SSR_OUTLET = '<!--ssr-outlet-->';
-const ASSETS_PREFIX = 'https://serviceprime13.ru/';
+const SITE_ORIGIN = 'https://serviceprime13.ru';
+const ASSETS_PREFIX = `${SITE_ORIGIN}/`;
 
 function escapeHtml(s) {
   if (s == null) return '';
@@ -44,6 +45,34 @@ function inlineStyles(html) {
     const css = fs.readFileSync(filePath, 'utf-8');
     return `<style data-inlined-from="${href}">\n${css}\n</style>`;
   });
+}
+
+/** Webvisor не подтягивает относительные /path картинки; делаем абсолютные URL на боевом домене. */
+function absolutizeRootUrls(html) {
+  let out = html;
+  out = out.replace(/\b(src|href|poster)=(["'])\/(?!\/)/gi, `$1=$2${SITE_ORIGIN}/`);
+  out = out.replace(/\bsrcset=(["'])([^"']+)\1/gi, (_, quote, value) => {
+    const next = value
+      .split(',')
+      .map((part) => {
+        const trimmed = part.trim();
+        if (!trimmed) return part;
+        const spaceIdx = trimmed.search(/\s/);
+        const urlPart = spaceIdx === -1 ? trimmed : trimmed.slice(0, spaceIdx);
+        const rest = spaceIdx === -1 ? '' : trimmed.slice(spaceIdx);
+        if (urlPart.startsWith('/') && !urlPart.startsWith('//')) {
+          return `${SITE_ORIGIN}${urlPart}${rest}`;
+        }
+        return trimmed;
+      })
+      .join(', ');
+    return `srcset=${quote}${next}${quote}`;
+  });
+  out = out.replace(/url\(\s*(['"]?)(\/[^'")]+)\1\s*\)/gi, (full, quote, path) => {
+    if (path.startsWith('//')) return full;
+    return `url(${quote}${SITE_ORIGIN}${path}${quote})`;
+  });
+  return out;
 }
 
 async function getUrls() {
@@ -110,6 +139,7 @@ async function main() {
       }
     }
     html = inlineStyles(html);
+    html = absolutizeRootUrls(html);
 
     const dir = urlPath === '/' ? distDir : path.join(distDir, urlPath.replace(/^\//, ''));
     fs.mkdirSync(dir, { recursive: true });
