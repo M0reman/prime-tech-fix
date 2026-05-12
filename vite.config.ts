@@ -91,6 +91,7 @@ export default defineConfig(async ({ mode }) => {
           '/',
           '/services',
           '/remont-televizorov',
+          '/remont-noutbukov',
           '/about',
           '/contact',
           '/privacy',

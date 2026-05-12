@@ -38,7 +38,8 @@ const getServicesData = (): ServiceCategoryData[] => [
         description: "",
         price: "от 600 ₽",
         features: [],
-        imageSrc: "/serviceCards/laptop.webp"
+        imageSrc: "/serviceCards/laptop.webp",
+        detailUrl: "/remont-noutbukov",
       },
       {
         title: "Ремонт лазерных принтеров/ сканеров/ МФУ",

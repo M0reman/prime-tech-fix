@@ -15,6 +15,7 @@ import Contact from "./pages/Contact";
 import Faq from "./pages/Faq";
 import Brands from "./pages/Brands";
 import RemontTelevizorov from "./pages/RemontTelevizorov";
+import RemontNoutbukov from "./pages/RemontNoutbukov";
 import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
 import WarrantyTermsModal from './components/modals/WarrantyTermsModal';
@@ -70,6 +71,7 @@ const App = () => {
               <Route path="/faq" element={<Faq />} />
               <Route path="/brands" element={<Brands />} />
               <Route path="/remont-televizorov" element={<RemontTelevizorov />} />
+              <Route path="/remont-noutbukov" element={<RemontNoutbukov />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </AnimatedTransition>

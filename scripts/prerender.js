@@ -153,7 +153,7 @@ async function main() {
     process.exit(1);
   }
 
-  const pagesToCheck = ['remont-televizorov', 'contact'];
+  const pagesToCheck = ['remont-televizorov', 'remont-noutbukov', 'contact'];
   for (const name of pagesToCheck) {
     const p = path.join(distDir, name, 'index.html');
     if (fs.existsSync(p)) {

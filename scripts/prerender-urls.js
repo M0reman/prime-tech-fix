@@ -14,6 +14,7 @@ const STATIC_ROUTES = [
   '/faq',
   '/brands',
   '/remont-televizorov',
+  '/remont-noutbukov',
 ];
 
 function main() {

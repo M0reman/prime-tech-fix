@@ -50,7 +50,8 @@ const ServiceCards: React.FC = () => {
       title: "Ремонт ноутбуков",
       description: "Устранение неисправностей, чистка от пыли, замена комплектующих, восстановление после залития.",
       delay: 0.2,
-      imageSrc: "/serviceCards/laptop.webp"
+      imageSrc: "/serviceCards/laptop.webp",
+      linkTo: "/remont-noutbukov",
     },
     {
       icon: <TabletSmartphone size={24} />,
