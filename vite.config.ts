@@ -1,8 +1,24 @@
 import { defineConfig } from "vite";
+import type { Plugin } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import sitemap from 'vite-plugin-sitemap';
 import { vitePluginInjectSeo } from './vite-plugin-inject-seo';
+
+const SITE_ORIGIN_HREF = "https://serviceprime13.ru/";
+
+/** В плеере Вебвизора document URL чужой; path-absolute `/img` иначе уходит на metrika.yandex.ru. */
+function injectSiteBasePlugin(enabled: boolean): Plugin {
+  return {
+    name: "inject-site-base",
+    transformIndexHtml(html) {
+      if (!enabled) return html;
+      if (html.includes("<base ")) return html;
+      const tag = `    <base href="${SITE_ORIGIN_HREF}" />`;
+      return html.replace('<meta charset="UTF-8" />', `<meta charset="UTF-8" />\n${tag}`);
+    },
+  };
+}
 
 // https://vitejs.dev/config/
 export default defineConfig(async ({ mode }) => {
@@ -12,7 +28,7 @@ export default defineConfig(async ({ mode }) => {
   const isDeployBuild = mode === 'production' || isPrerenderBuild;
 
   return {
-    base: isDeployBuild ? 'https://serviceprime13.ru/' : '/',
+    base: isDeployBuild ? SITE_ORIGIN_HREF : '/',
     server: {
       host: "::",
       port: 8080,
@@ -67,6 +83,7 @@ export default defineConfig(async ({ mode }) => {
     },
     plugins: [
       react(),
+      injectSiteBasePlugin(isDeployBuild),
       ...(isSsrBuild || isPrerenderBuild ? [] : [vitePluginInjectSeo()]),
       sitemap({
         hostname: 'https://serviceprime13.ru',
