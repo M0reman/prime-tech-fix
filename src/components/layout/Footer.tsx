@@ -103,7 +103,7 @@ const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen }) => {
                 </Link>
               </li>
               <li>
-                <Link to="/services" className="text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/remont-noutbukov" className="text-muted-foreground hover:text-primary transition-colors">
                   Ремонт ноутбуков
                 </Link>
               </li>
