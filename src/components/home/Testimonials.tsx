@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { publicUrl } from '@/lib/publicUrl';
 
 interface Testimonial {
   id: number;
@@ -111,7 +112,7 @@ const Testimonials: React.FC = () => {
                       <div className="flex items-center">
                         {testimonial.avatar && (
                           <div className="w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-blue-100">
-                            <img src={testimonial.avatar} alt={testimonial.name} className="w-full h-full object-cover" />
+                            <img src={publicUrl(testimonial.avatar)} alt={testimonial.name} className="w-full h-full object-cover" />
                           </div>
                         )}
                         <div>

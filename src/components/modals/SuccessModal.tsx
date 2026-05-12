@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { X, CheckCircle, ExternalLink } from 'lucide-react';
+import { publicUrl } from '@/lib/publicUrl';
 
 interface SuccessModalProps {
   open: boolean;
@@ -61,7 +62,7 @@ const SuccessModal: React.FC<SuccessModalProps> = ({
       name: 'MAX',
       url: 'https://max.ru/join/ZmZNX_ISCbSsaHaMAfFBq-wwu_Scp3i5Kos-Y_AcvqA',
       color: 'bg-slate-800 hover:bg-slate-900',
-      icon: <img src="/images/MAX.svg" alt="MAX" className="w-5 h-5 object-contain" />,
+      icon: <img src={publicUrl('/images/MAX.svg')} alt="MAX" className="w-5 h-5 object-contain" />,
     },
   ];
 

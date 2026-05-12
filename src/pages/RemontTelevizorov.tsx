@@ -9,6 +9,7 @@ import {
   TV_PRICE_TABLE,
   TV_REPAIR_STATS,
 } from '@/data/tvRepairData';
+import { publicUrl } from '@/lib/publicUrl';
 
 const baseUrl = import.meta.env.BASE_URL;
 
@@ -80,11 +81,11 @@ const RemontTelevizorov: React.FC = () => {
             </div>
             <div className="w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg bg-muted aspect-video min-h-[200px] sm:min-h-[240px] md:min-h-[280px]">
               <img
-                src="/remont-tv/remont-tv-hero.webp"
+                src={publicUrl('/remont-tv/remont-tv-hero.webp')}
                 alt="Ремонт телевизоров в сервисном центре"
                 className="w-full h-full object-cover"
                 loading="eager"
-                onError={(e) => { (e.target as HTMLImageElement).src = '/serviceCards/tv.webp'; }}
+                onError={(e) => { (e.target as HTMLImageElement).src = publicUrl('/serviceCards/tv.webp'); }}
               />
             </div>
           </div>
@@ -228,11 +229,11 @@ const RemontTelevizorov: React.FC = () => {
             </div>
             <div className="w-full max-w-2xl mx-auto rounded-xl overflow-hidden shadow-md mb-8 aspect-[16/10] min-h-[180px] sm:min-h-[200px] md:min-h-[220px]">
               <img
-                src="/remont-tv/remont-tv-types.webp"
+                src={publicUrl('/remont-tv/remont-tv-types.webp')}
                 alt="ЖК, LED, OLED, QLED, Smart TV, 4K, 8K — ремонт в Саранске"
                 className="w-full h-full object-cover"
                 loading="lazy"
-                onError={(e) => { (e.target as HTMLImageElement).src = '/serviceCards/tv.webp'; }}
+                onError={(e) => { (e.target as HTMLImageElement).src = publicUrl('/serviceCards/tv.webp'); }}
               />
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">

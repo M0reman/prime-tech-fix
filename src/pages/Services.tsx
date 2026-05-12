@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { CheckCircle } from 'lucide-react';
 import getServicesData from '@/data/servicesData';
+import { publicUrl } from '@/lib/publicUrl';
 import ContactCard from '@/components/common/ContactCard';
 import { buildSocialPreviewHelmetMeta } from '@/components/common/SocialPreviewOgMeta';
 import {
@@ -26,7 +27,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({ title, description, price, fe
       {imageSrc && (
         <div className="h-44 -mx-8 -mt-8 mb-6 overflow-hidden">
           <img 
-            src={imageSrc} 
+            src={publicUrl(imageSrc)} 
             alt={title} 
             className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
           />

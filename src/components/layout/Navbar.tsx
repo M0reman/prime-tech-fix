@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { RasterPicture } from '@/components/common/RasterPicture';
+import { publicUrl } from '@/lib/publicUrl';
 
 // Иконка для Telegram
 const TelegramIcon = () => (
@@ -108,7 +109,7 @@ const Navbar: React.FC = () => {
             className="flex items-center px-2 py-1 rounded-md hover:opacity-80 transition-opacity"
             title="Сервисный центр Прайм в MAX"
           >
-            <img src="/images/MAX.svg" alt="MAX — канал" className="h-7 w-auto object-contain" />
+            <img src={publicUrl('/images/MAX.svg')} alt="MAX — канал" className="h-7 w-auto object-contain" />
           </a>
           <Link
             to="/contact"
@@ -180,7 +181,7 @@ const Navbar: React.FC = () => {
                 className="flex items-center justify-center gap-2 px-3 py-2 rounded-lg border border-gray-300 text-gray-700 font-medium hover:bg-gray-50"
                 title="Сервисный центр Прайм в MAX"
               >
-                <img src="/images/MAX.svg" alt="" className="h-5 w-5" />
+                <img src={publicUrl('/images/MAX.svg')} alt="" className="h-5 w-5" />
                 <span>MAX</span>
               </a>
             </nav>

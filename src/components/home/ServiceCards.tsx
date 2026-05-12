@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import { publicUrl } from '@/lib/publicUrl';
 import { Smartphone, Laptop, TabletSmartphone, Monitor, Tv } from 'lucide-react';
 
 interface ServiceCardProps {
@@ -20,7 +21,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ icon, title, description, del
       itemScope itemType="https://schema.org/Service"
     >
       <div className="relative overflow-hidden mb-6 h-44 -mx-6 -mt-6">
-        <img src={imageSrc} alt={title} itemProp="image" loading="lazy" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+        <img src={publicUrl(imageSrc)} alt={title} itemProp="image" loading="lazy" className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
         <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
       </div>
       <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-blue-100 text-blue-600 mb-4 transition-colors group-hover:bg-blue-600 group-hover:text-white">

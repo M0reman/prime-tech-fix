@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Helmet } from "react-helmet-async";
 import { RasterPicture } from "@/components/common/RasterPicture";
+import { publicUrl } from "@/lib/publicUrl";
 import { buildSocialPreviewHelmetMeta } from "@/components/common/SocialPreviewOgMeta";
 import {
   SOCIAL_DEFAULT_IMAGE_URL,
@@ -504,7 +505,7 @@ const BrandCard = ({ brand }: { brand: (typeof BRAND_DATA)[0] }) => {
               >
                 <div className="aspect-video bg-gray-100 overflow-hidden">
                   <img
-                    src={model.image}
+                    src={publicUrl(model.image)}
                     alt={model.name}
                     className="w-full h-full object-cover transition-transform hover:scale-105"
                   />

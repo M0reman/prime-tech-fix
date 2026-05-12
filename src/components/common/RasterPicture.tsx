@@ -1,5 +1,6 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { publicUrl } from '@/lib/publicUrl';
 
 type Props = Omit<React.ImgHTMLAttributes<HTMLImageElement>, 'src' | 'alt'> & {
   /** Путь к PNG/JPEG в public. Рядом — одноимённый .webp после `npm run images:webp`. */
@@ -19,11 +20,12 @@ export function RasterPicture({
   pictureClassName,
   ...imgProps
 }: Props) {
-  const webpSrc = fallbackSrc.replace(/\.(png|jpe?g)$/i, '.webp');
+  const webpSrc = publicUrl(fallbackSrc.replace(/\.(png|jpe?g)$/i, '.webp'));
+  const rasterSrc = publicUrl(fallbackSrc);
   return (
     <picture className={cn(pictureClassName)}>
       <source srcSet={webpSrc} type="image/webp" />
-      <img src={fallbackSrc} alt={alt} className={cn(className)} {...imgProps} />
+      <img src={rasterSrc} alt={alt} className={cn(className)} {...imgProps} />
     </picture>
   );
 }

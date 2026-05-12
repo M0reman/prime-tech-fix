@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Clock, Mail, MapPin, Phone } from 'lucide-react';
 import { RasterPicture } from '@/components/common/RasterPicture';
+import { publicUrl } from '@/lib/publicUrl';
 
 // Иконка для Telegram
 const TelegramIcon = () => (
@@ -42,7 +43,7 @@ const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen }) => {
               title="Награда «Хорошее место» на Яндекс.Картах"
             >
               <img
-                src="/images/badges/yandex-horoshee-mesto.svg"
+                src={publicUrl('/images/badges/yandex-horoshee-mesto.svg')}
                 alt="Яндекс Карты — Хорошее место"
                 className="h-8 w-auto object-contain"
               />
@@ -85,7 +86,7 @@ const Footer: React.FC<FooterProps> = ({ setWarrantyModalOpen }) => {
                 itemProp="sameAs"
               >
                 <img
-                  src="/images/Max_logo_black.svg"
+                  src={publicUrl('/images/Max_logo_black.svg')}
                   alt="MAX — канал Сервисный центр Прайм"
                   className="w-5 h-5 opacity-70 group-hover:opacity-100 transition-opacity"
                 />

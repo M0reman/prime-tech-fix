@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 import { X, ExternalLink } from 'lucide-react';
+import { publicUrl } from '@/lib/publicUrl';
 
 interface SubscriptionModalProps {
   open: boolean;
@@ -53,7 +54,7 @@ const SubscriptionModal: React.FC<SubscriptionModalProps> = ({ open, onOpenChang
       name: 'MAX',
       url: 'https://max.ru/join/ZmZNX_ISCbSsaHaMAfFBq-wwu_Scp3i5Kos-Y_AcvqA',
       color: 'bg-slate-800 hover:bg-slate-900',
-      icon: <img src="/images/MAX.svg" alt="MAX" className="w-5 h-5 object-contain" />,
+      icon: <img src={publicUrl('/images/MAX.svg')} alt="MAX" className="w-5 h-5 object-contain" />,
     },
   ];
 

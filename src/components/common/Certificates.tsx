@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import { RasterPicture } from '@/components/common/RasterPicture';
+import { publicUrl } from '@/lib/publicUrl';
 
 const YANDEX_MAPS_ORG_URL = 'https://yandex.ru/maps/';
 const HOROSHEE_MESTO_LOGO_SVG = '/images/badges/yandex-horoshee-mesto.svg';
@@ -77,7 +78,7 @@ const Certificates: React.FC = () => {
             title="Награда «Хорошее место» на Яндекс.Картах"
           >
             <img
-              src={HOROSHEE_MESTO_LOGO_SVG}
+              src={publicUrl(HOROSHEE_MESTO_LOGO_SVG)}
               alt="Логотип награды Яндекс Карты — Хорошее место"
               className="h-12 w-auto object-contain mb-1"
               loading="lazy"

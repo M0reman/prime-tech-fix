@@ -7,6 +7,7 @@ import { ShieldCheck, Users, Trophy, Clock } from 'lucide-react';
 import Certificates from '@/components/common/Certificates';
 import { companyInfo } from '@/data/companyInfo';
 import { RasterPicture } from '@/components/common/RasterPicture';
+import { publicUrl } from '@/lib/publicUrl';
 import { buildSocialPreviewHelmetMeta } from '@/components/common/SocialPreviewOgMeta';
 import {
   SOCIAL_DEFAULT_IMAGE_URL,
@@ -158,7 +159,7 @@ const About: React.FC = () => {
               <div className="bg-background rounded-xl overflow-hidden border border-border shadow-sm">
                 <div className="h-64 overflow-hidden">
                   <img 
-                    src="/logos/company-background.jpg" 
+                    src={publicUrl('/logos/company-background.jpg')} 
                     alt="Андрей Смирнов" 
                     className="w-full h-full object-cover object-center"
                   />
@@ -175,7 +176,7 @@ const About: React.FC = () => {
               <div className="bg-background rounded-xl overflow-hidden border border-border shadow-sm">
                 <div className="h-64 overflow-hidden">
                   <img 
-                    src="/logos/company-background.jpg" 
+                    src={publicUrl('/logos/company-background.jpg')} 
                     alt="Елена Козлова" 
                     className="w-full h-full object-cover object-center"
                   />
@@ -192,7 +193,7 @@ const About: React.FC = () => {
               <div className="bg-background rounded-xl overflow-hidden border border-border shadow-sm">
                 <div className="h-64 overflow-hidden">
                   <img 
-                    src="/logos/company-background.jpg" 
+                    src={publicUrl('/logos/company-background.jpg')} 
                     alt="Михаил Петров" 
                     className="w-full h-full object-cover object-center"
                   />
